@@ -1,11 +1,64 @@
 % !TeX encoding = UTF-8
 % XeLaTeX
 
-\documentclass{article}
+\documentclass{book}
 
 % 导言区
-\usepackage{xeCJK}
+%\usepackage{amsmath}     % https://ctan.org/pkg/amsmath
+\usepackage{indentfirst} % https://ctan.org/pkg/indentfirst
+\usepackage{syntonly}    % https://ctan.org/pkg/syntonly
+\usepackage{ulem}        % https://ctan.org/pkg/ulem
+\usepackage{xeCJK}       % https://ctan.org/pkg/xecjk
+
+\usepackage{hyperref}    % https://ctan.org/pkg/hyperref
+
+\hypersetup{colorlinks=true, unicode=true}
+\setlength{\parindent}{2em}
+%\syntaxonly
+
 
 \begin{document}
-	\LaTeX
+
+%-------------------------------------------------------------------------------
+% 前言
+\frontmatter
+
+%-------------------------------------------------------------------------------
+% 标题
+\title{rrMathematics}
+\author{zhengrr}
+\date{\today}
+\maketitle
+
+%-------------------------------------------------------------------------------
+% 目录
+\tableofcontents
+
+%-------------------------------------------------------------------------------
+% 正文
+\mainmatter
+
+\chapter{集合、映射和二元运算}
+
+\section{集合和集合的笛卡尔积}
+
+一般的，\emph{集合}（\href{http://mathworld.wolfram.com/Set.html}{Set}，简称\emph{集}）是指具有某种特定性质的事物的总体，组成这个集合的事物称为该集合的\emph{元素}（\href{http://mathworld.wolfram.com/Element.html}{Element}，简称\emph{元}）．
+
+通常使用大写拉丁字母 A，B，C，\dots 表示集合，用小写拉丁字母 a，b，c，\dots 表示集合的元素
+
+%-------------------------------------------------------------------------------
+% 附录
+\appendix
+
+\chapter{参考书目}
+
+\begin{enumerate}
+	\item 全国信息与文献标准化技术委员会．信息与文献　参考文献著录规则：GB/T 7714—2015 [S/OL]．北京：中国标准出版社，2015．\href{http://www.scal.edu.cn/dxtsgxb/201906120155}{超链接}．
+	\item 同济大学数学系．高等数学[M]．第六版．北京：高等教育出版社，2007．
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+% 后记
+\backmatter
+
 \end{document}
