@@ -1,64 +1,167 @@
 % !TeX encoding = UTF-8
 % XeLaTeX
 
-\documentclass{book}
+% LaTeX 命令和环境
+%
+% \command_name[optional_arguments...]{mandatory_arguments...}
+%
+% \begin{environment_name}[optional_arguments...]{manadatory_arguments...}
+% \end{enviroment_name}
 
-% 导言区
-%\usepackage{amsmath}     % https://ctan.org/pkg/amsmath
-\usepackage{indentfirst} % https://ctan.org/pkg/indentfirst
-\usepackage{syntonly}    % https://ctan.org/pkg/syntonly
-\usepackage{ulem}        % https://ctan.org/pkg/ulem
-\usepackage{xeCJK}       % https://ctan.org/pkg/xecjk
+% 指定文档类
+\documentclass{ctexbook}
 
-\usepackage{hyperref}    % https://ctan.org/pkg/hyperref
+% 导言区：调用宏包、全局设置
+\usepackage{amsmath}   % https://ctan.org/pkg/amsmath   数学符号支持
+\usepackage{amssymb}   % https://ctan.org/pkg/amsmath   数学符号支持
+\usepackage{hyperref}  % https://ctan.org/pkg/hyperref  超链接引用支持
+\usepackage{syntonly}  % https://ctan.org/pkg/syntonly  快速语法检查支持
+\usepackage{ulem}      % https://ctan.org/pkg/ulem      下划线支持
+\usepackage{xcolor}    % https://ctan.org/pkg/color     彩色字体支持
 
 \hypersetup{colorlinks=true, unicode=true}
-\setlength{\parindent}{2em}
-%\syntaxonly
+%\syntaxonly                                 % 仅进行语法检查而不生成文档，加快编译速度
 
-
+% 指示文档内容
 \begin{document}
 
-%-------------------------------------------------------------------------------
-% 前言
-\frontmatter
-
-%-------------------------------------------------------------------------------
+%===============================================================================
 % 标题
 \title{rrMathematics}
 \author{zhengrr}
 \date{\today}
 \maketitle
 
-%-------------------------------------------------------------------------------
+%===============================================================================
 % 目录
 \tableofcontents
 
-%-------------------------------------------------------------------------------
-% 正文
-\mainmatter
+%===============================================================================
+\chapter{\TeX / \LaTeX / \LaTeXe}
 
+%-------------------------------------------------------------------------------
+\section{转义字符}
+
+\begin{table}[h]
+\caption{转义字符}
+\begin{center}
+\begin{tabular}{r c p{15ex} p{5ex} r c p{15ex}}
+	\hline
+	 35 & \#             & \texttt{\textbackslash \#}            &&  94 & \^{}           & \texttt{\textbackslash \^{}\{\}}      \\
+	 36 & \$             & \texttt{\textbackslash \$}            &&  95 & \_             & \texttt{\textbackslash \_}            \\
+	 37 & \%             & \texttt{\textbackslash \%}            && 123 & \{             & \texttt{\textbackslash \{}            \\
+	 38 & \&             & \texttt{\textbackslash \&}            && 125 & \}             & \texttt{\textbackslash \}}            \\
+	 92 & \textbackslash & \texttt{\textbackslash textbackslash} && 126 & \~{}           & \texttt{\textbackslash \~{}\{\}}      \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+%-------------------------------------------------------------------------------
+\section{标点符号}
+
+\begin{table}[h]
+\caption{标点符号}
+\begin{center}
+\begin{tabular}{c l l}
+	\hline
+	`'    & \texttt{`'}                  & 单引号 \\
+	``''  & \texttt{``''}                & 双引号 \\
+	-     & \texttt{-}                   & 连字符 \\
+	--    & \texttt{--}                  & 连接号 \\
+	---   & \texttt{---}                 & 破折号 \\
+	\dots & \texttt{\textbackslash dots} & 省略号 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+%-------------------------------------------------------------------------------
+\section{数学模式下的希腊字母}
+
+\begin{table}[h]
+\caption{数学模式下的希腊字母}
+\begin{center}
+\begin{tabular}{c p{15ex} p{5ex} c p{15ex} p{5ex} c p{15ex}}
+	\hline
+	$A$           & \texttt{A}                          && $\mathrm{A}$  & \texttt{\textbackslash mathrm\{A\}} && $\alpha$      & \texttt{\textbackslash alpha}       \\
+	$B$           & \texttt{B}                          && $\mathrm{B}$  & \texttt{\textbackslash mathrm\{B\}} && $\beta$       & \texttt{\textbackslash beta}        \\
+	$\varGamma$   & \texttt{\textbackslash varGamma}    && $\Gamma$      & \texttt{\textbackslash Gamma}       && $\gamma$      & \texttt{\textbackslash gamma}       \\
+	$\varDelta$   & \texttt{\textbackslash varDelta}    && $\Delta$      & \texttt{\textbackslash Delta}       && $\delta$      & \texttt{\textbackslash delta}       \\
+	$E$           & \texttt{E}                          && $\mathrm{E}$  & \texttt{\textbackslash mathrm\{E\}} && $\epsilon$    & \texttt{\textbackslash epsilon}     \\
+	$Z$           & \texttt{Z}                          && $\mathrm{Z}$  & \texttt{\textbackslash mathrm\{Z\}} && $\zeta$       & \texttt{\textbackslash zeta}        \\
+	$H$           & \texttt{H}                          && $\mathrm{H}$  & \texttt{\textbackslash mathrm\{H\}} && $\eta$        & \texttt{\textbackslash eta}         \\
+	$\varTheta$   & \texttt{\textbackslash varTheta}    && $\Theta$      & \texttt{\textbackslash Theta}       && $\theta$      & \texttt{\textbackslash theta}       \\
+	$I$           & \texttt{I}                          && $\mathrm{I}$  & \texttt{\textbackslash mathrm\{I\}} && $\iota$       & \texttt{\textbackslash iota}        \\
+	$K$           & \texttt{K}                          && $\mathrm{K}$  & \texttt{\textbackslash mathrm\{K\}} && $\kappa$      & \texttt{\textbackslash kappa}       \\
+	$\varLambda$  & \texttt{\textbackslash varLambda}   && $\Lambda$     & \texttt{\textbackslash Lambda}      && $\lambda$     & \texttt{\textbackslash lambda}      \\
+	$M$           & \texttt{M}                          && $\mathrm{M}$  & \texttt{\textbackslash mathrm\{M\}} && $\mu$         & \texttt{\textbackslash mu}          \\
+	$N$           & \texttt{N}                          && $\mathrm{N}$  & \texttt{\textbackslash mathrm\{N\}} && $\nu$         & \texttt{\textbackslash nu}          \\
+	$\varXi$      & \texttt{\textbackslash varXi}       && $\Xi$         & \texttt{\textbackslash Xi}          && $\xi$         & \texttt{\textbackslash xi}          \\
+	$O$           & \texttt{O}                          && $\mathrm{O}$  & \texttt{\textbackslash mathrm\{O\}} && $\mathrm{o}$  & \texttt{\textbackslash mathrm\{o\}} \\
+	$\varPi$      & \texttt{\textbackslash varPi}       && $\Pi$         & \texttt{\textbackslash Pi}          && $\pi$         & \texttt{\textbackslash pi}          \\
+	$P$           & \texttt{P}                          && $\mathrm{P}$  & \texttt{\textbackslash mathrm\{P\}} && $\rho$        & \texttt{\textbackslash rho}         \\
+	$\varSigma$   & \texttt{\textbackslash varSigma}    && $\Sigma$      & \texttt{\textbackslash Sigma}       && $\sigma$      & \texttt{\textbackslash sigma}       \\
+	$T$           & \texttt{T}                          && $\mathrm{T}$  & \texttt{\textbackslash mathrm\{T\}} && $\tau$        & \texttt{\textbackslash tau}         \\
+	$\varUpsilon$ & \texttt{\textbackslash varUpsilon}  && $\Upsilon$    & \texttt{\textbackslash Upsilon}     && $\upsilon$    & \texttt{\textbackslash upsilon}     \\
+	$\varPhi$     & \texttt{\textbackslash varPhi}      && $\Phi$        & \texttt{\textbackslash Phi}         && $\phi$        & \texttt{\textbackslash phi}         \\
+	$X$           & \texttt{X}                          && $\mathrm{X}$  & \texttt{\textbackslash mathrm\{X\}} && $\chi$        & \texttt{\textbackslash chi}         \\
+	$\varPsi$     & \texttt{\textbackslash varPsi}      && $\Psi$        & \texttt{\textbackslash Psi}         && $\psi$        & \texttt{\textbackslash psi}         \\
+	$\varOmega$   & \texttt{\textbackslash varOmega}    && $\Omega$      & \texttt{\textbackslash Omega}       && $\omega$      & \texttt{\textbackslash omega}       \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+%-------------------------------------------------------------------------------
+\section{文字强调}
+
+\underline{underlined} % 下划线
+
+\uline{underlined}     % 下划线
+
+\emph{强调} 版本
+
+%-------------------------------------------------------------------------------
+\section{章节和目录}
+
+\begin{table}[h]
+\caption{章节和目录}
+\begin{center}
+\begin{tabular}{l l}
+	\hline
+	\texttt{\textbackslash chapter\{\textcolor{gray}{title}\}}       & 章 \\
+	\texttt{\textbackslash section\{\textcolor{gray}{title}\}}       & 节 \\
+	\texttt{\textbackslash subsection\{\textcolor{gray}{title}\}}    & 小节 \\
+	\texttt{\textbackslash subsubsection\{\textcolor{gray}{title}\}} & 小小节 \\
+	\texttt{\textbackslash paragraph\{\textcolor{gray}{title}\}}     & 段 \\
+	\texttt{\textbackslash subparagraph\{\textcolor{gray}{title}\}}  & 小段 \\
+	\texttt{\textbackslash tableofcontents}                          & 目录 \\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+%===============================================================================
 \chapter{集合、映射和二元运算}
 
+%-------------------------------------------------------------------------------
 \section{集合和集合的笛卡尔积}
 
 一般的，\emph{集合}（\href{http://mathworld.wolfram.com/Set.html}{Set}，简称\emph{集}）是指具有某种特定性质的事物的总体，组成这个集合的事物称为该集合的\emph{元素}（\href{http://mathworld.wolfram.com/Element.html}{Element}，简称\emph{元}）．
 
-通常使用大写拉丁字母 A，B，C，\dots 表示集合，用小写拉丁字母 a，b，c，\dots 表示集合的元素
+%通常使用大写拉丁字母 A，B，C，\cdots{} 表示集合，用小写拉丁字母 a，b，c，\cdots{} 表示集合的元素
 
-%-------------------------------------------------------------------------------
+
 % 附录
 \appendix
 
+%===============================================================================
 \chapter{参考书目}
 
 \begin{enumerate}
 	\item 全国信息与文献标准化技术委员会．信息与文献　参考文献著录规则：GB/T 7714—2015 [S/OL]．北京：中国标准出版社，2015．\href{http://www.scal.edu.cn/dxtsgxb/201906120155}{超链接}．
 	\item 同济大学数学系．高等数学[M]．第六版．北京：高等教育出版社，2007．
 \end{enumerate}
-
-%-------------------------------------------------------------------------------
-% 后记
-\backmatter
 
 \end{document}
