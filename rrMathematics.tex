@@ -1,5 +1,5 @@
 % !TeX encoding = UTF-8
-% XeLaTeX
+%% !TeX program = XeLaTeX
 
 % LaTeX 命令和环境
 %
@@ -15,9 +15,10 @@
 \usepackage{amsmath}   % https://ctan.org/pkg/amsmath   数学符号支持
 \usepackage{amssymb}   % https://ctan.org/pkg/amsmath   数学符号支持
 \usepackage{hyperref}  % https://ctan.org/pkg/hyperref  超链接引用支持
+\usepackage{latexsym}  % https://ctan.org/pkg/latexsym  符号支持
 \usepackage{syntonly}  % https://ctan.org/pkg/syntonly  快速语法检查支持
 \usepackage{ulem}      % https://ctan.org/pkg/ulem      下划线支持
-\usepackage{xcolor}    % https://ctan.org/pkg/color     彩色字体支持
+\usepackage{xcolor}    % https://ctan.org/pkg/color     彩色字符支持
 
 \hypersetup{colorlinks=true, unicode=true}
 %\syntaxonly                                 % 仅进行语法检查而不生成文档，加快编译速度
@@ -39,81 +40,176 @@
 %===============================================================================
 \chapter{\TeX / \LaTeX / \LaTeXe}
 
+墨色命令不依赖额外宏包，\textcolor{brown}{棕色}命令依赖\texttt{latexsym}宏包，\textcolor{blue}{蓝色}命令依赖\texttt{amsmath}宏包，\textcolor{teal}{凫色}命令依赖\texttt{amssymb}宏包。
+
 %-------------------------------------------------------------------------------
 \section{转义字符}
 
 \begin{table}[h]
-\caption{转义字符}
-\begin{center}
-\begin{tabular}{r c p{15ex} p{5ex} r c p{15ex}}
+\centering
+\begin{tabular}{r c p{15ex} l p{5ex} r c p{15ex} l}
 	\hline
-	 35 & \#             & \texttt{\textbackslash \#}            &&  94 & \^{}           & \texttt{\textbackslash \^{}\{\}}      \\
-	 36 & \$             & \texttt{\textbackslash \$}            &&  95 & \_             & \texttt{\textbackslash \_}            \\
-	 37 & \%             & \texttt{\textbackslash \%}            && 123 & \{             & \texttt{\textbackslash \{}            \\
-	 38 & \&             & \texttt{\textbackslash \&}            && 125 & \}             & \texttt{\textbackslash \}}            \\
-	 92 & \textbackslash & \texttt{\textbackslash textbackslash} && 126 & \~{}           & \texttt{\textbackslash \~{}\{\}}      \\
+
+	 35 & \#             & \verb|\#|             & 井号 &&
+	 94 & \^{}           & \verb|\^{}|           & 脱字符 \\
+
+	 36 & \$             & \verb|\$|             & 美元符 &&
+	 95 & \_             & \verb|\_|             & 下划线 \\
+
+	 37 & \%             & \verb|\%|             & 百分号 &&
+	123 & \{             & \verb|\{|             & 左花括号 \\
+
+	 38 & \&             & \verb|\&|             & 和号 &&
+	125 & \}             & \verb|\}|             & 右花括号 \\
+
+	 92 & \textbackslash & \verb|\textbackslash| & 反斜线 &&
+	126 & \~{}           & \verb|\~{}|           & 波浪号 \\
+
 	\hline
 \end{tabular}
-\end{center}
 \end{table}
 
 %-------------------------------------------------------------------------------
 \section{标点符号}
 
 \begin{table}[h]
-\caption{标点符号}
-\begin{center}
-\begin{tabular}{c l l}
+\centering
+\begin{tabular}{c p{15ex} l p{5ex} c p{15ex} l}
 	\hline
-	`'    & \texttt{`'}                  & 单引号 \\
-	``''  & \texttt{``''}                & 双引号 \\
-	-     & \texttt{-}                   & 连字符 \\
-	--    & \texttt{--}                  & 连接号 \\
-	---   & \texttt{---}                 & 破折号 \\
-	\dots & \texttt{\textbackslash dots} & 省略号 \\
+
+	-          & \verb|-|          & 连字符 &&
+	\S         & \verb|\S|         & 分节符 \\
+
+	--         & \verb|--|         & 连接号 &&
+	\copyright & \verb|\copyright| & 版权符 \\
+
+	---        & \verb|---|        & 破折号 &&
+	\dag       & \verb|\dag|       & 剑标 \\
+
+	`'         & \verb|`'|         & 单引号 &&
+	\ddag      & \verb|\ddag|      & 双剑标 \\
+
+	``''       & \verb|``''|       & 双引号 &&
+	\dots      & \verb|\dots|      & 省略号 \\
+
+	\P         & \verb|\P|         & 段落符 &&
+	\pounds    & \verb|\pounds|    & 英镑符 \\
+
 	\hline
 \end{tabular}
-\end{center}
 \end{table}
 
 %-------------------------------------------------------------------------------
-\section{数学模式下的希腊字母}
+\newpage
+\section{希腊字母}
 
 \begin{table}[h]
-\caption{数学模式下的希腊字母}
-\begin{center}
+\centering
 \begin{tabular}{c p{15ex} p{5ex} c p{15ex} p{5ex} c p{15ex}}
 	\hline
-	$A$           & \texttt{A}                          && $\mathrm{A}$  & \texttt{\textbackslash mathrm\{A\}} && $\alpha$      & \texttt{\textbackslash alpha}       \\
-	$B$           & \texttt{B}                          && $\mathrm{B}$  & \texttt{\textbackslash mathrm\{B\}} && $\beta$       & \texttt{\textbackslash beta}        \\
-	$\varGamma$   & \texttt{\textbackslash varGamma}    && $\Gamma$      & \texttt{\textbackslash Gamma}       && $\gamma$      & \texttt{\textbackslash gamma}       \\
-	$\varDelta$   & \texttt{\textbackslash varDelta}    && $\Delta$      & \texttt{\textbackslash Delta}       && $\delta$      & \texttt{\textbackslash delta}       \\
-	$E$           & \texttt{E}                          && $\mathrm{E}$  & \texttt{\textbackslash mathrm\{E\}} && $\epsilon$    & \texttt{\textbackslash epsilon}     \\
-	$Z$           & \texttt{Z}                          && $\mathrm{Z}$  & \texttt{\textbackslash mathrm\{Z\}} && $\zeta$       & \texttt{\textbackslash zeta}        \\
-	$H$           & \texttt{H}                          && $\mathrm{H}$  & \texttt{\textbackslash mathrm\{H\}} && $\eta$        & \texttt{\textbackslash eta}         \\
-	$\varTheta$   & \texttt{\textbackslash varTheta}    && $\Theta$      & \texttt{\textbackslash Theta}       && $\theta$      & \texttt{\textbackslash theta}       \\
-	$I$           & \texttt{I}                          && $\mathrm{I}$  & \texttt{\textbackslash mathrm\{I\}} && $\iota$       & \texttt{\textbackslash iota}        \\
-	$K$           & \texttt{K}                          && $\mathrm{K}$  & \texttt{\textbackslash mathrm\{K\}} && $\kappa$      & \texttt{\textbackslash kappa}       \\
-	$\varLambda$  & \texttt{\textbackslash varLambda}   && $\Lambda$     & \texttt{\textbackslash Lambda}      && $\lambda$     & \texttt{\textbackslash lambda}      \\
-	$M$           & \texttt{M}                          && $\mathrm{M}$  & \texttt{\textbackslash mathrm\{M\}} && $\mu$         & \texttt{\textbackslash mu}          \\
-	$N$           & \texttt{N}                          && $\mathrm{N}$  & \texttt{\textbackslash mathrm\{N\}} && $\nu$         & \texttt{\textbackslash nu}          \\
-	$\varXi$      & \texttt{\textbackslash varXi}       && $\Xi$         & \texttt{\textbackslash Xi}          && $\xi$         & \texttt{\textbackslash xi}          \\
-	$O$           & \texttt{O}                          && $\mathrm{O}$  & \texttt{\textbackslash mathrm\{O\}} && $\mathrm{o}$  & \texttt{\textbackslash mathrm\{o\}} \\
-	$\varPi$      & \texttt{\textbackslash varPi}       && $\Pi$         & \texttt{\textbackslash Pi}          && $\pi$         & \texttt{\textbackslash pi}          \\
-	$P$           & \texttt{P}                          && $\mathrm{P}$  & \texttt{\textbackslash mathrm\{P\}} && $\rho$        & \texttt{\textbackslash rho}         \\
-	$\varSigma$   & \texttt{\textbackslash varSigma}    && $\Sigma$      & \texttt{\textbackslash Sigma}       && $\sigma$      & \texttt{\textbackslash sigma}       \\
-	$T$           & \texttt{T}                          && $\mathrm{T}$  & \texttt{\textbackslash mathrm\{T\}} && $\tau$        & \texttt{\textbackslash tau}         \\
-	$\varUpsilon$ & \texttt{\textbackslash varUpsilon}  && $\Upsilon$    & \texttt{\textbackslash Upsilon}     && $\upsilon$    & \texttt{\textbackslash upsilon}     \\
-	$\varPhi$     & \texttt{\textbackslash varPhi}      && $\Phi$        & \texttt{\textbackslash Phi}         && $\phi$        & \texttt{\textbackslash phi}         \\
-	$X$           & \texttt{X}                          && $\mathrm{X}$  & \texttt{\textbackslash mathrm\{X\}} && $\chi$        & \texttt{\textbackslash chi}         \\
-	$\varPsi$     & \texttt{\textbackslash varPsi}      && $\Psi$        & \texttt{\textbackslash Psi}         && $\psi$        & \texttt{\textbackslash psi}         \\
-	$\varOmega$   & \texttt{\textbackslash varOmega}    && $\Omega$      & \texttt{\textbackslash Omega}       && $\omega$      & \texttt{\textbackslash omega}       \\
+
+	$A$           & \verb|$A$|                                               &&
+	$\mathrm{A}$  & \verb|$\mathrm{A}$|                                      &&
+	$\alpha$      & \verb|$\alpha$|                                          \\
+
+	$B$           & \verb|$B$|                                               &&
+	$\mathrm{B}$  & \verb|$\mathrm{B}$|                                      &&
+	$\beta$       & \verb|$\beta$|                                           \\
+
+	$\varGamma$   & \texttt{\$\textcolor{blue}{\textbackslash varGamma}\$}   &&
+	$\Gamma$      & \verb|$\Gamma$|                                          &&
+	$\gamma$      & \verb|$\gamma$|                                          \\
+
+	$\varDelta$   & \texttt{\$\textcolor{blue}{\textbackslash varDelta}\$}   &&
+	$\Delta$      & \verb|$\Delta$|                                          &&
+	$\delta$      & \verb|$\delta$|                                          \\
+
+	$E$           & \verb|$E$|                                               &&
+	$\mathrm{E}$  & \verb|$\mathrm{E}$|                                      &&
+	$\epsilon$    & \verb|$\epsilon$|                                        \\
+
+	$Z$           & \verb|$Z$|                                               &&
+	$\mathrm{Z}$  & \verb|$\mathrm{Z}$|                                      &&
+	$\zeta$       & \verb|$\zeta$|                                           \\
+
+	$H$           & \verb|$H$|                                               &&
+	$\mathrm{H}$  & \verb|$\mathrm{H}$|                                      &&
+	$\eta$        & \verb|$\eta$|                                            \\
+
+	$\varTheta$   & \texttt{\$\textcolor{blue}{\textbackslash varTheta}\$}   &&
+	$\Theta$      & \verb|$\Theta$|                                          &&
+	$\theta$      & \verb|$\theta$|                                          \\
+
+	$I$           & \verb|$I$|                                               &&
+	$\mathrm{I}$  & \verb|$\mathrm{I}$|                                      &&
+	$\iota$       & \verb|$\iota$|                                           \\
+
+	$K$           & \verb|$K$|                                               &&
+	$\mathrm{K}$  & \verb|$\mathrm{K}$|                                      &&
+	$\kappa$      & \verb|$\kappa$|                                          \\
+
+	$\varLambda$  & \texttt{\$\textcolor{blue}{\textbackslash varLambda}\$}  &&
+	$\Lambda$     & \verb|$\Lambda$|                                         &&
+	$\lambda$     & \verb|$\lambda$|                                         \\
+
+	$M$           & \verb|$M$|                                               &&
+	$\mathrm{M}$  & \verb|$\mathrm{M}$|                                      &&
+	$\mu$         & \verb|$\mu$|                                             \\
+
+	$N$           & \verb|$N$|                                               &&
+	$\mathrm{N}$  & \verb|$\mathrm{N}$|                                      &&
+	$\nu$         & \verb|$\nu$|                                             \\
+
+	$\varXi$      & \texttt{\$\textcolor{blue}{\textbackslash varXi}\$}      &&
+	$\Xi$         & \verb|$\Xi$|                                             &&
+	$\xi$         & \verb|$\xi$|                                             \\
+
+	$O$           & \verb|$O$|                                               &&
+	$\mathrm{O}$  & \verb|$\mathrm{O}$|                                      &&
+	$\mathrm{o}$  & \verb|$\mathrm{o}$|                                      \\
+
+	$\varPi$      & \texttt{\$\textcolor{blue}{\textbackslash varPi}\$}      &&
+	$\Pi$         & \verb|$\Pi$|                                             &&
+	$\pi$         & \verb|$\pi$|                                             \\
+
+	$P$           & \verb|$P$|                                               &&
+	$\mathrm{P}$  & \verb|$\mathrm{P}$|                                      &&
+	$\rho$        & \verb|$\rho$|                                            \\
+
+	$\varSigma$   & \texttt{\$\textcolor{blue}{\textbackslash varSigma}\$}   &&
+	$\Sigma$      & \verb|$\Sigma$|                                          &&
+	$\sigma$      & \verb|$\sigma$|                                          \\
+
+	$T$           & \verb|$T$|                                               &&
+	$\mathrm{T}$  & \verb|$\mathrm{T}$|                                      &&
+	$\tau$        & \verb|$\tau$|                                            \\
+
+	$\varUpsilon$ & \texttt{\$\textcolor{blue}{\textbackslash varUpsilon}\$} &&
+	$\Upsilon$    & \verb|$\Upsilon$|                                        &&
+	$\upsilon$    & \verb|$\upsilon$|                                        \\
+
+	$\varPhi$     & \texttt{\$\textcolor{blue}{\textbackslash varPhi}\$}     &&
+	$\Phi$        & \verb|$\Phi$|                                            &&
+	$\phi$        & \verb|$\phi$|                                            \\
+
+	$X$           & \verb|$X$|                                               &&
+	$\mathrm{X}$  & \verb|$\mathrm{X}$|                                      &&
+	$\chi$        & \verb|$\chi$|                                            \\
+
+	$\varPsi$     & \texttt{\$\textcolor{blue}{\textbackslash varPsi}\$}     &&
+	$\Psi$        & \verb|$\Psi$|                                            &&
+	$\psi$        & \verb|$\psi$|                                            \\
+
+	$\varOmega$   & \texttt{\$\textcolor{blue}{\textbackslash varOmega}\$}   &&
+	$\Omega$      & \verb|$\Omega$|                                          &&
+	$\omega$      & \verb|$\omega$|                                          \\
+
 	\hline
 \end{tabular}
-\end{center}
 \end{table}
 
 %-------------------------------------------------------------------------------
+\newpage
 \section{文字强调}
 
 \underline{underlined} % 下划线
@@ -126,8 +222,7 @@
 \section{章节和目录}
 
 \begin{table}[h]
-\caption{章节和目录}
-\begin{center}
+\centering
 \begin{tabular}{l l}
 	\hline
 	\texttt{\textbackslash chapter\{\textcolor{gray}{title}\}}       & 章 \\
@@ -136,10 +231,9 @@
 	\texttt{\textbackslash subsubsection\{\textcolor{gray}{title}\}} & 小小节 \\
 	\texttt{\textbackslash paragraph\{\textcolor{gray}{title}\}}     & 段 \\
 	\texttt{\textbackslash subparagraph\{\textcolor{gray}{title}\}}  & 小段 \\
-	\texttt{\textbackslash tableofcontents}                          & 目录 \\
+	\verb|\tableofcontents|                                          & 目录 \\
 	\hline
 \end{tabular}
-\end{center}
 \end{table}
 
 %===============================================================================
