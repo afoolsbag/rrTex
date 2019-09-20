@@ -12,13 +12,15 @@
 \documentclass{ctexbook}
 
 % 导言区：调用宏包、全局设置
-\usepackage{amsmath}   % https://ctan.org/pkg/amsmath   数学符号支持
-\usepackage{amssymb}   % https://ctan.org/pkg/amsmath   数学符号支持
-\usepackage{hyperref}  % https://ctan.org/pkg/hyperref  超链接引用支持
+\usepackage{amsmath}   % https://ctan.org/pkg/amsmath   数学支持
+\usepackage{amssymb}   % https://ctan.org/pkg/amsmath   数学支持
+\usepackage{enumitem}  % https://ctan.org/pkg/enumitem  列表缩进支持
 \usepackage{latexsym}  % https://ctan.org/pkg/latexsym  符号支持
 \usepackage{syntonly}  % https://ctan.org/pkg/syntonly  快速语法检查支持
 \usepackage{ulem}      % https://ctan.org/pkg/ulem      下划线支持
 \usepackage{xcolor}    % https://ctan.org/pkg/color     彩色字符支持
+
+\usepackage{hyperref}  % https://ctan.org/pkg/hyperref  超链接引用支持，为减少冲突，将此宏包置于其它宏包之后引入
 
 \hypersetup{colorlinks=true, unicode=true}
 %\syntaxonly                                 % 仅进行语法检查而不生成文档，加快编译速度
@@ -40,200 +42,273 @@
 %===============================================================================
 \chapter{\TeX / \LaTeX / \LaTeXe}
 
-墨色命令不依赖额外宏包，\textcolor{brown}{棕色}命令依赖\texttt{latexsym}宏包，\textcolor{blue}{蓝色}命令依赖\texttt{amsmath}宏包，\textcolor{teal}{凫色}命令依赖\texttt{amssymb}宏包。
-
 %-------------------------------------------------------------------------------
-\section{转义字符}
+\section{排版文本}
 
+\subsection{转义字符}
 \begin{table}[h]
-\centering
-\begin{tabular}{r c p{15ex} l p{5ex} r c p{15ex} l}
-	\hline
-
-	 35 & \#             & \verb|\#|             & 井号 &&
-	 94 & \^{}           & \verb|\^{}|           & 脱字符 \\
-
-	 36 & \$             & \verb|\$|             & 美元符 &&
-	 95 & \_             & \verb|\_|             & 下划线 \\
-
-	 37 & \%             & \verb|\%|             & 百分号 &&
-	123 & \{             & \verb|\{|             & 左花括号 \\
-
-	 38 & \&             & \verb|\&|             & 和号 &&
-	125 & \}             & \verb|\}|             & 右花括号 \\
-
-	 92 & \textbackslash & \verb|\textbackslash| & 反斜线 &&
-	126 & \~{}           & \verb|\~{}|           & 波浪号 \\
-
-	\hline
-\end{tabular}
+	\centering
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\begin{tabular}{c p{7em} p{5em}}
+			\hline
+			\#             & \verb|\#|             & 井号 \\
+			\$             & \verb|\$|             & 美元符 \\
+			\%             & \verb|\%|             & 百分号 \\
+			\&             & \verb|\&|             & 和号 \\
+			\textbackslash & \verb|\textbackslash| & 反斜线 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\qquad
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\begin{tabular}{c p{7em} p{5em}}
+			\hline
+			\^{}           & \verb|\^{}|           & 脱字符 \\
+			\_             & \verb|\_|             & 下划线 \\
+			\{             & \verb|\{|             & 左花括号 \\
+			\}             & \verb|\}|             & 右花括号 \\
+			\~{}           & \verb|\~{}|           & 波浪号 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
 \end{table}
 
-%-------------------------------------------------------------------------------
-\section{标点符号}
-
+\subsection{标点符号}
 \begin{table}[h]
-\centering
-\begin{tabular}{c p{15ex} l p{5ex} c p{15ex} l}
-	\hline
+	\centering
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\begin{tabular}{c p{7em} p{5em}}
+			\hline
+			-          & \verb|-|          & 连字符 \\
+			--         & \verb|--|         & 连接号 \\
+			---        & \verb|---|        & 破折号 \\
+			`'         & \verb|`'|         & 单引号 \\
+			``''       & \verb|``''|       & 双引号 \\
+			\P         & \verb|\P|         & 段落符 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\qquad
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\begin{tabular}{c p{7em} p{5em}}
+			\hline
+			\S         & \verb|\S|         & 分节符 \\
+			\copyright & \verb|\copyright| & 版权符 \\
+			\dag       & \verb|\dag|       & 剑标 \\
+			\ddag      & \verb|\ddag|      & 双剑标 \\
+			\dots      & \verb|\dots|      & 省略号 \\
+			\pounds    & \verb|\pounds|    & 英镑符 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+\end{table}
 
-	-          & \verb|-|          & 连字符 &&
-	\S         & \verb|\S|         & 分节符 \\
+\newpage
+\subsection{字体样式}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l l}
+		\hline
+		\hline
+		\textrm{roman}           & \verb|\textrm{|{\color{gray}\verb|text|}\verb|}|     & \verb|\rmfamily|   & 罗马体（衬线字体） \\
+		\textsf{sans serif}      & \verb|\textsf{|{\color{gray}\verb|text|}\verb|}|     & \verb|\sffamily|   & 无衬线字体 \\
+		\texttt{typewriter}      & \verb|\texttt{|{\color{gray}\verb|text|}\verb|}|     & \verb|\ttfamily|   & 等宽字体 \\
+		\hline
+		\textbf{bold face}       & \verb|\textbf{|{\color{gray}\verb|text|}\verb|}|     & \verb|\bfseries|   & 粗体 \\
+		\textmd{medium}          & \verb|\textmd{|{\color{gray}\verb|text|}\verb|}|     & \verb|\mdseries|   & 中等粗细 \\
+		\hline
+		\textit{italic}          & \verb|\textit{|{\color{gray}\verb|text|}\verb|}|     & \verb|\itshape|    & 意大利斜体 \\
+		\textsl{slanted}         & \verb|\textsl{|{\color{gray}\verb|text|}\verb|}|     & \verb|\slshape|    & 倾斜体 \\
+		\textsc{Small Caps}      & \verb|\textsc{|{\color{gray}\verb|text|}\verb|}|     & \verb|\scshape|    & 小写字母大写 \\
+		\textup{upright}         & \verb|\textup{|{\color{gray}\verb|text|}\verb|}|     & \verb|\upshape|    & 直立体 \\
+		\hline
+		\emph{emphasized}        & \verb|\emph{|{\color{gray}\verb|text|}\verb|}|       & \verb|\em|         & 强调（默认为斜体） \\
+		\textnormal{normal font} & \verb|\textnormal{|{\color{gray}\verb|text|}\verb|}| & \verb|\normalfont| & 默认字体 \\
+		\uline{underlined}       & \verb|\uline{|{\color{gray}\verb|text|}\verb|}|      &                    & 下划线 \\
+		\underline{underlined}   & \verb|\underline{|{\color{gray}\verb|text|}\verb|}|  &                    & 下划线 \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
 
-	--         & \verb|--|         & 连接号 &&
-	\copyright & \verb|\copyright| & 版权符 \\
+\subsection{字号}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c c c c c l}
+		\verb|\tiny| & \verb|\scriptsize|       & \verb|\footnotesize|         & \verb|\small|  &                          & \verb|\normalsize| \\
+		{\tiny tiny} & {\scriptsize scriptsize} & {\footnotesize footnotesize} & {\small small} & {\normalsize normalsize} &                    \\
+		             &                          &                              &                & {\large large}           & \verb|\large|      \\
+		             &                          &                              &                & {\Large Large}           & \verb|\Large|      \\
+		             &                          &                              &                & {\LARGE LARGE}           & \verb|\LARGE|      \\
+		             &                          &                              &                & {\huge huge}             & \verb|\huge|       \\
+		             &                          &                              &                & {\Huge Huge}             & \verb|\Huge|       \\
+	\end{tabular}
+\end{table}
 
-	---        & \verb|---|        & 破折号 &&
-	\dag       & \verb|\dag|       & 剑标 \\
-
-	`'         & \verb|`'|         & 单引号 &&
-	\ddag      & \verb|\ddag|      & 双剑标 \\
-
-	``''       & \verb|``''|       & 双引号 &&
-	\dots      & \verb|\dots|      & 省略号 \\
-
-	\P         & \verb|\P|         & 段落符 &&
-	\pounds    & \verb|\pounds|    & 英镑符 \\
-
-	\hline
-\end{tabular}
+\newpage
+\subsection{颜色}
+依赖 \verb|xcolor| 宏包提供颜色支持：
+\begin{table}[h]
+	\centering
+	\begin{tabular}{r r r r}
+		\hline
+		\verb|black| \fcolorbox{black}{black}{ }       & \verb|red| \fcolorbox{black}{red}{ }     & \verb|green| \fcolorbox{black}{green}{ }         & \verb|blue| \fcolorbox{black}{blue}{ }     \\
+		\verb|white| \fcolorbox{black}{white}{ }       & \verb|cyan| \fcolorbox{black}{cyan}{ }   & \verb|magenta| \fcolorbox{black}{magenta}{ }     & \verb|yellow| \fcolorbox{black}{yellow}{ } \\
+		\hline
+		\verb|darkgray| \fcolorbox{black}{darkgray}{ } & \verb|gray| \fcolorbox{black}{gray}{ }   & \verb|lightgray| \fcolorbox{black}{lightgray}{ } &                                            \\
+		\verb|brown| \fcolorbox{black}{brown}{ }       & \verb|olive| \fcolorbox{black}{olive}{ } & \verb|orange| \fcolorbox{black}{orange}{ }       & \verb|lime| \fcolorbox{black}{lime}{ }     \\
+		\verb|purple| \fcolorbox{black}{purple}{ }     & \verb|teal| \fcolorbox{black}{teal}{ }   & \verb|violet| \fcolorbox{black}{violet}{ }       & \verb|pink| \fcolorbox{black}{pink}{ }     \\
+		\hline
+	\end{tabular}
 \end{table}
 
 %-------------------------------------------------------------------------------
 \newpage
-\section{希腊字母}
+\section{排版文档}
 
+\subsection{章节和目录}
 \begin{table}[h]
-\centering
-\begin{tabular}{c p{15ex} p{5ex} c p{15ex} p{5ex} c p{15ex}}
-	\hline
-
-	$A$           & \verb|$A$|                                               &&
-	$\mathrm{A}$  & \verb|$\mathrm{A}$|                                      &&
-	$\alpha$      & \verb|$\alpha$|                                          \\
-
-	$B$           & \verb|$B$|                                               &&
-	$\mathrm{B}$  & \verb|$\mathrm{B}$|                                      &&
-	$\beta$       & \verb|$\beta$|                                           \\
-
-	$\varGamma$   & \texttt{\$\textcolor{blue}{\textbackslash varGamma}\$}   &&
-	$\Gamma$      & \verb|$\Gamma$|                                          &&
-	$\gamma$      & \verb|$\gamma$|                                          \\
-
-	$\varDelta$   & \texttt{\$\textcolor{blue}{\textbackslash varDelta}\$}   &&
-	$\Delta$      & \verb|$\Delta$|                                          &&
-	$\delta$      & \verb|$\delta$|                                          \\
-
-	$E$           & \verb|$E$|                                               &&
-	$\mathrm{E}$  & \verb|$\mathrm{E}$|                                      &&
-	$\epsilon$    & \verb|$\epsilon$|                                        \\
-
-	$Z$           & \verb|$Z$|                                               &&
-	$\mathrm{Z}$  & \verb|$\mathrm{Z}$|                                      &&
-	$\zeta$       & \verb|$\zeta$|                                           \\
-
-	$H$           & \verb|$H$|                                               &&
-	$\mathrm{H}$  & \verb|$\mathrm{H}$|                                      &&
-	$\eta$        & \verb|$\eta$|                                            \\
-
-	$\varTheta$   & \texttt{\$\textcolor{blue}{\textbackslash varTheta}\$}   &&
-	$\Theta$      & \verb|$\Theta$|                                          &&
-	$\theta$      & \verb|$\theta$|                                          \\
-
-	$I$           & \verb|$I$|                                               &&
-	$\mathrm{I}$  & \verb|$\mathrm{I}$|                                      &&
-	$\iota$       & \verb|$\iota$|                                           \\
-
-	$K$           & \verb|$K$|                                               &&
-	$\mathrm{K}$  & \verb|$\mathrm{K}$|                                      &&
-	$\kappa$      & \verb|$\kappa$|                                          \\
-
-	$\varLambda$  & \texttt{\$\textcolor{blue}{\textbackslash varLambda}\$}  &&
-	$\Lambda$     & \verb|$\Lambda$|                                         &&
-	$\lambda$     & \verb|$\lambda$|                                         \\
-
-	$M$           & \verb|$M$|                                               &&
-	$\mathrm{M}$  & \verb|$\mathrm{M}$|                                      &&
-	$\mu$         & \verb|$\mu$|                                             \\
-
-	$N$           & \verb|$N$|                                               &&
-	$\mathrm{N}$  & \verb|$\mathrm{N}$|                                      &&
-	$\nu$         & \verb|$\nu$|                                             \\
-
-	$\varXi$      & \texttt{\$\textcolor{blue}{\textbackslash varXi}\$}      &&
-	$\Xi$         & \verb|$\Xi$|                                             &&
-	$\xi$         & \verb|$\xi$|                                             \\
-
-	$O$           & \verb|$O$|                                               &&
-	$\mathrm{O}$  & \verb|$\mathrm{O}$|                                      &&
-	$\mathrm{o}$  & \verb|$\mathrm{o}$|                                      \\
-
-	$\varPi$      & \texttt{\$\textcolor{blue}{\textbackslash varPi}\$}      &&
-	$\Pi$         & \verb|$\Pi$|                                             &&
-	$\pi$         & \verb|$\pi$|                                             \\
-
-	$P$           & \verb|$P$|                                               &&
-	$\mathrm{P}$  & \verb|$\mathrm{P}$|                                      &&
-	$\rho$        & \verb|$\rho$|                                            \\
-
-	$\varSigma$   & \texttt{\$\textcolor{blue}{\textbackslash varSigma}\$}   &&
-	$\Sigma$      & \verb|$\Sigma$|                                          &&
-	$\sigma$      & \verb|$\sigma$|                                          \\
-
-	$T$           & \verb|$T$|                                               &&
-	$\mathrm{T}$  & \verb|$\mathrm{T}$|                                      &&
-	$\tau$        & \verb|$\tau$|                                            \\
-
-	$\varUpsilon$ & \texttt{\$\textcolor{blue}{\textbackslash varUpsilon}\$} &&
-	$\Upsilon$    & \verb|$\Upsilon$|                                        &&
-	$\upsilon$    & \verb|$\upsilon$|                                        \\
-
-	$\varPhi$     & \texttt{\$\textcolor{blue}{\textbackslash varPhi}\$}     &&
-	$\Phi$        & \verb|$\Phi$|                                            &&
-	$\phi$        & \verb|$\phi$|                                            \\
-
-	$X$           & \verb|$X$|                                               &&
-	$\mathrm{X}$  & \verb|$\mathrm{X}$|                                      &&
-	$\chi$        & \verb|$\chi$|                                            \\
-
-	$\varPsi$     & \texttt{\$\textcolor{blue}{\textbackslash varPsi}\$}     &&
-	$\Psi$        & \verb|$\Psi$|                                            &&
-	$\psi$        & \verb|$\psi$|                                            \\
-
-	$\varOmega$   & \texttt{\$\textcolor{blue}{\textbackslash varOmega}\$}   &&
-	$\Omega$      & \verb|$\Omega$|                                          &&
-	$\omega$      & \verb|$\omega$|                                          \\
-
-	\hline
-\end{tabular}
+	\centering
+	\begin{tabular}{l l}
+		\hline
+		\verb|\chapter{|{\color{gray}\verb|title|}\verb|}|       & 章 \\
+		\verb|\section{|{\color{gray}\verb|title|}\verb|}|       & 节 \\
+		\verb|\subsection{|{\color{gray}\verb|title|}\verb|}|    & 小节 \\
+		\verb|\subsubsection{|{\color{gray}\verb|title|}\verb|}| & 小小节 \\
+		\verb|\paragraph{|{\color{gray}\verb|title|}\verb|}|     & 段 \\
+		\verb|\subparagraph{|{\color{gray}\verb|title|}\verb|}|  & 小段 \\
+		\verb|\tableofcontents|                                  & 目录 \\
+		\hline
+	\end{tabular}
 \end{table}
 
 %-------------------------------------------------------------------------------
 \newpage
-\section{文字强调}
+\section{排版公式}
 
-\underline{underlined} % 下划线
+美国数学协会（American Mathematical Society）提供 \AmS 宏集以扩展 \LaTeX 公式排版，其核心是 \verb|amsmath| 宏包，对多行公式的排版提供了有力的支持。此外，\verb|amsfonts| 宏包以及基于它的 \verb|amssymb| 宏包提供了丰富的数学符号；\verb|amsthm| 宏包扩展了 \LaTeX 定理证明格式。
 
-\uline{underlined}     % 下划线
 
-\emph{强调} 版本
+本节中，墨色命令不依赖额外宏包，\textcolor{brown}{棕色}命令依赖 \verb|latexsym| 宏包，\textcolor{blue}{蓝色}命令依赖 \verb|amsmath| 宏包，\textcolor{teal}{凫色}命令依赖\verb|amssymb| 宏包。
 
-%-------------------------------------------------------------------------------
-\section{章节和目录}
+本节所述命令多用于 \LaTeX 数学模式，使用数学模式的方法有多种：
 
 \begin{table}[h]
-\centering
-\begin{tabular}{l l}
-	\hline
-	\texttt{\textbackslash chapter\{\textcolor{gray}{title}\}}       & 章 \\
-	\texttt{\textbackslash section\{\textcolor{gray}{title}\}}       & 节 \\
-	\texttt{\textbackslash subsection\{\textcolor{gray}{title}\}}    & 小节 \\
-	\texttt{\textbackslash subsubsection\{\textcolor{gray}{title}\}} & 小小节 \\
-	\texttt{\textbackslash paragraph\{\textcolor{gray}{title}\}}     & 段 \\
-	\texttt{\textbackslash subparagraph\{\textcolor{gray}{title}\}}  & 小段 \\
-	\verb|\tableofcontents|                                          & 目录 \\
-	\hline
-\end{tabular}
+	\centering
+	\begin{tabular}{l l}
+		\hline
+		\verb|$|{\color{gray}\verb|formula|}\verb|$|                                             & 行内公式 \\
+		\verb|\[|{\color{gray}\verb|formula|}\verb|\]|                                           & 无序号行间公式 \\
+		\verb|\begin{displaymath}|{\color{gray}\verb|formula|}\verb|\end{displaymath}|           & 无序号行间公式 \\
+		{\color{blue}\verb|\begin{equation*}|{\color{gray}\verb|formula|}\verb|\end{equation*}|} & 无序号行间公式 \\
+		\verb|\begin{equation}|{\color{gray}\verb|formula|}\verb|\end{equation}|                 & 有序号行间公式 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\newpage
+\subsection{希腊字母}
+\begin{table}[h]
+	\centering
+	\begin{minipage}[t]{0.28\textwidth}
+		\centering
+		\begin{tabular}{c l}
+			\hline
+			$A$           & \verb|A|                         \\
+			$B$           & \verb|B|                         \\
+			$\varGamma$   & {\color{blue}\verb|\varGamma|}   \\
+			$\varDelta$   & {\color{blue}\verb|\varDelta|}   \\
+			$E$           & \verb|E|                         \\
+			$Z$           & \verb|Z|                         \\
+			$H$           & \verb|H|                         \\
+			$\varTheta$   & {\color{blue}\verb|\varTheta|}   \\
+			$I$           & \verb|I|                         \\
+			$K$           & \verb|K|                         \\
+			$\varLambda$  & {\color{blue}\verb|\varLambda|}  \\
+			$M$           & \verb|M|                         \\
+			$N$           & \verb|N|                         \\
+			$\varXi$      & {\color{blue}\verb|\varXi|}      \\
+			$O$           & \verb|O|                         \\
+			$\varPi$      & {\color{blue}\verb|\varPi|}      \\
+			$P$           & \verb|P|                         \\
+			$\varSigma$   & {\color{blue}\verb|\varSigma|}   \\
+			$T$           & \verb|T|                         \\
+			$\varUpsilon$ & {\color{blue}\verb|\varUpsilon|} \\
+			$\varPhi$     & {\color{blue}\verb|\varPhi|}     \\
+			$X$           & \verb|X|                         \\
+			$\varPsi$     & {\color{blue}\verb|\varPsi|}     \\
+			$\varOmega$   & {\color{blue}\verb|\varOmega|}   \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\qquad
+	\begin{minipage}[t]{0.28\textwidth}
+		\centering
+		\begin{tabular}{c l}
+			\hline
+			$\mathrm{A}$  & \verb|\mathrm{A}|                \\
+			$\mathrm{B}$  & \verb|\mathrm{B}|                \\
+			$\Gamma$      & \verb|\Gamma|                    \\
+			$\Delta$      & \verb|\Delta|                    \\
+			$\mathrm{E}$  & \verb|\mathrm{E}|                \\
+			$\mathrm{Z}$  & \verb|\mathrm{Z}|                \\
+			$\mathrm{H}$  & \verb|\mathrm{H}|                \\
+			$\Theta$      & \verb|\Theta|                    \\
+			$\mathrm{I}$  & \verb|\mathrm{I}|                \\
+			$\mathrm{K}$  & \verb|\mathrm{K}|                \\
+			$\Lambda$     & \verb|\Lambda|                   \\
+			$\mathrm{M}$  & \verb|\mathrm{M}|                \\
+			$\mathrm{N}$  & \verb|\mathrm{N}|                \\
+			$\Xi$         & \verb|\Xi|                       \\
+			$\mathrm{O}$  & \verb|\mathrm{O}|                \\
+			$\Pi$         & \verb|\Pi|                       \\
+			$\mathrm{P}$  & \verb|\mathrm{P}|                \\
+			$\Sigma$      & \verb|\Sigma|                    \\
+			$\mathrm{T}$  & \verb|\mathrm{T}|                \\
+			$\Upsilon$    & \verb|\Upsilon|                  \\
+			$\Phi$        & \verb|\Phi|                      \\
+			$\mathrm{X}$  & \verb|\mathrm{X}|                \\
+			$\Psi$        & \verb|\Psi|                      \\
+			$\Omega$      & \verb|\Omega|                    \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\qquad
+	\begin{minipage}[t]{0.28\textwidth}
+		\centering
+		\begin{tabular}{c l}
+			\hline
+			$\alpha$      & \verb|\alpha|                    \\
+			$\beta$       & \verb|\beta|                     \\
+			$\gamma$      & \verb|\gamma|                    \\
+			$\delta$      & \verb|\delta|                    \\
+			$\epsilon$    & \verb|\epsilon|                  \\
+			$\zeta$       & \verb|\zeta|                     \\
+			$\eta$        & \verb|\eta|                      \\
+			$\theta$      & \verb|\theta|                    \\
+			$\iota$       & \verb|\iota|                     \\
+			$\kappa$      & \verb|\kappa|                    \\
+			$\lambda$     & \verb|\lambda|                   \\
+			$\mu$         & \verb|\mu|                       \\
+			$\nu$         & \verb|\nu|                       \\
+			$\xi$         & \verb|\xi|                       \\
+			$\mathrm{o}$  & \verb|\mathrm{o}|                \\
+			$\pi$         & \verb|\pi|                       \\
+			$\rho$        & \verb|\rho|                      \\
+			$\sigma$      & \verb|\sigma|                    \\
+			$\tau$        & \verb|\tau|                      \\
+			$\upsilon$    & \verb|\upsilon|                  \\
+			$\phi$        & \verb|\phi|                      \\
+			$\chi$        & \verb|\chi|                      \\
+			$\psi$        & \verb|\psi|                      \\
+			$\omega$      & \verb|\omega|                    \\
+			\hline
+		\end{tabular}
+	\end{minipage}
 \end{table}
 
 %===============================================================================
@@ -254,7 +329,10 @@
 \chapter{参考书目}
 
 \begin{enumerate}
-	\item 全国信息与文献标准化技术委员会．信息与文献　参考文献著录规则：GB/T 7714—2015 [S/OL]．北京：中国标准出版社，2015．\href{http://www.scal.edu.cn/dxtsgxb/201906120155}{超链接}．
+	\item Tobias Oetiker，Hubert Partl，Irene Hyna，Elisabeth Schlegl．一份（不太）简短的 \LaTeXe 介绍 [M/OL]．C\TeX 小组，译．\newline
+	      \url{http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf}．
+	\item 全国信息与文献标准化技术委员会．信息与文献　参考文献著录规则：GB/T 7714—2015 [S/OL]．北京：中国标准出版社，2015．\newline
+	      \url{http://www.scal.edu.cn/dxtsgxb/201906120155}．
 	\item 同济大学数学系．高等数学[M]．第六版．北京：高等教育出版社，2007．
 \end{enumerate}
 
