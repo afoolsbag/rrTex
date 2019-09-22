@@ -12,40 +12,41 @@
 \documentclass{ctexbook}
 
 % 导言区：调用宏包、全局设置
-\usepackage{amsmath}   % https://ctan.org/pkg/amsmath   数学支持
-\usepackage{amssymb}   % https://ctan.org/pkg/amsmath   数学支持
-\usepackage{enumitem}  % https://ctan.org/pkg/enumitem  列表缩进支持
-\usepackage{latexsym}  % https://ctan.org/pkg/latexsym  符号支持
-\usepackage{syntonly}  % https://ctan.org/pkg/syntonly  快速语法检查支持
-\usepackage{ulem}      % https://ctan.org/pkg/ulem      下划线支持
-\usepackage{xcolor}    % https://ctan.org/pkg/color     彩色字符支持
+%\usepackage{amsmath}  % 由 mathtools 替代
+\usepackage{amssymb}   % 数学符号支持
+%\usepackage{color}    % 由 xcolor 替代
+\usepackage{enumitem}  % 列表缩进支持
+\usepackage{latexsym}  % 数学符号支持
+\usepackage{mathtools} % 数学支持
+\usepackage{multirow}  % 纵向合并单元格
+\usepackage{syntonly}  % 快速语法检查支持
+\usepackage{ulem}      % 下划线支持
+\usepackage{xcolor}    % 色彩支持
 
-\usepackage{hyperref}  % https://ctan.org/pkg/hyperref  超链接引用支持，为减少冲突，将此宏包置于其它宏包之后引入
+\usepackage{hyperref}  % 超链接支持，为减少冲突，将此宏包置于其它宏包之后引入
 
-\hypersetup{colorlinks=true, unicode=true}
-%\syntaxonly                                 % 仅进行语法检查而不生成文档，加快编译速度
+\hypersetup{colorlinks=true, unicode=true}  %
+%\syntaxonly                                % 仅进行语法检查而不生成文档，加快编译速度
 
 % 指示文档内容
 \begin{document}
 
-%===============================================================================
 % 标题
 \title{rrMathematics}
 \author{zhengrr}
 \date{\today}
 \maketitle
 
-%===============================================================================
 % 目录
 \tableofcontents
 
-%===============================================================================
-\chapter{\TeX / \LaTeX / \LaTeXe}
+\chapter{\LaTeXe}
 
-%-------------------------------------------------------------------------------
 \section{排版文本}
 
 \subsection{转义字符}
+%-------------------------------------------------------------------------------
+%
 \begin{table}[h]
 	\centering
 	\begin{minipage}[t]{0.46\textwidth}
@@ -53,7 +54,7 @@
 		\begin{tabular}{c p{7em} p{5em}}
 			\hline
 			\#             & \verb|\#|             & 井号 \\
-			\$             & \verb|\$|             & 美元符 \\
+			\$             & \verb|\$|             & 美刀符 \\
 			\%             & \verb|\%|             & 百分号 \\
 			\&             & \verb|\&|             & 和号 \\
 			\textbackslash & \verb|\textbackslash| & 反斜线 \\
@@ -74,8 +75,12 @@
 		\end{tabular}
 	\end{minipage}
 \end{table}
+%
+%-------------------------------------------------------------------------------
 
 \subsection{标点符号}
+%-------------------------------------------------------------------------------
+%
 \begin{table}[h]
 	\centering
 	\begin{minipage}[t]{0.46\textwidth}
@@ -106,13 +111,16 @@
 		\end{tabular}
 	\end{minipage}
 \end{table}
+%
+%-------------------------------------------------------------------------------
 
 \newpage
-\subsection{字体样式}
+\subsection{文本样式}
+%-------------------------------------------------------------------------------
+%
 \begin{table}[h]
 	\centering
 	\begin{tabular}{l l l l}
-		\hline
 		\hline
 		\textrm{roman}           & \verb|\textrm{|{\color{gray}\verb|text|}\verb|}|     & \verb|\rmfamily|   & 罗马体（衬线字体） \\
 		\textsf{sans serif}      & \verb|\textsf{|{\color{gray}\verb|text|}\verb|}|     & \verb|\sffamily|   & 无衬线字体 \\
@@ -131,15 +139,19 @@
 		\uline{underlined}       & \verb|\uline{|{\color{gray}\verb|text|}\verb|}|      &                    & 下划线 \\
 		\underline{underlined}   & \verb|\underline{|{\color{gray}\verb|text|}\verb|}|  &                    & 下划线 \\
 		\hline
-		\hline
 	\end{tabular}
 \end{table}
+%
+%-------------------------------------------------------------------------------
 
-\subsection{字号}
+\subsection{文本尺寸}
+%-------------------------------------------------------------------------------
+%
 \begin{table}[h]
 	\centering
-	\begin{tabular}{c c c c c l}
+	\begin{tabular}{c c c c c | l}
 		\verb|\tiny| & \verb|\scriptsize|       & \verb|\footnotesize|         & \verb|\small|  &                          & \verb|\normalsize| \\
+		\hline
 		{\tiny tiny} & {\scriptsize scriptsize} & {\footnotesize footnotesize} & {\small small} & {\normalsize normalsize} &                    \\
 		             &                          &                              &                & {\large large}           & \verb|\large|      \\
 		             &                          &                              &                & {\Large Large}           & \verb|\Large|      \\
@@ -148,29 +160,44 @@
 		             &                          &                              &                & {\Huge Huge}             & \verb|\Huge|       \\
 	\end{tabular}
 \end{table}
+%
+%-------------------------------------------------------------------------------
 
 \newpage
-\subsection{颜色}
-依赖 \verb|xcolor| 宏包提供颜色支持：
+\subsection{文本颜色}
+%-------------------------------------------------------------------------------
+%
+依赖 \href{https://ctan.org/pkg/xcolor}{\texttt{xcolor}} 宏包提供颜色支持：
+
 \begin{table}[h]
 	\centering
-	\begin{tabular}{r r r r}
+	\begin{tabular}{l l l l}
 		\hline
-		\verb|black| \fcolorbox{black}{black}{ }       & \verb|red| \fcolorbox{black}{red}{ }     & \verb|green| \fcolorbox{black}{green}{ }         & \verb|blue| \fcolorbox{black}{blue}{ }     \\
-		\verb|white| \fcolorbox{black}{white}{ }       & \verb|cyan| \fcolorbox{black}{cyan}{ }   & \verb|magenta| \fcolorbox{black}{magenta}{ }     & \verb|yellow| \fcolorbox{black}{yellow}{ } \\
+		\fcolorbox{black}{black}{ }    \verb|black|    & \fcolorbox{black}{red}{ }   \verb|red|   & \fcolorbox{black}{green}{ }     \verb|green|     & \fcolorbox{black}{blue}{ }   \verb|blue|   \\
+		\fcolorbox{black}{white}{ }    \verb|white|    & \fcolorbox{black}{cyan}{ }  \verb|cyan|  & \fcolorbox{black}{magenta}{ }   \verb|magenta|   & \fcolorbox{black}{yellow}{ } \verb|yellow| \\
 		\hline
-		\verb|darkgray| \fcolorbox{black}{darkgray}{ } & \verb|gray| \fcolorbox{black}{gray}{ }   & \verb|lightgray| \fcolorbox{black}{lightgray}{ } &                                            \\
-		\verb|brown| \fcolorbox{black}{brown}{ }       & \verb|olive| \fcolorbox{black}{olive}{ } & \verb|orange| \fcolorbox{black}{orange}{ }       & \verb|lime| \fcolorbox{black}{lime}{ }     \\
-		\verb|purple| \fcolorbox{black}{purple}{ }     & \verb|teal| \fcolorbox{black}{teal}{ }   & \verb|violet| \fcolorbox{black}{violet}{ }       & \verb|pink| \fcolorbox{black}{pink}{ }     \\
+		\fcolorbox{black}{darkgray}{ } \verb|darkgray| & \fcolorbox{black}{gray}{ }  \verb|gray|  & \fcolorbox{black}{lightgray}{ } \verb|lightgray| &                                            \\
+		\fcolorbox{black}{brown}{ }    \verb|brown|    & \fcolorbox{black}{olive}{ } \verb|olive| & \fcolorbox{black}{orange}{ }    \verb|orange|    & \fcolorbox{black}{lime}{ }   \verb|lime|   \\
+		\fcolorbox{black}{purple}{ }   \verb|purple|   & \fcolorbox{black}{teal}{ }  \verb|teal|  & \fcolorbox{black}{violet}{ }    \verb|violet|    & \fcolorbox{black}{pink}{ }   \verb|pink|   \\
 		\hline
 	\end{tabular}
 \end{table}
-
+%
 %-------------------------------------------------------------------------------
+
+\subsection{超链接}
+%-------------------------------------------------------------------------------
+%
+依赖 \href{https://ctan.org/pkg/hyperref}{\texttt{hyperref}} 宏包提供超链接支持。
+%
+%-------------------------------------------------------------------------------
+
 \newpage
 \section{排版文档}
 
 \subsection{章节和目录}
+%-------------------------------------------------------------------------------
+%
 \begin{table}[h]
 	\centering
 	\begin{tabular}{l l}
@@ -185,155 +212,246 @@
 		\hline
 	\end{tabular}
 \end{table}
-
+%
 %-------------------------------------------------------------------------------
+
 \newpage
 \section{排版公式}
+%-------------------------------------------------------------------------------
+%
+美国数学协会（American Mathematical Society）提供  \AmS 宏集以扩展 \LaTeX 公式排版，其核心是 \href{https://ctan.org/pkg/amsmath}{\texttt{amsmath}} 宏包，对多行公式的排版提供了有力的支持．
+此外，\href{https://ctan.org/pkg/amsfonts}{\texttt{amsfonts}} 宏包以及基于它的 \verb|amssymb| 宏包提供了丰富的数学符号；\href{https://ctan.org/pkg/amsthm}{\texttt{amsthm}} 宏包扩展了 \LaTeX 定理证明格式．
 
-美国数学协会（American Mathematical Society）提供 \AmS 宏集以扩展 \LaTeX 公式排版，其核心是 \verb|amsmath| 宏包，对多行公式的排版提供了有力的支持。此外，\verb|amsfonts| 宏包以及基于它的 \verb|amssymb| 宏包提供了丰富的数学符号；\verb|amsthm| 宏包扩展了 \LaTeX 定理证明格式。
-
-
-本节中，墨色命令不依赖额外宏包，\textcolor{brown}{棕色}命令依赖 \verb|latexsym| 宏包，\textcolor{blue}{蓝色}命令依赖 \verb|amsmath| 宏包，\textcolor{teal}{凫色}命令依赖\verb|amssymb| 宏包。
-
+\href{https://ctan.org/tex-archive/info/symbols/comprehensive/}{此文档}提供了符号列表，\href{http://detexify.kirelabs.org/classify.html}{此工具}提供了符号搜索．
 本节所述命令多用于 \LaTeX 数学模式，使用数学模式的方法有多种：
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{l l}
+	\begin{tabular}{l p{6em} l}
+		\verb|$|{\color{gray}\verb|formula|}\verb|$|   && 行内公式（\TeX） \\
 		\hline
-		\verb|$|{\color{gray}\verb|formula|}\verb|$|                                             & 行内公式 \\
-		\verb|\[|{\color{gray}\verb|formula|}\verb|\]|                                           & 无序号行间公式 \\
-		\verb|\begin{displaymath}|{\color{gray}\verb|formula|}\verb|\end{displaymath}|           & 无序号行间公式 \\
-		{\color{blue}\verb|\begin{equation*}|{\color{gray}\verb|formula|}\verb|\end{equation*}|} & 无序号行间公式 \\
-		\verb|\begin{equation}|{\color{gray}\verb|formula|}\verb|\end{equation}|                 & 有序号行间公式 \\
+		                                               && \\
+		\verb|\(|{\color{gray}\verb|formula|}\verb|\)| && 行内公式（\LaTeX） \\
+		\hline
+		                                               && \\
+		\verb|$$|                                      && \\
+		\verb|    |{\color{gray}\verb|formula|}        && \\
+		\verb|$$|                                      && 行间公式（\TeX） \\
+		\hline
+		                                               && \\
+		\verb|\[|                                      && \\
+		\verb|    |{\color{gray}\verb|formula|}        && \\
+		\verb|\]|                                      && 无序号行间公式（\LaTeX） \\
+		\hline
+		                                               && \\
+		\verb|\begin{displaymath}|                     && \\
+		\verb|    |{\color{gray}\verb|formula|}        && \\
+		\verb|\end{displaymath}|                       && 无序号行间公式（\LaTeX） \\
+		\hline
+		                                               && \\
+		\verb|\begin{equation*}|                       && \\
+		\verb|    |{\color{gray}\verb|formula|}        && \\
+		\verb|\end{equation*}|                         && 无序号行间公式（\AmS） \\
+		\hline
+		                                               && \\
+		\verb|\begin{equation}|                        && \\
+		\verb|    |{\color{gray}\verb|formula|}        && \\
+		\verb|\end{equation}|                          && 有序号行间公式（\LaTeX） \\
+		\hline
+	\end{tabular}
+\end{table}
+%
+%-------------------------------------------------------------------------------
+
+\newpage
+\subsection{希腊字母}
+%-------------------------------------------------------------------------------
+%
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c@{ }l c@{ }l c@{ }l c@{ }l}
+		\hline
+		$A$        & \verb|A|        &               &                    & $\alpha$   & \verb|\alpha|   &               &                    \\
+		$B$        & \verb|B|        &               &                    & $\beta$    & \verb|\beta|    &               &                    \\
+		$\Gamma$   & \verb|\Gamma|   & $\varGamma$   & \verb|\varGamma|   & $\gamma$   & \verb|\gamma|   &               &                    \\
+		$\Delta$   & \verb|\Delta|   & $\varDelta$   & \verb|\varDelta|   & $\delta$   & \verb|\delta|   &               &                    \\
+		$E$        & \verb|E|        &               &                    & $\epsilon$ & \verb|\epsilon| & $\varepsilon$ & \verb|\varepsilon| \\
+		$Z$        & \verb|Z|        &               &                    & $\zeta$    & \verb|\zeta|    &               &                    \\
+		$H$        & \verb|H|        &               &                    & $\eta$     & \verb|\eta|     &               &                    \\
+		$\Theta$   & \verb|\Theta|   & $\varTheta$   & \verb|\varTheta|   & $\theta$   & \verb|\theta|   & $\vartheta$   & \verb|\vartheta|   \\
+		$I$        & \verb|I|        &               &                    & $\iota$    & \verb|\iota|    &               &                    \\
+		$K$        & \verb|K|        &               &                    & $\kappa$   & \verb|\kappa|   & $\varkappa$   & \verb|\varkappa|   \\
+		$\Lambda$  & \verb|\Lambda|  & $\varLambda$  & \verb|\varLambda|  & $\lambda$  & \verb|\lambda|  &               &                    \\
+		$M$        & \verb|M|        &               &                    & $\mu$      & \verb|\mu|      &               &                    \\
+		$N$        & \verb|N|        &               &                    & $\nu$      & \verb|\nu|      &               &                    \\
+		$\Xi$      & \verb|\Xi|      & $\varXi$      & \verb|\varXi|      & $\xi$      & \verb|\xi|      &               &                    \\
+		$O$        & \verb|O|        &               &                    & $o$        & \verb|o|        &               &                    \\
+		$\Pi$      & \verb|\Pi|      & $\varPi$      & \verb|\varPi|      & $\pi$      & \verb|\pi|      & $\varpi$      & \verb|\varpi|      \\
+		$P$        & \verb|P|        &               &                    & $\rho$     & \verb|\rho|     & $\varrho$     & \verb|\varrho|     \\
+		$\Sigma$   & \verb|\Sigma|   & $\varSigma$   & \verb|\varSigma|   & $\sigma$   & \verb|\sigma|   & $\varsigma$   & \verb|\varsigma|   \\
+		$T$        & \verb|T|        &               &                    & $\tau$     & \verb|\tau|     &               &                    \\
+		$\Upsilon$ & \verb|\Upsilon| & $\varUpsilon$ & \verb|\varUpsilon| & $\upsilon$ & \verb|\upsilon| &               &                    \\
+		$\Phi$     & \verb|\Phi|     & $\varPhi$     & \verb|\varPhi|     & $\phi$     & \verb|\phi|     & $\varphi$     & \verb|\varphi|     \\
+		$X$        & \verb|X|        &               &                    & $\chi$     & \verb|\chi|     &               &                    \\
+		$\Psi$     & \verb|\Psi|     & $\varPsi$     & \verb|\varPsi|     & $\psi$     & \verb|\psi|     &               &                    \\
+		$\Omega$   & \verb|\Omega|   & $\varOmega$   & \verb|\varOmega|   & $\omega$   & \verb|\omega|   &               &                    \\
+		           &                 &               &                    & $\digamma$ & \verb|\digamma| &               &                    \\
+		\hline
+	\end{tabular}
+\end{table}
+%
+%-------------------------------------------------------------------------------
+
+\newpage
+\subsection{拉丁字母}
+%-------------------------------------------------------------------------------
+%
+\begin{table}[th]
+	\centering
+	\renewcommand\arraystretch{0.99}
+	\begin{tabular}{ c@{ }l c@{ }l c@{ }l c@{ }l c@{ }l c@{ }l}
+		\hline
+		$A$ & \verb|A| & $\mathrm{A}$ & \verb|\mathrm{A}| & $\mathbb{A}$ & \verb|\mathbb{A}| & $a$ & \verb|a| & $\mathrm{a}$ & \verb|\mathrm{a}| & $\mathbf{a}$ & \verb|\mathbf{a}| \\
+		$B$ & \verb|B| & $\mathrm{B}$ & \verb|\mathrm{B}| & $\mathbb{B}$ & \verb|\mathbb{B}| & $b$ & \verb|b| & $\mathrm{b}$ & \verb|\mathrm{b}| & $\mathbf{b}$ & \verb|\mathbf{b}| \\
+		$C$ & \verb|C| & $\mathrm{C}$ & \verb|\mathrm{C}| & $\mathbb{C}$ & \verb|\mathbb{C}| & $c$ & \verb|c| & $\mathrm{c}$ & \verb|\mathrm{c}| & $\mathbf{c}$ & \verb|\mathbf{c}| \\
+		$D$ & \verb|D| & $\mathrm{D}$ & \verb|\mathrm{D}| & $\mathbb{D}$ & \verb|\mathbb{D}| & $d$ & \verb|d| & $\mathrm{d}$ & \verb|\mathrm{d}| & $\mathbf{d}$ & \verb|\mathbf{d}| \\
+		$E$ & \verb|E| & $\mathrm{E}$ & \verb|\mathrm{E}| & $\mathbb{E}$ & \verb|\mathbb{E}| & $e$ & \verb|e| & $\mathrm{e}$ & \verb|\mathrm{e}| & $\mathbf{e}$ & \verb|\mathbf{e}| \\
+		$F$ & \verb|F| & $\mathrm{F}$ & \verb|\mathrm{F}| & $\mathbb{F}$ & \verb|\mathbb{F}| & $f$ & \verb|f| & $\mathrm{f}$ & \verb|\mathrm{f}| & $\mathbf{f}$ & \verb|\mathbf{f}| \\
+		$G$ & \verb|G| & $\mathrm{G}$ & \verb|\mathrm{G}| & $\mathbb{G}$ & \verb|\mathbb{G}| & $g$ & \verb|g| & $\mathrm{g}$ & \verb|\mathrm{g}| & $\mathbf{g}$ & \verb|\mathbf{g}| \\
+		$H$ & \verb|H| & $\mathrm{H}$ & \verb|\mathrm{H}| & $\mathbb{H}$ & \verb|\mathbb{H}| & $h$ & \verb|h| & $\mathrm{h}$ & \verb|\mathrm{h}| & $\mathbf{h}$ & \verb|\mathbf{h}| \\
+		$I$ & \verb|I| & $\mathrm{I}$ & \verb|\mathrm{I}| & $\mathbb{I}$ & \verb|\mathbb{I}| & $i$ & \verb|i| & $\mathrm{i}$ & \verb|\mathrm{i}| & $\mathbf{i}$ & \verb|\mathbf{i}| \\
+		$J$ & \verb|J| & $\mathrm{J}$ & \verb|\mathrm{J}| & $\mathbb{J}$ & \verb|\mathbb{J}| & $j$ & \verb|j| & $\mathrm{j}$ & \verb|\mathrm{j}| & $\mathbf{j}$ & \verb|\mathbf{j}| \\
+		$K$ & \verb|K| & $\mathrm{K}$ & \verb|\mathrm{K}| & $\mathbb{K}$ & \verb|\mathbb{K}| & $k$ & \verb|k| & $\mathrm{k}$ & \verb|\mathrm{k}| & $\mathbf{k}$ & \verb|\mathbf{k}| \\
+		$L$ & \verb|L| & $\mathrm{L}$ & \verb|\mathrm{L}| & $\mathbb{L}$ & \verb|\mathbb{L}| & $l$ & \verb|l| & $\mathrm{l}$ & \verb|\mathrm{l}| & $\mathbf{l}$ & \verb|\mathbf{l}| \\
+		$M$ & \verb|M| & $\mathrm{M}$ & \verb|\mathrm{M}| & $\mathbb{M}$ & \verb|\mathbb{M}| & $m$ & \verb|m| & $\mathrm{m}$ & \verb|\mathrm{m}| & $\mathbf{m}$ & \verb|\mathbf{m}| \\
+		$N$ & \verb|N| & $\mathrm{N}$ & \verb|\mathrm{N}| & $\mathbb{N}$ & \verb|\mathbb{N}| & $n$ & \verb|n| & $\mathrm{n}$ & \verb|\mathrm{n}| & $\mathbf{n}$ & \verb|\mathbf{n}| \\
+		$O$ & \verb|O| & $\mathrm{O}$ & \verb|\mathrm{O}| & $\mathbb{O}$ & \verb|\mathbb{O}| & $o$ & \verb|o| & $\mathrm{o}$ & \verb|\mathrm{o}| & $\mathbf{o}$ & \verb|\mathbf{o}| \\
+		$P$ & \verb|P| & $\mathrm{P}$ & \verb|\mathrm{P}| & $\mathbb{P}$ & \verb|\mathbb{P}| & $p$ & \verb|p| & $\mathrm{p}$ & \verb|\mathrm{p}| & $\mathbf{p}$ & \verb|\mathbf{p}| \\
+		$Q$ & \verb|Q| & $\mathrm{Q}$ & \verb|\mathrm{Q}| & $\mathbb{Q}$ & \verb|\mathbb{Q}| & $q$ & \verb|q| & $\mathrm{q}$ & \verb|\mathrm{q}| & $\mathbf{q}$ & \verb|\mathbf{q}| \\
+		$R$ & \verb|R| & $\mathrm{R}$ & \verb|\mathrm{R}| & $\mathbb{R}$ & \verb|\mathbb{R}| & $r$ & \verb|r| & $\mathrm{r}$ & \verb|\mathrm{r}| & $\mathbf{r}$ & \verb|\mathbf{r}| \\
+		$S$ & \verb|S| & $\mathrm{S}$ & \verb|\mathrm{S}| & $\mathbb{S}$ & \verb|\mathbb{S}| & $s$ & \verb|s| & $\mathrm{s}$ & \verb|\mathrm{s}| & $\mathbf{s}$ & \verb|\mathbf{s}| \\
+		$T$ & \verb|T| & $\mathrm{T}$ & \verb|\mathrm{T}| & $\mathbb{T}$ & \verb|\mathbb{T}| & $t$ & \verb|t| & $\mathrm{t}$ & \verb|\mathrm{t}| & $\mathbf{t}$ & \verb|\mathbf{t}| \\
+		$U$ & \verb|U| & $\mathrm{U}$ & \verb|\mathrm{U}| & $\mathbb{U}$ & \verb|\mathbb{U}| & $u$ & \verb|u| & $\mathrm{u}$ & \verb|\mathrm{u}| & $\mathbf{u}$ & \verb|\mathbf{u}| \\
+		$V$ & \verb|V| & $\mathrm{V}$ & \verb|\mathrm{V}| & $\mathbb{V}$ & \verb|\mathbb{V}| & $v$ & \verb|v| & $\mathrm{v}$ & \verb|\mathrm{v}| & $\mathbf{v}$ & \verb|\mathbf{v}| \\
+		$W$ & \verb|W| & $\mathrm{W}$ & \verb|\mathrm{W}| & $\mathbb{W}$ & \verb|\mathbb{W}| & $w$ & \verb|w| & $\mathrm{w}$ & \verb|\mathrm{w}| & $\mathbf{w}$ & \verb|\mathbf{w}| \\
+		$X$ & \verb|X| & $\mathrm{X}$ & \verb|\mathrm{X}| & $\mathbb{X}$ & \verb|\mathbb{X}| & $x$ & \verb|x| & $\mathrm{x}$ & \verb|\mathrm{x}| & $\mathbf{x}$ & \verb|\mathbf{x}| \\
+		$Y$ & \verb|Y| & $\mathrm{Y}$ & \verb|\mathrm{Y}| & $\mathbb{Y}$ & \verb|\mathbb{Y}| & $y$ & \verb|y| & $\mathrm{y}$ & \verb|\mathrm{y}| & $\mathbf{y}$ & \verb|\mathbf{y}| \\
+		$Z$ & \verb|Z| & $\mathrm{Z}$ & \verb|\mathrm{Z}| & $\mathbb{Z}$ & \verb|\mathbb{Z}| & $z$ & \verb|z| & $\mathrm{z}$ & \verb|\mathrm{z}| & $\mathbf{z}$ & \verb|\mathbf{z}| \\
+		\hline
+	\end{tabular}
+\end{table}
+%
+%-------------------------------------------------------------------------------
+
+\newpage
+\subsection{数学样式}
+%-------------------------------------------------------------------------------
+%
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l l}
+		\hline
+		$\mathrm{roman}$            & \verb|\mathrm{|{\color{gray}\verb|math|}\verb|}|     &                 & 罗马体（衬线字体），常用于单位和函数 \\
+		$\mathsf{sans\ serif}$      & \verb|\mathsf{|{\color{gray}\verb|math|}\verb|}|     &                 & 无衬线字体 \\
+		$\mathtt{typewriter}$       & \verb|\mathtt{|{\color{gray}\verb|math|}\verb|}|     &                 & 等宽字体 \\
+		$\mathbf{bold face}$        & \verb|\mathbf{|{\color{gray}\verb|math|}\verb|}|     &                 & 粗体，常用于向量 \\
+		$\mathcal{CALLIGRAPHY}$     & \verb|\mathcal{|{\color{gray}\verb|math|}\verb|}|    &                 & 书法体（仅大写），常用于层、概型和范畴 \\
+		$\mathit{italic}$           & \verb|\mathit{|{\color{gray}\verb|math|}\verb|}|     &                 & 意大利斜体 \\
+		$\mathnormal{normal\ font}$ & \verb|\mathnormal{|{\color{gray}\verb|math|}\verb|}| &                 & 默认字体 \\
+		\hline
+		$\mathbb{BLACKBOARD\ BOLD}$ & \verb|\mathbb{|{\color{gray}\verb|math|}\verb|}|     & \verb|amsfonts| & 黑板粗体（仅大写），常用于集合 \\
+		$\mathfrak{fraktur}$        & \verb|\mathfrak{|{\color{gray}\verb|math|}\verb|}|   & \verb|amsfonts| & 一种德国风格粗体，常用于群和环 \\
+		\hline
+	\end{tabular}
+\end{table}
+%
+%-------------------------------------------------------------------------------
+
+\chapter{集合、映射和二元运算}
+
+\section{集合}
+
+\subsection{集合与元素间的关系}
+%-------------------------------------------------------------------------------
+%
+一般的，\emph{集合}（\href{http://mathworld.wolfram.com/Set.html}{Set}，简称\emph{集}）是指具有某种特定性质的事物的总体，组成这个集合的事物称为该集合的\emph{元素}（\href{http://mathworld.wolfram.com/Element.html}{Element}，简称\emph{元}）．
+通常用大写拉丁字母 $A$，$B$，$C$，$\cdots$ 表示集合，用小写拉丁字母 $a$，$b$，$c$，$\cdots$ 表示集合的元素．
+
+如果元素 $e$ 是集合 $S$ 的元素，就说元素 $e$ \emph{属于}集合 $S$（记作 $e\in{}S$）或集合 $S$ \emph{拥有}元素 $e$（记作 $S\ni{}e$）．
+如果元素 $e$ 不是集合 $S$ 的元素，就说元素 $e$ \emph{不属于}集合 $S$（记作 $e\not\in{}S$） 或集合 $S$ \emph{不拥有}元素 $e$（记作 $S\not\ni{}e$）．
+一个集合，若它只拥有限个元素，则称为\emph{有限集}；不是有限集的集合称为\emph{无限集}．
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l}
+		\hline
+		$e\in{}S$     & 元素 $e$ 属于集合 $S$   & \multirow{2}{*}{元素 $e$ 是集合 $S$ 的元素}   \\
+		$S\ni{}e$     & 集合 $S$ 拥有元素 $e$   &                                               \\
+		$e\not\in{}S$ & 元素 $e$ 不属于集合 $S$ & \multirow{2}{*}{元素 $e$ 不是集合 $S$ 的元素} \\
+		$S\not\ni{}e$ & 集合 $S$ 不拥有元素 $e$ &                                               \\
 		\hline
 	\end{tabular}
 \end{table}
 
-\newpage
-\subsection{希腊字母}
+通常使用\emph{列举法}、\emph{描述法}或\emph{文氏图}（\href{http://mathworld.wolfram.com/VennDiagram.html}{Venn Diagram}）表示集合：
+例如，由元素 $e_1$，$e_2$，$\cdots$，$e_n$ 组成的集合 $S_1$ 可表示为
+\[ S_1 = \{ e_1, e_2, \cdots, e_n \} \text{；} \]
+由具有某种性质 $P$ 的元素 $e$ 的全体组成的集合 $S_2$ 可表示为
+\[ S_2 = \{ e | e \text{具有性质} P \} \text{．} \]
+%
+%-------------------------------------------------------------------------------
+
+\subsection{集合与集合间的关系}
+%-------------------------------------------------------------------------------
+%
+如何集合 $V$ 的元素都是集合 $W$ 的元素，则称集合 $V$ 是集合 $W$ 的\emph{子集}（\href{http://mathworld.wolfram.com/Subset.html}{Subset}），记作 $V\subset{}W$（读作集合 $V$ \emph{包含于}集合 $W$）；
+或称集合 $W$ 是集合 $V$ 的\emph{超集}（\href{http://mathworld.wolfram.com/Superset.html}{Superset}），记作 $W\supset{}V$（读作集合 $W$ \emph{包含}集合 $V$）．
+
+如果集合 $S_1$ 的元素都是集合 $S_2$ 的元素，且集合 $S_2$ 的元素也都是集合 $S_1$ 的元素，即集合 $S_1$ 与集合 $S_2$ 互相包含，则称集合 $S_1$ 与集合 $S_2$ \emph{相等}，记作 $S_1=S_2$（读作集合 $S_1$ \emph{等于} $S_2$）．
+
+如果集合 $V$ 包含于集合 $W$，且它们不相等，则称集合 $V$ 是集合 $W$ 的\emph{真子集}（\href{http://mathworld.wolfram.com/ProperSubset.html}{Proper Subset}），记作 $V\subsetneqq{}W$（读作集合 $V$ \emph{真包含于}集合 $W$）；
+或称集合 $W$ 是集合 $V$ 的\emph{真超集}（\href{http://mathworld.wolfram.com/ProperSuperset.html}{Proper Superset}），记作 $W\supsetneqq{}V$（读作集合 $W$ \emph{真包含}集合 $V$）．
+
 \begin{table}[h]
 	\centering
-	\begin{minipage}[t]{0.28\textwidth}
-		\centering
-		\begin{tabular}{c l}
-			\hline
-			$A$           & \verb|A|                         \\
-			$B$           & \verb|B|                         \\
-			$\varGamma$   & {\color{blue}\verb|\varGamma|}   \\
-			$\varDelta$   & {\color{blue}\verb|\varDelta|}   \\
-			$E$           & \verb|E|                         \\
-			$Z$           & \verb|Z|                         \\
-			$H$           & \verb|H|                         \\
-			$\varTheta$   & {\color{blue}\verb|\varTheta|}   \\
-			$I$           & \verb|I|                         \\
-			$K$           & \verb|K|                         \\
-			$\varLambda$  & {\color{blue}\verb|\varLambda|}  \\
-			$M$           & \verb|M|                         \\
-			$N$           & \verb|N|                         \\
-			$\varXi$      & {\color{blue}\verb|\varXi|}      \\
-			$O$           & \verb|O|                         \\
-			$\varPi$      & {\color{blue}\verb|\varPi|}      \\
-			$P$           & \verb|P|                         \\
-			$\varSigma$   & {\color{blue}\verb|\varSigma|}   \\
-			$T$           & \verb|T|                         \\
-			$\varUpsilon$ & {\color{blue}\verb|\varUpsilon|} \\
-			$\varPhi$     & {\color{blue}\verb|\varPhi|}     \\
-			$X$           & \verb|X|                         \\
-			$\varPsi$     & {\color{blue}\verb|\varPsi|}     \\
-			$\varOmega$   & {\color{blue}\verb|\varOmega|}   \\
-			\hline
-		\end{tabular}
-	\end{minipage}
-	\qquad
-	\begin{minipage}[t]{0.28\textwidth}
-		\centering
-		\begin{tabular}{c l}
-			\hline
-			$\mathrm{A}$  & \verb|\mathrm{A}|                \\
-			$\mathrm{B}$  & \verb|\mathrm{B}|                \\
-			$\Gamma$      & \verb|\Gamma|                    \\
-			$\Delta$      & \verb|\Delta|                    \\
-			$\mathrm{E}$  & \verb|\mathrm{E}|                \\
-			$\mathrm{Z}$  & \verb|\mathrm{Z}|                \\
-			$\mathrm{H}$  & \verb|\mathrm{H}|                \\
-			$\Theta$      & \verb|\Theta|                    \\
-			$\mathrm{I}$  & \verb|\mathrm{I}|                \\
-			$\mathrm{K}$  & \verb|\mathrm{K}|                \\
-			$\Lambda$     & \verb|\Lambda|                   \\
-			$\mathrm{M}$  & \verb|\mathrm{M}|                \\
-			$\mathrm{N}$  & \verb|\mathrm{N}|                \\
-			$\Xi$         & \verb|\Xi|                       \\
-			$\mathrm{O}$  & \verb|\mathrm{O}|                \\
-			$\Pi$         & \verb|\Pi|                       \\
-			$\mathrm{P}$  & \verb|\mathrm{P}|                \\
-			$\Sigma$      & \verb|\Sigma|                    \\
-			$\mathrm{T}$  & \verb|\mathrm{T}|                \\
-			$\Upsilon$    & \verb|\Upsilon|                  \\
-			$\Phi$        & \verb|\Phi|                      \\
-			$\mathrm{X}$  & \verb|\mathrm{X}|                \\
-			$\Psi$        & \verb|\Psi|                      \\
-			$\Omega$      & \verb|\Omega|                    \\
-			\hline
-		\end{tabular}
-	\end{minipage}
-	\qquad
-	\begin{minipage}[t]{0.28\textwidth}
-		\centering
-		\begin{tabular}{c l}
-			\hline
-			$\alpha$      & \verb|\alpha|                    \\
-			$\beta$       & \verb|\beta|                     \\
-			$\gamma$      & \verb|\gamma|                    \\
-			$\delta$      & \verb|\delta|                    \\
-			$\epsilon$    & \verb|\epsilon|                  \\
-			$\zeta$       & \verb|\zeta|                     \\
-			$\eta$        & \verb|\eta|                      \\
-			$\theta$      & \verb|\theta|                    \\
-			$\iota$       & \verb|\iota|                     \\
-			$\kappa$      & \verb|\kappa|                    \\
-			$\lambda$     & \verb|\lambda|                   \\
-			$\mu$         & \verb|\mu|                       \\
-			$\nu$         & \verb|\nu|                       \\
-			$\xi$         & \verb|\xi|                       \\
-			$\mathrm{o}$  & \verb|\mathrm{o}|                \\
-			$\pi$         & \verb|\pi|                       \\
-			$\rho$        & \verb|\rho|                      \\
-			$\sigma$      & \verb|\sigma|                    \\
-			$\tau$        & \verb|\tau|                      \\
-			$\upsilon$    & \verb|\upsilon|                  \\
-			$\phi$        & \verb|\phi|                      \\
-			$\chi$        & \verb|\chi|                      \\
-			$\psi$        & \verb|\psi|                      \\
-			$\omega$      & \verb|\omega|                    \\
-			\hline
-		\end{tabular}
-	\end{minipage}
+	\begin{tabular}{l l l}
+		\hline
+		$V\subset{}W$     & 集合 $V$ 包含于集合 $W$   & 集合 $V$ 是集合 $W$ 的子集   \\
+		$W\supset{}V$     & 集合 $W$ 包含集合 $V$     & 集合 $W$ 是集合 $V$ 的超集   \\
+		$S_1=S_2$         & 集合 $S_1$ 等于集合 $S_2$ & 集合 $S_1$ 与集合 $S_2$ 相等 \\
+		$V\subsetneqq{}W$ & 集合 $V$ 真包含于集合 $W$ & 集合 $V$ 是集合 $W$ 的子集   \\
+		$W\supsetneqq{}V$ & 集合 $W$ 真包含集合 $V$   & 集合 $W$ 是集合 $V$ 的超集   \\
+		\hline
+	\end{tabular}
 \end{table}
 
-%===============================================================================
-\chapter{集合、映射和二元运算}
-
+不拥有任何元素的集合称为\emph{空集}（\href{http://mathworld.wolfram.com/EmptySet.html}{Empty Set}），记作 $\emptyset$，规定空集是任何集合的子集；
+在指定上下文中，拥有所有元素的集合称作\emph{全集}（\href{http://mathworld.wolfram.com/UniversalSet.html}{Universe}），全集通常用 $U$ 表示．
+%
 %-------------------------------------------------------------------------------
-\section{集合和集合的笛卡尔积}
 
-一般的，\emph{集合}（\href{http://mathworld.wolfram.com/Set.html}{Set}，简称\emph{集}）是指具有某种特定性质的事物的总体，组成这个集合的事物称为该集合的\emph{元素}（\href{http://mathworld.wolfram.com/Element.html}{Element}，简称\emph{元}）．
-
-%通常使用大写拉丁字母 A，B，C，\cdots{} 表示集合，用小写拉丁字母 a，b，c，\cdots{} 表示集合的元素
-
+\subsection{集合与集合间的运算}
+%-------------------------------------------------------------------------------
+%
+%
+%-------------------------------------------------------------------------------
 
 % 附录
 \appendix
 
-%===============================================================================
 \chapter{参考书目}
-
+%-------------------------------------------------------------------------------
+%
 \begin{enumerate}
+	\item Wikibooks．LaTeX [M/OL]．\url{https://wikibooks.org/wiki/LaTeX}．
 	\item Tobias Oetiker，Hubert Partl，Irene Hyna，Elisabeth Schlegl．一份（不太）简短的 \LaTeXe 介绍 [M/OL]．C\TeX 小组，译．\newline
 	      \url{http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf}．
 	\item 全国信息与文献标准化技术委员会．信息与文献　参考文献著录规则：GB/T 7714—2015 [S/OL]．北京：中国标准出版社，2015．\newline
 	      \url{http://www.scal.edu.cn/dxtsgxb/201906120155}．
+	\item 同济大学数学系．高等数学[M]．第七版．北京：高等教育出版社，2014．
 	\item 同济大学数学系．高等数学[M]．第六版．北京：高等教育出版社，2007．
 \end{enumerate}
+%
+%-------------------------------------------------------------------------------
 
 \end{document}
