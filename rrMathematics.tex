@@ -1,49 +1,57 @@
 % !TeX encoding = UTF-8
 %% !TeX program = XeLaTeX
 
-% LaTeX 命令和环境
-%
-% \command_name[optional_arguments...]{mandatory_arguments...}
-%
-% \begin{environment_name}[optional_arguments...]{manadatory_arguments...}
-% \end{enviroment_name}
-
-% 指定文档类
 \documentclass{ctexbook}
+% 导言区开始
 
-% 导言区
+% 布局
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{layout}
+
 %\usepackage{amsmath}                     % 由 mathtools 替代
 \usepackage{amssymb}                      % 数学符号支持
 %\usepackage{color}                       % 由 xcolor 替代
 \usepackage{enumitem}                     % 列表缩进支持
 \usepackage{latexsym}                     % 数学符号支持
-\usepackage{layout}                       % 布局展示支持
 \usepackage{mathtools}                    % 数学支持
 \usepackage{multirow}                     % 纵向合并单元格
 \usepackage{syntonly}                     % 快速语法检查支持
 \usepackage{ulem}                         % 下划线支持
 \usepackage[dvipsnames,svgnames]{xcolor}  % 色彩支持
 
-\usepackage{hyperref}                     % 超链接支持，为减少冲突，将此宏包置于其它宏包之后引入
+% 参考文献
+\usepackage{gbt7714}
+%\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+%\addbibresource[location=local]{rrMathematics.bib}
+
+% 超链接
+\usepackage{hyperref}
 
 \hypersetup{colorlinks=true, unicode=true}  %
 %\syntaxonly                                % 仅进行语法检查而不生成文档，加快编译速度
 
 % zhengrr's color card
-\newcommand{\rccard}[1]{
-	\fcolorbox{gray}{#1}{ } \textsl{#1}
+\newcommand{\rrcc}[1]{\fcolorbox{gray}{#1}{ } \textsl{#1}}
+
+% zhengrr's unicode number
+\newcommand{\rrun}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily{}\bfseries{}U+#1}}}
+
+\providecommand{\Unicode}{
+	\ttfamily
+	Unicode\textregistered
 }
 
-% 指示文档内容
 \begin{document}
+% 正文区开始
 
-% 标题
+% 标题页
 \title{rrMathematics}
 \author{zhengrr}
 \date{\today}
 \maketitle
 
-% 目录
+% 目录页
 \tableofcontents
 
 \chapter{\LaTeXe}
@@ -51,9 +59,8 @@
 \section{排版文本}
 
 \subsection{转义字符}
-%-------------------------------------------------------------------------------
-%
-\begin{table}[h]
+
+\begin{table}[h!]
 	\centering
 	\begin{minipage}[t]{0.46\textwidth}
 		\centering
@@ -81,13 +88,10 @@
 		\end{tabular}
 	\end{minipage}
 \end{table}
-%
-%-------------------------------------------------------------------------------
 
 \subsection{标点符号}
-%-------------------------------------------------------------------------------
-%
-\begin{table}[h]
+
+\begin{table}[h!]
 	\centering
 	\begin{minipage}[t]{0.46\textwidth}
 		\centering
@@ -117,14 +121,11 @@
 		\end{tabular}
 	\end{minipage}
 \end{table}
-%
-%-------------------------------------------------------------------------------
 
 \newpage
 \subsection{文本样式}
-%-------------------------------------------------------------------------------
-%
-\begin{table}[h]
+
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{l l l l}
 		\hline
@@ -147,13 +148,10 @@
 		\hline
 	\end{tabular}
 \end{table}
-%
-%-------------------------------------------------------------------------------
 
 \subsection{文本尺寸}
-%-------------------------------------------------------------------------------
-%
-\begin{table}[h]
+
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{c c c c c | l}
 		\verb|\tiny| & \verb|\scriptsize|       & \verb|\footnotesize|         & \verb|\small|  &                          & \verb|\normalsize| \\
@@ -166,61 +164,54 @@
             &                          &                              &                & {\Huge Huge}             & \verb|\Huge|       \\
 	\end{tabular}
 \end{table}
-%
-%-------------------------------------------------------------------------------
 
 \newpage
 \subsection{文本颜色}
-%-------------------------------------------------------------------------------
-%
+
 依赖 \href{https://ctan.org/pkg/xcolor}{\texttt{xcolor}} 宏包提供颜色支持：
 
-\begin{table}[h]
+\begin{table}[h!]
 	\centering
 	{
 		\slshape
 		\begin{tabular}{l l l l l}
 			\hline
-			\rccard{black}          & \rccard{red}         & \rccard{green}        & \rccard{blue}        &                         \\
-			\rccard{white}          & \rccard{cyan}        & \rccard{magenta}      & \rccard{yellow}      &                         \\
+			\rrcc{black}          & \rrcc{red}         & \rrcc{green}        & \rrcc{blue}        &                       \\
+			\rrcc{white}          & \rrcc{cyan}        & \rrcc{magenta}      & \rrcc{yellow}      &                       \\
 			\hline
-			\rccard{darkgray}       & \rccard{gray}        & \rccard{lightgray}    &                      &                         \\
-			\rccard{brown}          & \rccard{olive}       & \rccard{orange}       & \rccard{lime}        &                         \\
-			\rccard{purple}         & \rccard{teal}        & \rccard{violet}       & \rccard{pink}        &                         \\
+			\rrcc{darkgray}       & \rrcc{gray}        & \rrcc{lightgray}    &                    &                       \\
+			\rrcc{brown}          & \rrcc{olive}       & \rrcc{orange}       & \rrcc{lime}        &                       \\
+			\rrcc{purple}         & \rrcc{teal}        & \rrcc{violet}       & \rrcc{pink}        &                       \\
 			\hline
-			\rccard{Apricot}        & \rccard{Cyan}        & \rccard{Mahogany}     & \rccard{ProcessBlue} & \rccard{SpringGreen}    \\
-			\rccard{Aquamarine}     & \rccard{Dandelion}   & \rccard{Maroon}       & \rccard{Purple}      & \rccard{Tan}            \\
-			\rccard{Bittersweet}    & \rccard{DarkOrchid}  & \rccard{Melon}        & \rccard{RawSienna}   & \rccard{TealBlue}       \\
-			\rccard{Black}          & \rccard{Emerald}     & \rccard{MidnightBlue} & \rccard{Red}         & \rccard{Thistle}        \\
-			\rccard{Blue}           & \rccard{ForestGreen} & \rccard{Mulberry}     & \rccard{RedOrange}   & \rccard{Turquoise}      \\
-			\rccard{BlueGreen}      & \rccard{Fuchsia}     & \rccard{NavyBlue}     & \rccard{RedViolet}   & \rccard{Violet}         \\
-			\rccard{BlueViolet}     & \rccard{Goldenrod}   & \rccard{OliveGreen}   & \rccard{Rhodamine}   & \rccard{VioletRed}      \\
-			\rccard{BrickRed}       & \rccard{Gray}        & \rccard{Orange}       & \rccard{RoyalBlue}   & \rccard{White}          \\
-			\rccard{Brown}          & \rccard{Green}       & \rccard{OrangeRed}    & \rccard{RoyalPurple} & \rccard{WildStrawberry} \\
-			\rccard{BurntOrange}    & \rccard{GreenYellow} & \rccard{Orchid}       & \rccard{RubineRed}   & \rccard{Yellow}         \\
-			\rccard{CadetBlue}      & \rccard{JungleGreen} & \rccard{Peach}        & \rccard{Salmon}      & \rccard{YellowGreen}    \\
-			\rccard{CarnationPink}  & \rccard{Lavender}    & \rccard{Periwinkle}   & \rccard{SeaGreen}    & \rccard{YellowOrange}   \\
-			\rccard{Cerulean}       & \rccard{LimeGreen}   & \rccard{PineGreen}    & \rccard{Sepia}       &                         \\
-			\rccard{CornflowerBlue} & \rccard{Magenta}     & \rccard{Plum}         & \rccard{SkyBlue}     &                         \\
+			\rrcc{Apricot}        & \rrcc{Cyan}        & \rrcc{Mahogany}     & \rrcc{ProcessBlue} & \rrcc{SpringGreen}    \\
+			\rrcc{Aquamarine}     & \rrcc{Dandelion}   & \rrcc{Maroon}       & \rrcc{Purple}      & \rrcc{Tan}            \\
+			\rrcc{Bittersweet}    & \rrcc{DarkOrchid}  & \rrcc{Melon}        & \rrcc{RawSienna}   & \rrcc{TealBlue}       \\
+			\rrcc{Black}          & \rrcc{Emerald}     & \rrcc{MidnightBlue} & \rrcc{Red}         & \rrcc{Thistle}        \\
+			\rrcc{Blue}           & \rrcc{ForestGreen} & \rrcc{Mulberry}     & \rrcc{RedOrange}   & \rrcc{Turquoise}      \\
+			\rrcc{BlueGreen}      & \rrcc{Fuchsia}     & \rrcc{NavyBlue}     & \rrcc{RedViolet}   & \rrcc{Violet}         \\
+			\rrcc{BlueViolet}     & \rrcc{Goldenrod}   & \rrcc{OliveGreen}   & \rrcc{Rhodamine}   & \rrcc{VioletRed}      \\
+			\rrcc{BrickRed}       & \rrcc{Gray}        & \rrcc{Orange}       & \rrcc{RoyalBlue}   & \rrcc{White}          \\
+			\rrcc{Brown}          & \rrcc{Green}       & \rrcc{OrangeRed}    & \rrcc{RoyalPurple} & \rrcc{WildStrawberry} \\
+			\rrcc{BurntOrange}    & \rrcc{GreenYellow} & \rrcc{Orchid}       & \rrcc{RubineRed}   & \rrcc{Yellow}         \\
+			\rrcc{CadetBlue}      & \rrcc{JungleGreen} & \rrcc{Peach}        & \rrcc{Salmon}      & \rrcc{YellowGreen}    \\
+			\rrcc{CarnationPink}  & \rrcc{Lavender}    & \rrcc{Periwinkle}   & \rrcc{SeaGreen}    & \rrcc{YellowOrange}   \\
+			\rrcc{Cerulean}       & \rrcc{LimeGreen}   & \rrcc{PineGreen}    & \rrcc{Sepia}       &                       \\
+			\rrcc{CornflowerBlue} & \rrcc{Magenta}     & \rrcc{Plum}         & \rrcc{SkyBlue}     &                       \\
 			\hline
 		\end{tabular}
 	}
 \end{table}
-%
-%-------------------------------------------------------------------------------
+
 
 \subsection{超链接}
-%-------------------------------------------------------------------------------
-%
+
 依赖 \href{https://ctan.org/pkg/hyperref}{\texttt{hyperref}} 宏包提供超链接支持。
-%
-%-------------------------------------------------------------------------------
+
 
 \newpage
 \section{排版文档}
-%-------------------------------------------------------------------------------
-%
-\begin{table}[h]
+
+\begin{table}[h!]
 	\centering
 	\begin{minipage}[t]{0.46\textwidth}
 		\centering
@@ -248,20 +239,18 @@
 
 \newpage
 \layout
-%
-%-------------------------------------------------------------------------------
+
 
 \newpage
 \section{排版公式}
-%-------------------------------------------------------------------------------
-%
+
 美国数学协会（American Mathematical Society）提供  \AmS 宏集以扩展 \LaTeX 公式排版，其核心是 \href{https://ctan.org/pkg/amsmath}{\texttt{amsmath}} 宏包，对多行公式的排版提供了有力的支持．
 此外，\href{https://ctan.org/pkg/amsfonts}{\texttt{amsfonts}} 宏包以及基于它的 \verb|amssymb| 宏包提供了丰富的数学符号；\href{https://ctan.org/pkg/amsthm}{\texttt{amsthm}} 宏包扩展了 \LaTeX 定理证明格式．
 
 \href{https://ctan.org/tex-archive/info/symbols/comprehensive/}{此文档}提供了符号列表，\href{http://detexify.kirelabs.org/classify.html}{此工具}提供了符号搜索．
 本节所述命令多用于 \LaTeX 数学模式，使用数学模式的方法有多种：
 
-\begin{table}[h]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{l p{6em} l}
 		\verb|$|{\color{gray}\verb|formula|}\verb|$|   && 行内公式（\TeX） \\
@@ -289,52 +278,55 @@
 		\verb|\end{equation}|                          && \\
 	\end{tabular}
 \end{table}
-%
-%-------------------------------------------------------------------------------
 
 \newpage
 \subsection{希腊字母}
-%-------------------------------------------------------------------------------
-%
-\begin{table}[h]
+
+\begin{table}[h!]
 	\centering
-	\begin{tabular}{c@{ }l c@{ }l c@{ }l c@{ }l}
+	\begin{tabular}{c@{ }l c@{ }l c@{ }l c@{ }l c@{ }l c@{ }l}
 		\hline
-		$A$        & \verb|A|        &               &                    & $\alpha$   & \verb|\alpha|   &               &                    \\
-		$B$        & \verb|B|        &               &                    & $\beta$    & \verb|\beta|    &               &                    \\
-		$\Gamma$   & \verb|\Gamma|   & $\varGamma$   & \verb|\varGamma|   & $\gamma$   & \verb|\gamma|   &               &                    \\
-		$\Delta$   & \verb|\Delta|   & $\varDelta$   & \verb|\varDelta|   & $\delta$   & \verb|\delta|   &               &                    \\
-		$E$        & \verb|E|        &               &                    & $\epsilon$ & \verb|\epsilon| & $\varepsilon$ & \verb|\varepsilon| \\
-		$Z$        & \verb|Z|        &               &                    & $\zeta$    & \verb|\zeta|    &               &                    \\
-		$H$        & \verb|H|        &               &                    & $\eta$     & \verb|\eta|     &               &                    \\
-		$\Theta$   & \verb|\Theta|   & $\varTheta$   & \verb|\varTheta|   & $\theta$   & \verb|\theta|   & $\vartheta$   & \verb|\vartheta|   \\
-		$I$        & \verb|I|        &               &                    & $\iota$    & \verb|\iota|    &               &                    \\
-		$K$        & \verb|K|        &               &                    & $\kappa$   & \verb|\kappa|   & $\varkappa$   & \verb|\varkappa|   \\
-		$\Lambda$  & \verb|\Lambda|  & $\varLambda$  & \verb|\varLambda|  & $\lambda$  & \verb|\lambda|  &               &                    \\
-		$M$        & \verb|M|        &               &                    & $\mu$      & \verb|\mu|      &               &                    \\
-		$N$        & \verb|N|        &               &                    & $\nu$      & \verb|\nu|      &               &                    \\
-		$\Xi$      & \verb|\Xi|      & $\varXi$      & \verb|\varXi|      & $\xi$      & \verb|\xi|      &               &                    \\
-		$O$        & \verb|O|        &               &                    & $o$        & \verb|o|        &               &                    \\
-		$\Pi$      & \verb|\Pi|      & $\varPi$      & \verb|\varPi|      & $\pi$      & \verb|\pi|      & $\varpi$      & \verb|\varpi|      \\
-		$P$        & \verb|P|        &               &                    & $\rho$     & \verb|\rho|     & $\varrho$     & \verb|\varrho|     \\
-		$\Sigma$   & \verb|\Sigma|   & $\varSigma$   & \verb|\varSigma|   & $\sigma$   & \verb|\sigma|   & $\varsigma$   & \verb|\varsigma|   \\
-		$T$        & \verb|T|        &               &                    & $\tau$     & \verb|\tau|     &               &                    \\
-		$\Upsilon$ & \verb|\Upsilon| & $\varUpsilon$ & \verb|\varUpsilon| & $\upsilon$ & \verb|\upsilon| &               &                    \\
-		$\Phi$     & \verb|\Phi|     & $\varPhi$     & \verb|\varPhi|     & $\phi$     & \verb|\phi|     & $\varphi$     & \verb|\varphi|     \\
-		$X$        & \verb|X|        &               &                    & $\chi$     & \verb|\chi|     &               &                    \\
-		$\Psi$     & \verb|\Psi|     & $\varPsi$     & \verb|\varPsi|     & $\psi$     & \verb|\psi|     &               &                    \\
-		$\Omega$   & \verb|\Omega|   & $\varOmega$   & \verb|\varOmega|   & $\omega$   & \verb|\omega|   &               &                    \\
-		           &                 &               &                    & $\digamma$ & \verb|\digamma| &               &                    \\
+		\multicolumn{2}{c}{\Unicode} & \multicolumn{4}{c}{\LaTeX{}} & \multicolumn{2}{c}{\Unicode} & \multicolumn{4}{c}{\LaTeX{}} \\
+		\hline
+		Α & \rrun{0391} &        $A$ & \verb|A|        &               &                    & α & \rrun{03B1} &   $\alpha$ & \verb|\alpha|   &               &                    \\
+		Β & \rrun{0392} &        $B$ & \verb|B|        &               &                    & β & \rrun{03B2} &    $\beta$ & \verb|\beta|    &               &                    \\
+		Γ & \rrun{0393} &   $\Gamma$ & \verb|\Gamma|   &   $\varGamma$ & \verb|\varGamma|   & γ & \rrun{03B3} &   $\gamma$ & \verb|\gamma|   &               &                    \\
+		Δ & \rrun{0394} &   $\Delta$ & \verb|\Delta|   &   $\varDelta$ & \verb|\varDelta|   & δ & \rrun{03B4} &   $\delta$ & \verb|\delta|   &               &                    \\
+		Ε & \rrun{0395} &        $E$ & \verb|E|        &               &                    & ε & \rrun{03B5} & $\epsilon$ & \verb|\epsilon| & $\varepsilon$ & \verb|\varepsilon| \\
+		Ζ & \rrun{0396} &        $Z$ & \verb|Z|        &               &                    & ζ & \rrun{03B6} &    $\zeta$ & \verb|\zeta|    &               &                    \\
+		Η & \rrun{0397} &        $H$ & \verb|H|        &               &                    & η & \rrun{03B7} &     $\eta$ & \verb|\eta|     &               &                    \\
+		Θ & \rrun{0398} &   $\Theta$ & \verb|\Theta|   &   $\varTheta$ & \verb|\varTheta|   & θ & \rrun{03B8} &   $\theta$ & \verb|\theta|   &   $\vartheta$ & \verb|\vartheta|   \\
+		Ι & \rrun{0399} &        $I$ & \verb|I|        &               &                    & ι & \rrun{03B9} &    $\iota$ & \verb|\iota|    &               &                    \\
+		Κ & \rrun{039A} &        $K$ & \verb|K|        &               &                    & κ & \rrun{03BA} &   $\kappa$ & \verb|\kappa|   &   $\varkappa$ & \verb|\varkappa|   \\
+		Λ & \rrun{039B} &  $\Lambda$ & \verb|\Lambda|  &  $\varLambda$ & \verb|\varLambda|  & λ & \rrun{03BB} &  $\lambda$ & \verb|\lambda|  &               &                    \\
+		Μ & \rrun{039C} &        $M$ & \verb|M|        &               &                    & μ & \rrun{03BC} &      $\mu$ & \verb|\mu|      &               &                    \\
+		Ν & \rrun{039D} &        $N$ & \verb|N|        &               &                    & ν & \rrun{03BD} &      $\nu$ & \verb|\nu|      &               &                    \\
+		Ξ & \rrun{039E} &      $\Xi$ & \verb|\Xi|      &      $\varXi$ & \verb|\varXi|      & ξ & \rrun{03BE} &      $\xi$ & \verb|\xi|      &               &                    \\
+		Ο & \rrun{039F} &        $O$ & \verb|O|        &               &                    & ο & \rrun{03BF} &        $o$ & \verb|o|        &               &                    \\
+		Π & \rrun{03A0} &      $\Pi$ & \verb|\Pi|      &      $\varPi$ & \verb|\varPi|      & π & \rrun{03C0} &      $\pi$ & \verb|\pi|      &      $\varpi$ & \verb|\varpi|      \\
+		Ρ & \rrun{03A1} &        $P$ & \verb|P|        &               &                    & ρ & \rrun{03C1} &     $\rho$ & \verb|\rho|     &     $\varrho$ & \verb|\varrho|     \\
+		Σ & \rrun{03A3} &   $\Sigma$ & \verb|\Sigma|   &   $\varSigma$ & \verb|\varSigma|   & σ & \rrun{03C2} &   $\sigma$ & \verb|\sigma|   &   $\varsigma$ & \verb|\varsigma|   \\
+		Τ & \rrun{03A4} &        $T$ & \verb|T|        &               &                    & τ & \rrun{03C3} &     $\tau$ & \verb|\tau|     &               &                    \\
+		Υ & \rrun{03A5} & $\Upsilon$ & \verb|\Upsilon| & $\varUpsilon$ & \verb|\varUpsilon| & υ & \rrun{03C4} & $\upsilon$ & \verb|\upsilon| &               &                    \\
+		Φ & \rrun{03A6} &     $\Phi$ & \verb|\Phi|     &     $\varPhi$ & \verb|\varPhi|     & φ & \rrun{03C5} &     $\phi$ & \verb|\phi|     &     $\varphi$ & \verb|\varphi|     \\
+		Χ & \rrun{03A7} &        $X$ & \verb|X|        &               &                    & χ & \rrun{03C6} &     $\chi$ & \verb|\chi|     &               &                    \\
+		Ψ & \rrun{03A8} &     $\Psi$ & \verb|\Psi|     & $\varPsi$     & \verb|\varPsi|     & ψ & \rrun{03C7} &     $\psi$ & \verb|\psi|     &               &                    \\
+		Ω & \rrun{03A9} &   $\Omega$ & \verb|\Omega|   & $\varOmega$   & \verb|\varOmega|   & ω & \rrun{03C8} &   $\omega$ & \verb|\omega|   &               &                    \\
+		Ͱ & \rrun{0370} &            &                 &               &                    & ͱ & \rrun{0371} &            &                 &               &                    \\
+		Ͳ & \rrun{0372} &            &                 &               &                    & ͳ & \rrun{0373} &            &                 &               &                    \\
+		Ͷ & \rrun{0376} &            &                 &               &                    & ͷ & \rrun{0377} &            &                 &               &                    \\
+		Ϙ & \rrun{03D8} &            &                 &               &                    & ϙ & \rrun{03D9} &            &                 &               &                    \\
+		Ϛ & \rrun{03DA} &            &                 &               &                    & ϛ & \rrun{03DB} &            &                 &               &                    \\
+		Ϝ & \rrun{03DC} &            &                 &               &                    & ϝ & \rrun{03DD} & $\digamma$ & \verb|\digamma| &               &                    \\
+		Ϟ & \rrun{03DE} &            &                 &               &                    & ϟ & \rrun{03DF} &            &                 &               &                    \\
+		Ϡ & \rrun{03E0} &            &                 &               &                    & ϡ & \rrun{03E1} &            &                 &               &                    \\
 		\hline
 	\end{tabular}
 \end{table}
-%
-%-------------------------------------------------------------------------------
 
 \newpage
 \subsection{拉丁字母}
-%-------------------------------------------------------------------------------
-%
+
 \begin{table}[th]
 	\centering
 	\renewcommand\arraystretch{0.99}
@@ -370,13 +362,9 @@
 	\end{tabular}
 \end{table}
 
-%
-%-------------------------------------------------------------------------------
-
 \newpage
 \subsection{数学样式}
-%-------------------------------------------------------------------------------
-%
+
 \begin{table}[h]
 	\centering
 	\begin{tabular}{l l l l}
@@ -394,16 +382,13 @@
 		\hline
 	\end{tabular}
 \end{table}
-%
-%-------------------------------------------------------------------------------
 
 \chapter{集合、映射和二元运算}
 
 \section{集合}
 
 \subsection{集合与元素间的关系}
-%-------------------------------------------------------------------------------
-%
+
 一般的，\emph{集合}（\href{http://mathworld.wolfram.com/Set.html}{Set}，简称\emph{集}）是指具有某种特定性质的事物的总体，组成这个集合的事物称为该集合的\emph{元素}（\href{http://mathworld.wolfram.com/Element.html}{Element}，简称\emph{元}）．
 通常用大写拉丁字母 $A$，$B$，$C$，$\cdots$ 表示集合，用小写拉丁字母 $a$，$b$，$c$，$\cdots$ 表示集合的元素．
 
@@ -428,12 +413,9 @@
 \[ S_1 = \{ e_1, e_2, \cdots, e_n \} \text{；} \]
 由具有某种性质 $P$ 的元素 $e$ 的全体组成的集合 $S_2$ 可表示为
 \[ S_2 = \{ e | e \text{具有性质} P \} \text{．} \]
-%
-%-------------------------------------------------------------------------------
 
 \subsection{集合与集合间的关系}
-%-------------------------------------------------------------------------------
-%
+
 如何集合 $V$ 的元素都是集合 $W$ 的元素，则称集合 $V$ 是集合 $W$ 的\emph{子集}（\href{http://mathworld.wolfram.com/Subset.html}{Subset}），记作 $V\subset{}W$（读作集合 $V$ \emph{包含于}集合 $W$）；
 或称集合 $W$ 是集合 $V$ 的\emph{超集}（\href{http://mathworld.wolfram.com/Superset.html}{Superset}），记作 $W\supset{}V$（读作集合 $W$ \emph{包含}集合 $V$）．
 
@@ -457,21 +439,14 @@
 
 不拥有任何元素的集合称为\emph{空集}（\href{http://mathworld.wolfram.com/EmptySet.html}{Empty Set}），记作 $\emptyset$，规定空集是任何集合的子集；
 在指定上下文中，拥有所有元素的集合称作\emph{全集}（\href{http://mathworld.wolfram.com/UniversalSet.html}{Universe}），全集通常用 $U$ 表示．
-%
-%-------------------------------------------------------------------------------
 
 \subsection{集合与集合间的运算}
-%-------------------------------------------------------------------------------
-%
-%
-%-------------------------------------------------------------------------------
 
 % 附录
 \appendix
 
-\chapter{参考书目}
-%-------------------------------------------------------------------------------
-%
+\chapter{参考文献}
+
 \begin{enumerate}
 	\item Wikibooks．LaTeX [M/OL]．\url{https://wikibooks.org/wiki/LaTeX}．
 	\item Tobias Oetiker，Hubert Partl，Irene Hyna，Elisabeth Schlegl．一份（不太）简短的 \LaTeXe 介绍 [M/OL]．C\TeX 小组，译．\newline
@@ -482,7 +457,5 @@
 	\item 同济大学数学系．高等数学[M]．第七版．北京：高等教育出版社，2014．
 	\item 同济大学数学系．高等数学[M]．第六版．北京：高等教育出版社，2007．
 \end{enumerate}
-%
-%-------------------------------------------------------------------------------
 
 \end{document}
