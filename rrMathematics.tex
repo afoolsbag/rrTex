@@ -11,22 +11,28 @@
 % 指定文档类
 \documentclass{ctexbook}
 
-% 导言区：调用宏包、全局设置
-%\usepackage{amsmath}  % 由 mathtools 替代
-\usepackage{amssymb}   % 数学符号支持
-%\usepackage{color}    % 由 xcolor 替代
-\usepackage{enumitem}  % 列表缩进支持
-\usepackage{latexsym}  % 数学符号支持
-\usepackage{mathtools} % 数学支持
-\usepackage{multirow}  % 纵向合并单元格
-\usepackage{syntonly}  % 快速语法检查支持
-\usepackage{ulem}      % 下划线支持
-\usepackage{xcolor}    % 色彩支持
+% 导言区
+%\usepackage{amsmath}                     % 由 mathtools 替代
+\usepackage{amssymb}                      % 数学符号支持
+%\usepackage{color}                       % 由 xcolor 替代
+\usepackage{enumitem}                     % 列表缩进支持
+\usepackage{latexsym}                     % 数学符号支持
+\usepackage{layout}                       % 布局展示支持
+\usepackage{mathtools}                    % 数学支持
+\usepackage{multirow}                     % 纵向合并单元格
+\usepackage{syntonly}                     % 快速语法检查支持
+\usepackage{ulem}                         % 下划线支持
+\usepackage[dvipsnames,svgnames]{xcolor}  % 色彩支持
 
-\usepackage{hyperref}  % 超链接支持，为减少冲突，将此宏包置于其它宏包之后引入
+\usepackage{hyperref}                     % 超链接支持，为减少冲突，将此宏包置于其它宏包之后引入
 
 \hypersetup{colorlinks=true, unicode=true}  %
 %\syntaxonly                                % 仅进行语法检查而不生成文档，加快编译速度
+
+% zhengrr's color card
+\newcommand{\rccard}[1]{
+	\fcolorbox{gray}{#1}{ } \textsl{#1}
+}
 
 % 指示文档内容
 \begin{document}
@@ -153,11 +159,11 @@
 		\verb|\tiny| & \verb|\scriptsize|       & \verb|\footnotesize|         & \verb|\small|  &                          & \verb|\normalsize| \\
 		\hline
 		{\tiny tiny} & {\scriptsize scriptsize} & {\footnotesize footnotesize} & {\small small} & {\normalsize normalsize} &                    \\
-		             &                          &                              &                & {\large large}           & \verb|\large|      \\
-		             &                          &                              &                & {\Large Large}           & \verb|\Large|      \\
-		             &                          &                              &                & {\LARGE LARGE}           & \verb|\LARGE|      \\
-		             &                          &                              &                & {\huge huge}             & \verb|\huge|       \\
-		             &                          &                              &                & {\Huge Huge}             & \verb|\Huge|       \\
+            &                          &                              &                & {\large large}           & \verb|\large|      \\
+            &                          &                              &                & {\Large Large}           & \verb|\Large|      \\
+            &                          &                              &                & {\LARGE LARGE}           & \verb|\LARGE|      \\
+            &                          &                              &                & {\huge huge}             & \verb|\huge|       \\
+            &                          &                              &                & {\Huge Huge}             & \verb|\Huge|       \\
 	\end{tabular}
 \end{table}
 %
@@ -171,16 +177,34 @@
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{l l l l}
-		\hline
-		\fcolorbox{black}{black}{ }    \verb|black|    & \fcolorbox{black}{red}{ }   \verb|red|   & \fcolorbox{black}{green}{ }     \verb|green|     & \fcolorbox{black}{blue}{ }   \verb|blue|   \\
-		\fcolorbox{black}{white}{ }    \verb|white|    & \fcolorbox{black}{cyan}{ }  \verb|cyan|  & \fcolorbox{black}{magenta}{ }   \verb|magenta|   & \fcolorbox{black}{yellow}{ } \verb|yellow| \\
-		\hline
-		\fcolorbox{black}{darkgray}{ } \verb|darkgray| & \fcolorbox{black}{gray}{ }  \verb|gray|  & \fcolorbox{black}{lightgray}{ } \verb|lightgray| &                                            \\
-		\fcolorbox{black}{brown}{ }    \verb|brown|    & \fcolorbox{black}{olive}{ } \verb|olive| & \fcolorbox{black}{orange}{ }    \verb|orange|    & \fcolorbox{black}{lime}{ }   \verb|lime|   \\
-		\fcolorbox{black}{purple}{ }   \verb|purple|   & \fcolorbox{black}{teal}{ }  \verb|teal|  & \fcolorbox{black}{violet}{ }    \verb|violet|    & \fcolorbox{black}{pink}{ }   \verb|pink|   \\
-		\hline
-	\end{tabular}
+	{
+		\slshape
+		\begin{tabular}{l l l l l}
+			\hline
+			\rccard{black}          & \rccard{red}         & \rccard{green}        & \rccard{blue}        &                         \\
+			\rccard{white}          & \rccard{cyan}        & \rccard{magenta}      & \rccard{yellow}      &                         \\
+			\hline
+			\rccard{darkgray}       & \rccard{gray}        & \rccard{lightgray}    &                      &                         \\
+			\rccard{brown}          & \rccard{olive}       & \rccard{orange}       & \rccard{lime}        &                         \\
+			\rccard{purple}         & \rccard{teal}        & \rccard{violet}       & \rccard{pink}        &                         \\
+			\hline
+			\rccard{Apricot}        & \rccard{Cyan}        & \rccard{Mahogany}     & \rccard{ProcessBlue} & \rccard{SpringGreen}    \\
+			\rccard{Aquamarine}     & \rccard{Dandelion}   & \rccard{Maroon}       & \rccard{Purple}      & \rccard{Tan}            \\
+			\rccard{Bittersweet}    & \rccard{DarkOrchid}  & \rccard{Melon}        & \rccard{RawSienna}   & \rccard{TealBlue}       \\
+			\rccard{Black}          & \rccard{Emerald}     & \rccard{MidnightBlue} & \rccard{Red}         & \rccard{Thistle}        \\
+			\rccard{Blue}           & \rccard{ForestGreen} & \rccard{Mulberry}     & \rccard{RedOrange}   & \rccard{Turquoise}      \\
+			\rccard{BlueGreen}      & \rccard{Fuchsia}     & \rccard{NavyBlue}     & \rccard{RedViolet}   & \rccard{Violet}         \\
+			\rccard{BlueViolet}     & \rccard{Goldenrod}   & \rccard{OliveGreen}   & \rccard{Rhodamine}   & \rccard{VioletRed}      \\
+			\rccard{BrickRed}       & \rccard{Gray}        & \rccard{Orange}       & \rccard{RoyalBlue}   & \rccard{White}          \\
+			\rccard{Brown}          & \rccard{Green}       & \rccard{OrangeRed}    & \rccard{RoyalPurple} & \rccard{WildStrawberry} \\
+			\rccard{BurntOrange}    & \rccard{GreenYellow} & \rccard{Orchid}       & \rccard{RubineRed}   & \rccard{Yellow}         \\
+			\rccard{CadetBlue}      & \rccard{JungleGreen} & \rccard{Peach}        & \rccard{Salmon}      & \rccard{YellowGreen}    \\
+			\rccard{CarnationPink}  & \rccard{Lavender}    & \rccard{Periwinkle}   & \rccard{SeaGreen}    & \rccard{YellowOrange}   \\
+			\rccard{Cerulean}       & \rccard{LimeGreen}   & \rccard{PineGreen}    & \rccard{Sepia}       &                         \\
+			\rccard{CornflowerBlue} & \rccard{Magenta}     & \rccard{Plum}         & \rccard{SkyBlue}     &                         \\
+			\hline
+		\end{tabular}
+	}
 \end{table}
 %
 %-------------------------------------------------------------------------------
@@ -194,24 +218,36 @@
 
 \newpage
 \section{排版文档}
-
-\subsection{章节和目录}
 %-------------------------------------------------------------------------------
 %
 \begin{table}[h]
 	\centering
-	\begin{tabular}{l l}
-		\hline
-		\verb|\chapter{|{\color{gray}\verb|title|}\verb|}|       & 章 \\
-		\verb|\section{|{\color{gray}\verb|title|}\verb|}|       & 节 \\
-		\verb|\subsection{|{\color{gray}\verb|title|}\verb|}|    & 小节 \\
-		\verb|\subsubsection{|{\color{gray}\verb|title|}\verb|}| & 小小节 \\
-		\verb|\paragraph{|{\color{gray}\verb|title|}\verb|}|     & 段 \\
-		\verb|\subparagraph{|{\color{gray}\verb|title|}\verb|}|  & 小段 \\
-		\verb|\tableofcontents|                                  & 目录 \\
-		\hline
-	\end{tabular}
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\begin{tabular}{l l}
+			\hline
+			\verb|\chapter{|{\color{gray}\verb|title|}\verb|}|       & 章 \\
+			\verb|\section{|{\color{gray}\verb|title|}\verb|}|       & 节 \\
+			\verb|\subsection{|{\color{gray}\verb|title|}\verb|}|    & 小节 \\
+			\verb|\subsubsection{|{\color{gray}\verb|title|}\verb|}| & 小小节 \\
+			\verb|\paragraph{|{\color{gray}\verb|title|}\verb|}|     & 段 \\
+			\verb|\subparagraph{|{\color{gray}\verb|title|}\verb|}|  & 小段 \\
+			\verb|\tableofcontents|                                  & 目录 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\qquad
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\begin{tabular}{l l}
+			\hline
+			\hline
+		\end{tabular}
+	\end{minipage}
 \end{table}
+
+\newpage
+\layout
 %
 %-------------------------------------------------------------------------------
 
@@ -229,35 +265,28 @@
 	\centering
 	\begin{tabular}{l p{6em} l}
 		\verb|$|{\color{gray}\verb|formula|}\verb|$|   && 行内公式（\TeX） \\
-		\hline
 		                                               && \\
 		\verb|\(|{\color{gray}\verb|formula|}\verb|\)| && 行内公式（\LaTeX） \\
-		\hline
 		                                               && \\
 		\verb|$$|                                      && \\
-		\verb|    |{\color{gray}\verb|formula|}        && \\
-		\verb|$$|                                      && 行间公式（\TeX） \\
-		\hline
+		\verb|    |{\color{gray}\verb|formula|}        && 行间公式（\TeX） \\
+		\verb|$$|                                      && \\
 		                                               && \\
 		\verb|\[|                                      && \\
-		\verb|    |{\color{gray}\verb|formula|}        && \\
-		\verb|\]|                                      && 无序号行间公式（\LaTeX） \\
-		\hline
+		\verb|    |{\color{gray}\verb|formula|}        && 无序号行间公式（\LaTeX） \\
+		\verb|\]|                                      && \\
 		                                               && \\
 		\verb|\begin{displaymath}|                     && \\
-		\verb|    |{\color{gray}\verb|formula|}        && \\
-		\verb|\end{displaymath}|                       && 无序号行间公式（\LaTeX） \\
-		\hline
+		\verb|    |{\color{gray}\verb|formula|}        && 无序号行间公式（\LaTeX） \\
+		\verb|\end{displaymath}|                       && \\
 		                                               && \\
 		\verb|\begin{equation*}|                       && \\
-		\verb|    |{\color{gray}\verb|formula|}        && \\
-		\verb|\end{equation*}|                         && 无序号行间公式（\AmS） \\
-		\hline
+		\verb|    |{\color{gray}\verb|formula|}        && 无序号行间公式（\AmS） \\
+		\verb|\end{equation*}|                         && \\
 		                                               && \\
 		\verb|\begin{equation}|                        && \\
-		\verb|    |{\color{gray}\verb|formula|}        && \\
-		\verb|\end{equation}|                          && 有序号行间公式（\LaTeX） \\
-		\hline
+		\verb|    |{\color{gray}\verb|formula|}        && 有序号行间公式（\LaTeX） \\
+		\verb|\end{equation}|                          && \\
 	\end{tabular}
 \end{table}
 %
@@ -340,6 +369,7 @@
 		\hline
 	\end{tabular}
 \end{table}
+
 %
 %-------------------------------------------------------------------------------
 
@@ -446,6 +476,7 @@
 	\item Wikibooks．LaTeX [M/OL]．\url{https://wikibooks.org/wiki/LaTeX}．
 	\item Tobias Oetiker，Hubert Partl，Irene Hyna，Elisabeth Schlegl．一份（不太）简短的 \LaTeXe 介绍 [M/OL]．C\TeX 小组，译．\newline
 	      \url{http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf}．
+	\item CTEX : OnlineDocuments [EB/OL]．\url{http://www.ctex.org/OnlineDocuments}．
 	\item 全国信息与文献标准化技术委员会．信息与文献　参考文献著录规则：GB/T 7714—2015 [S/OL]．北京：中国标准出版社，2015．\newline
 	      \url{http://www.scal.edu.cn/dxtsgxb/201906120155}．
 	\item 同济大学数学系．高等数学[M]．第七版．北京：高等教育出版社，2014．
