@@ -1,0 +1,58 @@
+\chapter{集合、映射和二元运算}
+
+\section{集合}
+
+\subsection{集合与元素间的关系}
+
+一般的，\emph{集合}（\href{http://mathworld.wolfram.com/Set.html}{Set}，简称\emph{集}）是指具有某种特定性质的事物的总体，组成这个集合的事物称为该集合的\emph{元素}（\href{http://mathworld.wolfram.com/Element.html}{Element}，简称\emph{元}）．
+通常用大写拉丁字母 $A$，$B$，$C$，$\cdots$ 表示集合，用小写拉丁字母 $a$，$b$，$c$，$\cdots$ 表示集合的元素．
+
+如果元素 $e$ 是集合 $S$ 的元素，就说元素 $e$ \emph{属于}集合 $S$（记作 $e\in{}S$）或集合 $S$ \emph{拥有}元素 $e$（记作 $S\ni{}e$）．
+如果元素 $e$ 不是集合 $S$ 的元素，就说元素 $e$ \emph{不属于}集合 $S$（记作 $e\not\in{}S$） 或集合 $S$ \emph{不拥有}元素 $e$（记作 $S\not\ni{}e$）．
+一个集合，若它只拥有限个元素，则称为\emph{有限集}；不是有限集的集合称为\emph{无限集}．
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l}
+		\hline
+		$e\in{}S$     & 元素 $e$ 属于集合 $S$   & \multirow{2}{*}{元素 $e$ 是集合 $S$ 的元素}   \\
+		$S\ni{}e$     & 集合 $S$ 拥有元素 $e$   &                                               \\
+		$e\not\in{}S$ & 元素 $e$ 不属于集合 $S$ & \multirow{2}{*}{元素 $e$ 不是集合 $S$ 的元素} \\
+		$S\not\ni{}e$ & 集合 $S$ 不拥有元素 $e$ &                                               \\
+		\hline
+	\end{tabular}
+\end{table}
+
+通常使用\emph{列举法}、\emph{描述法}或\emph{文氏图}（\href{http://mathworld.wolfram.com/VennDiagram.html}{Venn Diagram}）表示集合：
+例如，由元素 $e_1$，$e_2$，$\cdots$，$e_n$ 组成的集合 $S_1$ 可表示为
+\[ S_1 = \{ e_1, e_2, \cdots, e_n \} \text{；} \]
+由具有某种性质 $P$ 的元素 $e$ 的全体组成的集合 $S_2$ 可表示为
+\[ S_2 = \{ e | e \text{具有性质} P \} \text{．} \]
+
+\subsection{集合与集合间的关系}
+
+如何集合 $V$ 的元素都是集合 $W$ 的元素，则称集合 $V$ 是集合 $W$ 的\emph{子集}（\href{http://mathworld.wolfram.com/Subset.html}{Subset}），记作 $V\subset{}W$（读作集合 $V$ \emph{包含于}集合 $W$）；
+或称集合 $W$ 是集合 $V$ 的\emph{超集}（\href{http://mathworld.wolfram.com/Superset.html}{Superset}），记作 $W\supset{}V$（读作集合 $W$ \emph{包含}集合 $V$）．
+
+如果集合 $S_1$ 的元素都是集合 $S_2$ 的元素，且集合 $S_2$ 的元素也都是集合 $S_1$ 的元素，即集合 $S_1$ 与集合 $S_2$ 互相包含，则称集合 $S_1$ 与集合 $S_2$ \emph{相等}，记作 $S_1=S_2$（读作集合 $S_1$ \emph{等于} $S_2$）．
+
+如果集合 $V$ 包含于集合 $W$，且它们不相等，则称集合 $V$ 是集合 $W$ 的\emph{真子集}（\href{http://mathworld.wolfram.com/ProperSubset.html}{Proper Subset}），记作 $V\subsetneqq{}W$（读作集合 $V$ \emph{真包含于}集合 $W$）；
+或称集合 $W$ 是集合 $V$ 的\emph{真超集}（\href{http://mathworld.wolfram.com/ProperSuperset.html}{Proper Superset}），记作 $W\supsetneqq{}V$（读作集合 $W$ \emph{真包含}集合 $V$）．
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l}
+		\hline
+		$V\subset{}W$     & 集合 $V$ 包含于集合 $W$   & 集合 $V$ 是集合 $W$ 的子集   \\
+		$W\supset{}V$     & 集合 $W$ 包含集合 $V$     & 集合 $W$ 是集合 $V$ 的超集   \\
+		$S_1=S_2$         & 集合 $S_1$ 等于集合 $S_2$ & 集合 $S_1$ 与集合 $S_2$ 相等 \\
+		$V\subsetneqq{}W$ & 集合 $V$ 真包含于集合 $W$ & 集合 $V$ 是集合 $W$ 的子集   \\
+		$W\supsetneqq{}V$ & 集合 $W$ 真包含集合 $V$   & 集合 $W$ 是集合 $V$ 的超集   \\
+		\hline
+	\end{tabular}
+\end{table}
+
+不拥有任何元素的集合称为\emph{空集}（\href{http://mathworld.wolfram.com/EmptySet.html}{Empty Set}），记作 $\emptyset$，规定空集是任何集合的子集；
+在指定上下文中，拥有所有元素的集合称作\emph{全集}（\href{http://mathworld.wolfram.com/UniversalSet.html}{Universe}），全集通常用 $U$ 表示．
+
+\subsection{集合与集合间的运算}

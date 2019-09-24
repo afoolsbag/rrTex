@@ -1,0 +1,64 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = zh_CN
+%% !TeX program = XeLaTeX
+
+\documentclass{ctexbook}
+% 导言区开始
+
+% 布局
+\usepackage[margin=1in]{geometry}
+\usepackage{layout}
+
+% 文本支持
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ulem}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+
+% 数学支持
+\usepackage{amssymb}
+%\usepackage{latexsym}
+\usepackage{mathtools}
+
+% 参考文献
+\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+\addbibresource[location=local]{rrMathematics.bib}
+
+% 超链接
+\usepackage[colorlinks=true,linkcolor=blue,anchorcolor=violet,citecolor=magenta,unicode=true]{hyperref}
+
+% 快速语法检查
+\usepackage{syntonly}
+%\syntaxonly
+
+% 自定义命令
+\newcommand{\colorlabel}[1]{\fcolorbox{gray}{#1}{ } \small{}\slshape{}#1}
+\newcommand{\unicode}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily{}\bfseries{}U+#1}}}
+
+\providecommand{\Unicode}{\ttfamily{}Unicode\textregistered{}}
+
+\begin{document}
+% 正文区开始
+
+% 标题页
+\title{rrMathematics}
+\author{zhengrr}
+\date{}
+\maketitle
+
+% 目录页
+\tableofcontents
+
+% 章节
+\include{LaTeX2e}
+\include{集合、映射和二元运算}
+
+% 附录
+\appendix
+
+% 参考文献
+\nocite{*}
+\printbibliography[heading=bibliography,title=参考文献]
+
+\end{document}
