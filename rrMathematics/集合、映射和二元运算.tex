@@ -2,57 +2,127 @@
 
 \section{集合}
 
-\subsection{集合与元素间的关系}
+\subsection{集合概念}
 
 一般的，\emph{集合}（\href{http://mathworld.wolfram.com/Set.html}{Set}，简称\emph{集}）是指具有某种特定性质的事物的总体，组成这个集合的事物称为该集合的\emph{元素}（\href{http://mathworld.wolfram.com/Element.html}{Element}，简称\emph{元}）．
 通常用大写拉丁字母 $A$，$B$，$C$，$\cdots$ 表示集合，用小写拉丁字母 $a$，$b$，$c$，$\cdots$ 表示集合的元素．
 
-如果元素 $e$ 是集合 $S$ 的元素，就说元素 $e$ \emph{属于}集合 $S$（记作 $e\in{}S$）或集合 $S$ \emph{拥有}元素 $e$（记作 $S\ni{}e$）．
-如果元素 $e$ 不是集合 $S$ 的元素，就说元素 $e$ \emph{不属于}集合 $S$（记作 $e\not\in{}S$） 或集合 $S$ \emph{不拥有}元素 $e$（记作 $S\not\ni{}e$）．
+如果元素 $e$ 是集合 $S$ 的元素，就说``元素 $e$ \emph{属于}集合 $S$''（记作 $e\in{}S$）或``集合 $S$ \emph{拥有}元素 $e$''（记作 $S\ni{}e$）．
+如果元素 $e$ 不是集合 $S$ 的元素，就说``元素 $e$ \emph{不属于}集合 $S$''（记作 $e\not\in{}S$）或``集合 $S$ \emph{不拥有}元素 $e$''（记作 $S\not\ni{}e$）．
 一个集合，若它只拥有限个元素，则称为\emph{有限集}；不是有限集的集合称为\emph{无限集}．
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{l l l}
-		\hline
-		$e\in{}S$     & 元素 $e$ 属于集合 $S$   & \multirow{2}{*}{元素 $e$ 是集合 $S$ 的元素}   \\
-		$S\ni{}e$     & 集合 $S$ 拥有元素 $e$   &                                               \\
-		$e\not\in{}S$ & 元素 $e$ 不属于集合 $S$ & \multirow{2}{*}{元素 $e$ 不是集合 $S$ 的元素} \\
-		$S\not\ni{}e$ & 集合 $S$ 不拥有元素 $e$ &                                               \\
-		\hline
-	\end{tabular}
-\end{table}
-
 通常使用\emph{列举法}、\emph{描述法}或\emph{文氏图}（\href{http://mathworld.wolfram.com/VennDiagram.html}{Venn Diagram}）表示集合：
-例如，由元素 $e_1$，$e_2$，$\cdots$，$e_n$ 组成的集合 $S_1$ 可表示为
-\[ S_1 = \{ e_1, e_2, \cdots, e_n \} \text{；} \]
-由具有某种性质 $P$ 的元素 $e$ 的全体组成的集合 $S_2$ 可表示为
-\[ S_2 = \{ e | e \text{具有性质} P \} \text{．} \]
+例如，由元素 $a_1$，$a_2$，$\cdots$，$a_n$ 组成的集合 $A$ 可表示为
+\[
+A = \{ a_1, a_2, \cdots, a_n \} \text{；}
+\]
+由具有某种性质 $P$ 的元素 $b$ 的全体组成的集合 $B$ 可表示为
+\[
+B = \{ b | b \text{具有性质} P \} \text{．}
+\]
 
-\subsection{集合与集合间的关系}
+\subsection{集合间的关系}
 
-如何集合 $V$ 的元素都是集合 $W$ 的元素，则称集合 $V$ 是集合 $W$ 的\emph{子集}（\href{http://mathworld.wolfram.com/Subset.html}{Subset}），记作 $V\subset{}W$（读作集合 $V$ \emph{包含于}集合 $W$）；
-或称集合 $W$ 是集合 $V$ 的\emph{超集}（\href{http://mathworld.wolfram.com/Superset.html}{Superset}），记作 $W\supset{}V$（读作集合 $W$ \emph{包含}集合 $V$）．
+如果集合 $S$ 的元素都是集合 $L$ 的元素，则称集合 $S$ 是集合 $L$ 的\emph{子集}（\href{http://mathworld.wolfram.com/Subset.html}{Subset}），记作 $S\subset{}L$（读作``集合 $S$ \emph{包含于}集合 $L$''）；
+或称集合 $L$ 是集合 $S$ 的\emph{超集}（\href{http://mathworld.wolfram.com/Superset.html}{Superset}），记作 $L\supset{}S$（读作``集合 $L$ \emph{包含}集合 $S$''）．
 
-如果集合 $S_1$ 的元素都是集合 $S_2$ 的元素，且集合 $S_2$ 的元素也都是集合 $S_1$ 的元素，即集合 $S_1$ 与集合 $S_2$ 互相包含，则称集合 $S_1$ 与集合 $S_2$ \emph{相等}，记作 $S_1=S_2$（读作集合 $S_1$ \emph{等于} $S_2$）．
+如果集合 $A$ 的元素都是集合 $B$ 的元素，且集合 $B$ 的元素也都是集合 $A$ 的元素，即集合 $A$ 与集合 $B$ 互相包含，则称集合 $A$ 与集合 $B$ \emph{相等}，记作 $A=B$（读作``集合 $A$ \emph{等于}集合 $B$''）．
 
-如果集合 $V$ 包含于集合 $W$，且它们不相等，则称集合 $V$ 是集合 $W$ 的\emph{真子集}（\href{http://mathworld.wolfram.com/ProperSubset.html}{Proper Subset}），记作 $V\subsetneqq{}W$（读作集合 $V$ \emph{真包含于}集合 $W$）；
-或称集合 $W$ 是集合 $V$ 的\emph{真超集}（\href{http://mathworld.wolfram.com/ProperSuperset.html}{Proper Superset}），记作 $W\supsetneqq{}V$（读作集合 $W$ \emph{真包含}集合 $V$）．
+如果集合 $S$ 包含于集合 $L$，且它们不相等，则称集合 $S$ 是集合 $L$ 的\emph{真子集}（\href{http://mathworld.wolfram.com/ProperSubset.html}{Proper Subset}），记作 $S\subsetneqq{}L$（读作``集合 $S$ \emph{真包含于}集合 $L$''）；
+或称集合 $L$ 是集合 $S$ 的\emph{真超集}（\href{http://mathworld.wolfram.com/ProperSuperset.html}{Proper Superset}），记作 $L\supsetneqq{}S$（读作``集合 $L$ \emph{真包含}集合 $S$''）．
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{l l l}
-		\hline
-		$V\subset{}W$     & 集合 $V$ 包含于集合 $W$   & 集合 $V$ 是集合 $W$ 的子集   \\
-		$W\supset{}V$     & 集合 $W$ 包含集合 $V$     & 集合 $W$ 是集合 $V$ 的超集   \\
-		$S_1=S_2$         & 集合 $S_1$ 等于集合 $S_2$ & 集合 $S_1$ 与集合 $S_2$ 相等 \\
-		$V\subsetneqq{}W$ & 集合 $V$ 真包含于集合 $W$ & 集合 $V$ 是集合 $W$ 的子集   \\
-		$W\supsetneqq{}V$ & 集合 $W$ 真包含集合 $V$   & 集合 $W$ 是集合 $V$ 的超集   \\
-		\hline
-	\end{tabular}
-\end{table}
+不拥有任何元素的集合称为\emph{空集}（\href{http://mathworld.wolfram.com/EmptySet.html}{Empty Set}），记作 $\varnothing$，规定空集是任何集合的子集．
+有时，在指定上下文中可以将所有研究对象组成一个集合 $U$，所研究的其它集合都是集合 $U$ 的子集，此时我们称集合 $U$ 为\emph{全集}（\href{http://mathworld.wolfram.com/UniversalSet.html}{Universe}）．
 
-不拥有任何元素的集合称为\emph{空集}（\href{http://mathworld.wolfram.com/EmptySet.html}{Empty Set}），记作 $\emptyset$，规定空集是任何集合的子集；
-在指定上下文中，拥有所有元素的集合称作\emph{全集}（\href{http://mathworld.wolfram.com/UniversalSet.html}{Universe}），全集通常用 $U$ 表示．
+\subsection{并集、交集、差集、对称差集、补集和余集}
 
-\subsection{集合与集合间的运算}
+由所有属于集合 $A$ 或者属于集合 $B$ 的元素组成的集合，称为集合 $A$ 与集合 $B$ 的\emph{并集}（\href{http://mathworld.wolfram.com/Union.html}{Union}，简称\emph{并}），记作 $A\cup{}B$，该运算也称为\emph{并}（\href{http://mathworld.wolfram.com/Cup.html}{Cup}），即
+\[
+A \cup B = \{ e | e \in A \text{或} e \in B \} \text{；}
+\]
+由所有既属于集合 $A$ 又属于集合 $B$ 的元素组成的集合，称为集合 $A$ 与集合 $B$ 的\emph{交集}（\href{http://mathworld.wolfram.com/Intersection.html}{Intersection}，简称\emph{交}），记作 $A\cap{}B$，该运算也称为\emph{交}（\href{http://mathworld.wolfram.com/Cap.html}{Cap}），即
+\[
+A \cap B = \{ e | e \in A \text{且} e \in B \} \text{；}
+\]
+由所有属于集合 $A$ 但不属于集合 $B$ 的元素组成的集合，称为集合 $A$ 与集合 $B$ 的\emph{差集}（\href{http://mathworld.wolfram.com/SetDifference.html}{Set Difference}，简称\emph{差}），记作 $A\setminus{}B$，该运算称为\emph{减}（\href{http://mathworld.wolfram.com/SetMinus.html}{Set Minus}），即
+\[
+A \setminus B = \{ e | e \in A \text{且} e \not\in B \} \text{；}
+\]
+由所有属于集合 $A$ 或者属于集合 $B$ 但不同时属于两集合的元素组成的集合，称为集合 $A$ 与集合 $B$ 的\emph{对称差集}（\href{http://mathworld.wolfram.com/SymmetricDifference.html}{Symmetric Difference}），记作 $A\ominus{}B$，即
+\[
+A \ominus B = (A \cup B) \setminus (A \cap B) \text{；}
+\]
+设有超集 $L$ 包含子集 $S$，则称超集 $L$ 与子集 $S$ 的差集，为超集 $L$ 中子集 $S$ 的\emph{补集}（\href{http://mathworld.wolfram.com/ComplementSet.html}{Complement Set}），记作 $\complement_LS$，即
+\[
+\begin{aligned}
+\text{存在超集$L$和其子集$S$，} \complement_LS & = L \setminus S \\
+                                     & = \{ e | e \in L \text{且} e \not\in S \} \text{；}
+\end{aligned}
+\]
+特别的，若存在全集 $U$，则称全集 $U$ 中子集 $S$ 的补集，为集合 $S$ 的\emph{余集}，记作 $S^c$，即
+\[
+\begin{aligned}
+\text{存在全集$U$，} S^c &= \complement_US \\
+                         &= U \setminus S \\
+                         &= \{ e | e \in U \text{且} e \not\in S \} \text{．}
+\end{aligned}
+\]
+
+\subsection{笛卡尔乘积}
+
+由所有``属于集合 $A$ 的任一元素 $a$ 和属于集合 $B$ 的任一元素 $b$ 组成的有序对 $(a, b)$'' 组成的集合，称为集合 $A$ 与集合 $B$ 的\emph{笛卡尔乘积}（\href{http://mathworld.wolfram.com/CartesianProduct.html}{Cartesian Product}），记作 $A\times{}B$，即
+\[
+A \times B = \{ (a, b) | a \in A \text{且} b \in B \} \text{．}
+\]
+
+\newpage
+\section{映射}
+
+\subsection{映射概念}
+
+设集合 $X$ 和集合 $Y$ 是两个非空集合，对于集合 $X$ 中任一元素 $x$，依照某种对应规律 $f$，恒有集合 $Y$ 中唯一确定元素 $y$ 与之对应，则称对应规律 $f$ 为一个从集合 $X$ 到集合 $Y$ 的映射（\href{http://mathworld.wolfram.com/Map.html}{Map}），记作
+\[
+\begin{aligned}
+                f&: X \to Y \\
+\text{或} \quad f&: x \mapsto y \text{，}
+\end{aligned}
+\]
+其中：
+\begin{itemize}
+	\item 集合 $X$ 称为映射 $f$ 的\emph{定义域}（\href{http://mathworld.wolfram.com/Domain.html}{Domain}），记作 $D_f$；
+	\item 集合 $Y$ 称为映射 $f$ 的\emph{陪域}（\href{http://mathworld.wolfram.com/Codomain.html}{Codomain}），记作 $C_f$；
+	\item 元素 $x$ 称为在映射 $f$ 下元素 $y$ 的一个\emph{原像}（\href{http://mathworld.wolfram.com/Preimage.html}{Preimage}）；
+	\item 元素 $y=f(x)$ 称为在映射 $f$ 下元素 $x$ 的\emph{像}（\href{http://mathworld.wolfram.com/Image.html}{Image}）；
+	\item 集合 $f(X)=\{f(x)|x\in{}X\}$ 称为映射 $f$ 的\emph{值域}（\href{http://mathworld.wolfram.com/Range.html}{Range}），记作 $R_f$．
+\end{itemize}
+
+若对于定义域 $D_f$ 中任意原像 $d_1$、$d_2$ 不等，对应的像 $f(d_1)$、$f(d_2)$ 恒不等，则称映射 $f$ 是\emph{单射}（\href{http://mathworld.wolfram.com/Injection.html}{Injection}）；
+若对于陪域 $C_f$ 中任一元素 $c$，都存在原像 $d$ 使得 $f(d)=c$，则称映射 $f$ 是\emph{满射}（\href{http://mathworld.wolfram.com/Surjection.html}{Surjection}）；
+若映射 $f$ 既是单射又是满射，则称其为\emph{双射}（\href{http://mathworld.wolfram.com/Bijection.html}{Bijection}）．
+
+\subsection{逆映射}
+
+设映射 $f$ 是一个从定义域 $D_f$ 到陪域 $C_f$ 的单射，则对于值域 $R_f$ 中任一像 $r$ 都存在唯一原像 $d$ 与之对应，于是可以定义一个从值域 $R_f$ 到定义域 $D_f$ 的新映射
+\[
+f^{-1}: r \mapsto d \text{，}
+\]
+这个映射称为映射 $f$ 的\emph{逆映射}（\href{http://mathworld.wolfram.com/InverseFunction.html}{Inverse Function}），其定义域 $D_{f^{-1}}=R_f$，值域 $R_{f^{-1}}=D_f$．
+
+\subsection{复合映射}
+
+设有两映射 $g=X\to{}Y_S$ 和 $f=Y_L\to{}Z$ 且 $Y_S\subset{}Y_L$，则对于集合 $X$ 中任一元素 $x$ 恒有集合 $Z$ 中唯一确定元素 $z=f(g(x))$ 与之对应，于是可以定义一个从集合 $X$ 到集合 $Z$ 的新映射
+\[
+f \circ g: x \mapsto f(g(x)) \text{，}
+\]
+这个映射称为映射 $g$ 和映射 $f$ 构成的\emph{复合映射}（\href{http://mathworld.wolfram.com/Composition.html}{Composition}）．
+
+\newpage
+\section{二元运算}
+
+从集合 $S$ 的笛卡尔平方 $S\times{}S$ 到集合 $S$ 的映射 $f:S\times{}S\to{}S$，称作集合 $S$ 上的\emph{二元运算}（\href{http://mathworld.wolfram.com/BinaryOperation.html}{Binary Operation}）；
+若元素 $a$、$b$ 是集合 $S$ 的元素，通常将二元运算的像 $f(a, b)$ 记作 $a f b$．
+
+%设集合 $S$ 上的二元运算 $*:S\times{}S\to{}S$，元素 $e_0$、$e_1$ 是集合 $S$ 的元素：
+%\begin{itemize}
+%	\item 若 $\forall a \in S \implies e_0 * a = e_0$，则称元素 $e_0$ 为二元运算 $*$ 的左零元；
+%\end{itemize}

@@ -32,9 +32,21 @@
 \usepackage{syntonly}
 %\syntaxonly
 
-% 自定义命令
-\newcommand{\colorlabel}[1]{\fcolorbox{gray}{#1}{ } \small{}\slshape{}#1}
-\newcommand{\unicode}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily{}\bfseries{}U+#1}}}
+% color label
+\newcommand{\clbl}[1]{\fcolorbox{gray}{#1}{ } {\slshape\small#1}}
+% command without arguments
+\newcommand{\cmdw}[1]{{\ttfamily\textbackslash#1}}
+% command with optional arguments
+\newcommand{\cmdo}[2]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}
+% command with mandatory arguments
+\newcommand{\cmdm}[2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}
+% command with both arguments
+\newcommand{\cmdb}[3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}
+% package
+\newcommand{\pkg}[1]{\textsf{#1}\cite{#1}}
+% unicode number
+\newcommand{\unin}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}
+
 
 \providecommand{\Unicode}{\ttfamily{}Unicode\textregistered{}}
 
@@ -44,7 +56,7 @@
 % 标题页
 \title{rrMathematics}
 \author{zhengrr}
-\date{}
+\date{\today}
 \maketitle
 
 % 目录页
