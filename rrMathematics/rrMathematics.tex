@@ -18,8 +18,9 @@
 
 % 数学支持
 \usepackage{amssymb}
-%\usepackage{latexsym}
+\usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{unicode-math}
 
 % 参考文献
 \usepackage[backend=biber,style=gb7714-2015]{biblatex}
@@ -32,8 +33,10 @@
 \usepackage{syntonly}
 %\syntaxonly
 
+% 文本命令
+
 % color label
-\newcommand{\clbl}[1]{\fcolorbox{gray}{#1}{ } {\slshape\small#1}}
+\newcommand{\clbl}[1]{\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}
 % command without arguments
 \newcommand{\cmdw}[1]{{\ttfamily\textbackslash#1}}
 % command with optional arguments
@@ -42,13 +45,19 @@
 \newcommand{\cmdm}[2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}
 % command with both arguments
 \newcommand{\cmdb}[3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}
-% package
-\newcommand{\pkg}[1]{\textsf{#1}\cite{#1}}
+% package cite
+\newcommand{\pkgc}[1]{\textsf{#1}\cite{#1}}
 % unicode number
 \newcommand{\unin}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}
-
-
+% Unicode
 \providecommand{\Unicode}{\ttfamily{}Unicode\textregistered{}}
+
+% 数学命令
+
+% hat note
+\newcommand{\hatn}[2]{\overset{\text{\footnotesize{}#2}}{#1}}
+% logic xor
+\providecommand{\lxor}{\bar{\lor}}
 
 \begin{document}
 % 正文区开始
@@ -64,6 +73,7 @@
 
 % 章节
 \include{LaTeX2e}
+\include{基础}
 \include{集合、映射和二元运算}
 
 % 附录

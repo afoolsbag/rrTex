@@ -1,0 +1,105 @@
+\chapter{基础}
+
+本章主要参照\citeauthor{WangFt2001}先生的\citetitle{WangFt2001}\cite{WangFt2001}．
+
+\section{历史概述}
+
+人类数学大体上经历了三个大的发展阶段：以几何数学为主体的初等数学阶段，以分析数学为主体的古典数学阶段，以集论数学为主体的现代数学阶段．
+
+\section{逻辑准备}
+
+\subsection{命题演算初步}
+
+命题演算可看成一种形式语言 $\mathcal{L}=\mathcal{L}(\mathrm{A}, \Omega, \mathrm{Z}, \mathrm{I})$，其中：
+\begin{itemize}
+	\item 集 $\mathrm{A}$ 是由命题变元所组成的可数无限集，命题变元通常用 $p$、$q$、$r$、$\cdots$ 表示；
+	\item 集 $\Omega$ 是由命题连接词所组成的集，
+	\begin{itemize}
+		\item $\Omega_0 = \{ \hatn{\top}{真}, \hatn{\bot}{假} \}$，
+		\item $\Omega_1 = \{ \hatn{\lnot}{否定词} \}$，
+		\item $\Omega_2 = \{ \hatn{\land}{合取词}, \hatn{\lor}{析取词}, \hatn{\implies}{蕴含词}, \hatn{\iff}{等价词} \}$；
+	\end{itemize}
+	\item 集 $\mathrm{Z}$ 是规则所组成的集，
+	\begin{enumerate}
+		\item 每个命题变元都是一条公式（叫做简单公式）．
+		\item 若 $p$ 和 $q$ 是公式，则 $\lnot{}p$、$p\land{}q$、$p\lor{}q$、$p\implies{}q$、$p\iff{}q$都是公式．
+	\end{enumerate}
+	\item 集 $\mathrm{I}$ 是公设所组成的集．
+\end{itemize}
+
+\newpage
+\subsubsection{命题连接词}
+
+\begin{itemize}
+	\item $\hatn{\lnot{}p}{``非$p$''}$ 表示``公式 $p$ 的否定''
+	\item $\hatn{p\land{}q}{``$p$与$q$''}$ 表示``公式 $p$ 和公式 $q$ 的同取''
+	\item $\hatn{p\lor{}q}{``$p$或$q$''}$ 表示``公式 $p$ 和公式 $q$ 的析取''，连接词 $\lor$ 表示``兼或''，另有连接词 $\lxor$ 表示``异或''
+	\item 蕴含式 $\hatn{p\implies{}q}{``前件$p$蕴含后件$q$''}$ 表示``如果前件 $p$ 为真，那么后件 $q$ 为真''
+	\item $\hatn{p\iff{}q}{``$p$等价于$q$''}$ 表示``公式 $p$ 为真当且仅当公式 $q$ 也为真''
+\end{itemize}
+
+
+\begin{table}[h!]
+	\centering
+	\begin{minipage}[t]{0.30\textwidth}
+		\centering
+		\begin{tabular}{c | c}
+			$p$    & $\lnot{}p$ \\
+			\hline
+			$\top$ & $\bot$     \\
+			$\bot$ & $\top$     \\
+		\end{tabular}
+	\end{minipage}
+	\quad
+	\begin{minipage}[t]{0.62\textwidth}
+		\begin{tabular}{c c | c c c c c}
+			$p$    & $q$    & $p\land{}q$ & $p\lor{}q$ & $p\lxor{}q$ & $p\implies{}q$ & $p\iff{}q$ \\
+			\hline
+			$\top$ & $\top$ & $\top$      & $\top$     & $\bot$      & $\top$         & $\top$     \\
+			$\top$ & $\bot$ & $\bot$      & $\top$     & $\top$      & $\bot$         & $\bot$     \\
+			$\bot$ & $\top$ & $\bot$      & $\top$     & $\top$      & $\top$         & $\bot$     \\
+			$\bot$ & $\bot$ & $\bot$      & $\bot$     & $\bot$      & $\top$         & $\top$     \\
+		\end{tabular}
+	\end{minipage}
+\end{table}
+
+
+\subsection{欧几里得（Euclid）几何}
+
+\begin{description}
+	\item[公理1] 等于同量的量相等．
+	\item[公理2] 等量加等量，其和相等．
+	\item[公理3] 等量减等量，其差相等．
+	\item[公理4] 互相重合的一定相等．
+	\item[公理5] 整体大于部分．
+	\item[公设1] 从每一点到另一点可引直线．
+	\item[公设2] 每条直线都可以无限延长．
+	\item[公设3] 以任意点为中心可作半径等于任意长的圆．
+	\item[公设4] 凡直角都相等．
+	\item[公设5] （平行公设）同平面两直线与第三直线相交，若其中一侧的两个内角之和小于二直角，则该两直线必在这一侧相交．
+\end{description}
+
+\subsection{皮亚诺（Peano）自然数理论}
+
+\subsubsection{皮亚诺公理（APeano xioms）}
+
+\newtheorem{PA}{PA}
+\begin{PA}\label{PA:1}
+	零是个自然数．
+\end{PA}
+\begin{PA}\label{PA:2}
+	每个自然数都有一个后继（也是自然数）．
+\end{PA}
+\begin{PA}\label{PA:3}
+	零不是任何自然数的后继．
+\end{PA}
+\begin{PA}\label{PA:4}
+	不同的自然数有不同的后继．
+\end{PA}
+\begin{PA}[归纳公理]\label{PA:5}
+	设由自然数组成的某个集合含有零，且每当该集含有某个自然数时便也同时含有这个数的后继，那么该集定含有全部自然数．
+\end{PA}
+
+\subsection{ZFC集论}
+
+策梅洛（E.Zermelo）、弗兰克尔（A.A.Fraenkel）、选择公理（Axiom of Choice）
