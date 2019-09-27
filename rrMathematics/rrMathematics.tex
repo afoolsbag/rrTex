@@ -6,7 +6,7 @@
 % 导言区开始
 
 % 布局
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in,marginparwidth=60pt]{geometry}
 \usepackage{layout}
 
 % 文本支持
@@ -33,7 +33,8 @@
 \usepackage{syntonly}
 %\syntaxonly
 
-% 文本命令
+%-------------------------------------------------------------------------------
+% 自定义文本命令
 
 % color label
 \newcommand{\clbl}[1]{\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}
@@ -45,6 +46,21 @@
 \newcommand{\cmdm}[2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}
 % command with both arguments
 \newcommand{\cmdb}[3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}
+
+% 边注
+% Margin Note
+\newcommand{\rMarginNote}[1]{\marginpar[\footnotesize#1]{\footnotesize#1}}
+% Margin Note & Hypertext Reference
+\newcommand{\rMarginNoteHref}[2]{\marginpar[\footnotesize\href{#1}{#2}]{\footnotesize\href{#1}{#2}}}
+
+% 术语
+% Term
+\newcommand{\rTerm}[2]{\emph{#1}\rMarginNote{#2}}
+% Term & Hypertext Reference
+\newcommand{\rTermHref}[3]{\emph{#1}\rMarginNoteHref{#2}{#3}}
+% Term & Wolfram Math World Reference
+\newcommand{\rTermWref}[3]{\rTermHref{#1}{http://mathworld.wolfram.com/#2.html}{#3}}
+
 % package cite
 \newcommand{\pkgc}[1]{\textsf{#1}\cite{#1}}
 % unicode number
@@ -52,12 +68,11 @@
 % Unicode
 \providecommand{\Unicode}{\ttfamily{}Unicode\textregistered{}}
 
-% 数学命令
+%-------------------------------------------------------------------------------
+% 自定义数学命令
 
 % hat note
 \newcommand{\hatn}[2]{\overset{\text{\footnotesize{}#2}}{#1}}
-% logic xor
-\providecommand{\lxor}{\bar{\lor}}
 
 \begin{document}
 % 正文区开始

@@ -1,6 +1,6 @@
 \chapter{基础}
 
-本章主要参照\citeauthor{WangFt2001}先生的\citetitle{WangFt2001}\cite{WangFt2001}．
+本章主要参照\citeauthor{WangFt2001}先生的\citetitle{WangFt2001}\footfullcite{WangFt2001}\cite{WangFt2001}．
 
 \section{历史概述}
 
@@ -8,98 +8,90 @@
 
 \section{逻辑准备}
 
+
+\rTermWref{形式语言}{FormalLanguage}{formal language}可以由\rTermWref{形式文法}{Grammar}{formal grammar}描述，形式文法是一个四元组$\mathrm{G}=(\mathrm{N},\Sigma,\mathrm{P},\mathrm{S})$，其中：
+\begin{itemize}
+	\item \rTerm{非终结符}{nonterminal symbols}有限集$\mathrm{N}$；
+	\item \rTerm{终结符}{terminal symbols}有限集$\Sigma$，且$\mathrm{N}\cap\Sigma=\emptyset$；集$\mathrm{V}=\mathrm{N}\cup\Sigma$称为\rTerm{词汇表}{vocabulary}；
+	\item \rTerm{产生式规则}{production rules}有限集$\mathrm{P}$；
+	\item \rTerm{开始符号}{start symbol}$\mathrm{S}$，且$\mathrm{S}\in\mathrm{N}$．
+\end{itemize}
+
 \subsection{命题演算初步}
 
-命题演算可看成一种形式语言 $\mathcal{L}=\mathcal{L}(\mathrm{A}, \Omega, \mathrm{Z}, \mathrm{I})$，其中：
+\rTermWref{命题演算}{PropositionalCalculus}{propositional calculus}是一个\rTerm{形式系统}{formal system}$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
 \begin{itemize}
-	\item 集 $\mathrm{A}$ 是由命题变元所组成的可数无限集，命题变元通常用 $p$、$q$、$r$、$\cdots$ 表示；
-	\item 集 $\Omega$ 是由命题连接词所组成的集，
-	\begin{itemize}
-		\item $\Omega_0 = \{ \hatn{\top}{真}, \hatn{\bot}{假} \}$，
-		\item $\Omega_1 = \{ \hatn{\lnot}{否定词} \}$，
-		\item $\Omega_2 = \{ \hatn{\land}{合取词}, \hatn{\lor}{析取词}, \hatn{\implies}{蕴含词}, \hatn{\iff}{等价词} \}$；
-	\end{itemize}
-	\item 集 $\mathrm{Z}$ 是规则所组成的集，
-	\begin{enumerate}
-		\item 每个命题变元都是一条公式（叫做简单公式）．
-		\item 若 $p$ 和 $q$ 是公式，则 $\lnot{}p$、$p\land{}q$、$p\lor{}q$、$p\implies{}q$、$p\iff{}q$都是公式．
-	\end{enumerate}
-	\item 集 $\mathrm{I}$ 是公设所组成的集．
+	\item \rTerm{命题变元}{propositional variables}集$\hatn{\mathrm{A}}{``alpha''}=\{p,q,r,\cdots\}$；
+	\item \rTerm{逻辑连接词}{logical connectives}集
+	      $\hatn{\Omega}{``omega''} = \{ \hatn{\top}{真}, \hatn{\bot}{假} \} \cup \{ \hatn{\lnot}{否定词} \} \cup \{ \hatn{\land}{合取词}, \hatn{\lor}{析取词}, \hatn{\rightarrow}{蕴含词}, \hatn{\leftrightarrow}{等价词} \} \cup \cdots$；
+	\item \rTerm{推理规则}{inference rules}集
+	      $\hatn{\mathrm{Z}}{``zeta''} = \begin{cases}
+	           \text{每个命题变元都是} \mathcal{L} \text{的公式（下简称``公式''）；} \\
+	           \text{若} p \text{和} q \text{是公式，则} \lnot{}p \text{、} p\land{}q \text{、} p\lor{}q \text{、} p\rightarrow{}q \text{、} p\leftrightarrow{}q \text{也都是公式；} \\
+	           \text{除外都不是公式．} \\
+	       \end{cases}$
+	\item \rTerm{公理}{axioms}集$\hatn{\mathrm{I}}{``iota''}$．
 \end{itemize}
 
-\newpage
-\subsubsection{命题连接词}
-
-\begin{itemize}
-	\item $\hatn{\lnot{}p}{``非$p$''}$ 表示``公式 $p$ 的否定''
-	\item $\hatn{p\land{}q}{``$p$与$q$''}$ 表示``公式 $p$ 和公式 $q$ 的同取''
-	\item $\hatn{p\lor{}q}{``$p$或$q$''}$ 表示``公式 $p$ 和公式 $q$ 的析取''，连接词 $\lor$ 表示``兼或''，另有连接词 $\lxor$ 表示``异或''
-	\item 蕴含式 $\hatn{p\implies{}q}{``前件$p$蕴含后件$q$''}$ 表示``如果前件 $p$ 为真，那么后件 $q$ 为真''
-	\item $\hatn{p\iff{}q}{``$p$等价于$q$''}$ 表示``公式 $p$ 为真当且仅当公式 $q$ 也为真''
-\end{itemize}
-
+\subsubsection{逻辑连接词}
 
 \begin{table}[h!]
 	\centering
-	\begin{minipage}[t]{0.30\textwidth}
-		\centering
-		\begin{tabular}{c | c}
-			$p$    & $\lnot{}p$ \\
-			\hline
-			$\top$ & $\bot$     \\
-			$\bot$ & $\top$     \\
-		\end{tabular}
-	\end{minipage}
-	\quad
-	\begin{minipage}[t]{0.62\textwidth}
-		\begin{tabular}{c c | c c c c c}
-			$p$    & $q$    & $p\land{}q$ & $p\lor{}q$ & $p\lxor{}q$ & $p\implies{}q$ & $p\iff{}q$ \\
-			\hline
-			$\top$ & $\top$ & $\top$      & $\top$     & $\bot$      & $\top$         & $\top$     \\
-			$\top$ & $\bot$ & $\bot$      & $\top$     & $\top$      & $\bot$         & $\bot$     \\
-			$\bot$ & $\top$ & $\bot$      & $\top$     & $\top$      & $\top$         & $\bot$     \\
-			$\bot$ & $\bot$ & $\bot$      & $\bot$     & $\bot$      & $\top$         & $\top$     \\
-		\end{tabular}
-	\end{minipage}
+	\newcommand{\T}{\color{blue}$\top$}
+	\newcommand{\F}{\color{red}$\bot$}
+	\begin{tabular}{c c c c c c c c l}
+		\multicolumn{4}{c}{等价公式} & \multicolumn{4}{c}{真值表} & 读法 \\
+		\hline
+		\multicolumn{4}{c}{$p$\qquad}                                                                      & \F & \F & \T & \T & \\
+		\multicolumn{4}{c}{\qquad$q$}                                                                      & \F & \T & \F & \T & \\
+		\hline
+		\multicolumn{4}{c}{$\top$}                                                                         & \T & \T & \T & \T & ``永真'' \\
+		$p\uparrow{}q$        & $\lnot{}p\leftarrow{}q$ &  $p\rightarrow\lnot{}q$ & $\lnot{}p\lor\lnot{}q$ & \T & \T & \T & \F & ``与非'' \\
+		$p\rightarrow{}q$     &&&& \T & \T & \F & \T & ``公式$p$蕴含公式$q$'' \\
+		\multicolumn{4}{c}{$\lnot{}p$}                                                                     & \T & \T & \F & \F & ``非公式$p$'' \\
+		$p\leftarrow{}q$      &&&& \T & \F & \T & \T & ``反蕴含'' \\
+		\multicolumn{4}{c}{$\lnot{}q$}                                                                     & \T & \F & \T & \F & ``非公式$q$'' \\
+		$p\leftrightarrow{}q$ &&&& \T & \F & \F & \T & ``公式$p$等价于公式$q$'' \\
+		$p\downarrow{}q$      &&&& \T & \F & \F & \F & ``或非'' \\
+		$p\lor{}q$            &&&& \F & \T & \T & \T & ``析取'' \\
+		$p\oplus{}q$          &&&& \F & \T & \T & \F & ``公式$p$异或公式$q$'' \\
+		\multicolumn{4}{c}{$q$}                                                                            & \F & \T & \F & \T & ``公式$q$'' \\
+		$p\nleftarrow{}q$     &&&& \F & \T & \F & \F & ``反非蕴含'' \\
+		\multicolumn{4}{c}{$p$}                                                                            & \F & \F & \T & \T & ``公式$p$'' \\
+		$p\nrightarrow{}q$    &&&& \F & \F & \T & \F & ``非蕴含'' \\
+		$p\land{}q$           &&&& \F & \F & \F & \T & ``公式$p$与公式$q$'' \\
+		\multicolumn{4}{c}{$\bot$}                                                                         & \F & \F & \F & \F & ``永假'' \\
+	\end{tabular}
 \end{table}
 
+\begin{itemize}
+	\item 否定式 $\hatn{\lnot{}p}{``非公式$p$''}$：当公式$p$为$\top$时否定式为$\bot$，当公式$p$为$\bot$时否定式为$\top$；
+	\item 合取式 $\hatn{p\land{}q}{``公式$p$与公式$q$''}$：当公式$p$和$q$全部为$\top$时合取式为$\top$，否则合取式为$\bot$；
+	\item 析取式 $\hatn{p\lor{}q}{``公式$p$或公式$q$''}$：当公式$p$和$q$存在为$\top$时析取式为$\top$，否则析取式为$\bot$；
+	\item 蕴含式 $\hatn{p\rightarrow{}q}{``前件$p$蕴含后件$q$''}$：当前件$p$为$\top$而后件$q$为$\bot$时蕴含式为$\bot$，否则蕴含式为$\top$；
+	\item 等价式 $\hatn{p\leftrightarrow{}q}{``公式$p$等价于公式$q$''}$：当公式$p$和$q$真值相同时等价式为$\top$，否则等价式为$\bot$．
+\end{itemize}
 
-\subsection{欧几里得（Euclid）几何}
+\subsubsection{永真式}
 
-\begin{description}
-	\item[公理1] 等于同量的量相等．
-	\item[公理2] 等量加等量，其和相等．
-	\item[公理3] 等量减等量，其差相等．
-	\item[公理4] 互相重合的一定相等．
-	\item[公理5] 整体大于部分．
-	\item[公设1] 从每一点到另一点可引直线．
-	\item[公设2] 每条直线都可以无限延长．
-	\item[公设3] 以任意点为中心可作半径等于任意长的圆．
-	\item[公设4] 凡直角都相等．
-	\item[公设5] （平行公设）同平面两直线与第三直线相交，若其中一侧的两个内角之和小于二直角，则该两直线必在这一侧相交．
-\end{description}
+\[ p \rightarrow p                                                                                 \text{，} \tag{同一律} \]
+\[ \lnot{}p \lor p                                                                                 \text{，} \tag{排中律} \]
+\[ \lnot(\lnot{}p \land p)                                                                         \text{，} \tag{矛盾律} \]
+\[ \lnot\lnot{}p \leftrightarrow p                                                                 \text{，} \tag{双重否定律} \]
+\[ (p \land q) \leftrightarrow (q \land p)                                                         \text{，} \tag{合取交换律} \]
+\[ ((p \land q) \land r) \leftrightarrow (p \land (q \land r))                                     \text{，} \tag{合取结合律} \]
+\[ (p \land (q \lor r)) \leftrightarrow ((p \land q) \lor (p \land r))                             \text{，} \tag{分配律} \]
+\[ \lnot(p \land q) \leftrightarrow (\lnot{}p \lor \lnot{}q)                                       \text{，} \tag{德·摩根律} \]
+\[ (p \lor q) \leftrightarrow (q \lor p)                                                           \text{，} \tag{析取交换律} \]
+\[ ((p \lor q) \lor r) \leftrightarrow (p \lor (q \lor r))                                         \text{，} \tag{析取结合律} \]
+\[ (p \lor (q \land r)) \leftrightarrow ((p \lor q) \land (p \lor r))                              \text{，} \tag{分配律} \]
+\[ \lnot(p \lor q) \leftrightarrow (\lnot{}p \land \lnot{}q)                                       \text{，} \tag{德·摩根律} \]
+\[ \lnot{}p \rightarrow (p \rightarrow q)                                                          \text{，} \tag{否定前件律} \]
+\[ q \rightarrow (p \rightarrow q)                                                                 \text{，} \tag{肯定后件律} \]
+\[ (p \rightarrow (q \rightarrow r)) \rightarrow ((p \rightarrow q) \rightarrow (p \rightarrow r)) \text{，} \tag{蕴含词分配律} \]
+\[ (\lnot{}p \rightarrow \lnot{}q) \rightarrow (q \rightarrow p)                                   \text{，} \tag{换位律} \]
+\[ (\lnot{}p \rightarrow p) \rightarrow p                                                          \text{，} \tag{否定肯定律} \]
+\[ (p \rightarrow q) \rightarrow ((q \rightarrow r) \rightarrow (p \rightarrow r))                 \text{．} \tag{假设三段论} \]
 
-\subsection{皮亚诺（Peano）自然数理论}
+\subsection{谓词演算简介}
 
-\subsubsection{皮亚诺公理（APeano xioms）}
-
-\newtheorem{PA}{PA}
-\begin{PA}\label{PA:1}
-	零是个自然数．
-\end{PA}
-\begin{PA}\label{PA:2}
-	每个自然数都有一个后继（也是自然数）．
-\end{PA}
-\begin{PA}\label{PA:3}
-	零不是任何自然数的后继．
-\end{PA}
-\begin{PA}\label{PA:4}
-	不同的自然数有不同的后继．
-\end{PA}
-\begin{PA}[归纳公理]\label{PA:5}
-	设由自然数组成的某个集合含有零，且每当该集含有某个自然数时便也同时含有这个数的后继，那么该集定含有全部自然数．
-\end{PA}
-
-\subsection{ZFC集论}
-
-策梅洛（E.Zermelo）、弗兰克尔（A.A.Fraenkel）、选择公理（Axiom of Choice）
