@@ -8,16 +8,16 @@
 	\centering
 	\begin{tabular}{c l l}
 		\hline
-		\#             & \verb|\#|             & 井号 \\
-		\$             & \verb|\$|             & 美刀符 \\
-		\%             & \verb|\%|             & 百分号 \\
-		\&             & \verb|\&|             & 和号 \\
-		\textbackslash & \verb|\textbackslash| & 反斜线 \\
-		\^{}           & \verb|\^{}|           & 脱字符 \\
-		\_             & \verb|\_|             & 下划线 \\
+		\#             & \verb|\#|             & 井号     \\
+		\$             & \verb|\$|             & 美刀符   \\
+		\%             & \verb|\%|             & 百分号   \\
+		\&             & \verb|\&|             & 和号     \\
+		\textbackslash & \verb|\textbackslash| & 反斜线   \\
+		\^{}           & \verb|\^{}|           & 脱字符   \\
+		\_             & \verb|\_|             & 下划线   \\
 		\{             & \verb|\{|             & 左花括号 \\
 		\}             & \verb|\}|             & 右花括号 \\
-		\~{}           & \verb|\~{}|           & 波浪号 \\
+		\~{}           & \verb|\~{}|           & 波浪号   \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -36,7 +36,7 @@
 		\P         & \verb|\P|         & 段落符 \\
 		\S         & \verb|\S|         & 分节符 \\
 		\copyright & \verb|\copyright| & 版权符 \\
-		\dag       & \verb|\dag|       & 剑标 \\
+		\dag       & \verb|\dag|       & 剑标   \\
 		\ddag      & \verb|\ddag|      & 双剑标 \\
 		\dots      & \verb|\dots|      & 省略号 \\
 		\pounds    & \verb|\pounds|    & 英镑符 \\
@@ -50,22 +50,22 @@
 	\centering
 	\begin{tabular}{l l l l}
 		\hline
-		\textrm{roman}           & \cmdm{textrm}{text}     & \cmdw{rmfamily}   & 罗马体（衬线字体） \\
-		\textsf{sans serif}      & \cmdm{textsf}{text}     & \cmdw{sffamily}   & 无衬线字体 \\
-		\texttt{typewriter}      & \cmdm{texttt}{text}     & \cmdw{ttfamily}   & 等宽字体 \\
+		\textrm{roman}           & \rCmdM{textrm}{text}     & \rCmdW{rmfamily}   & 罗马体（衬线字体） \\
+		\textsf{sans serif}      & \rCmdM{textsf}{text}     & \rCmdW{sffamily}   & 无衬线字体         \\
+		\texttt{typewriter}      & \rCmdM{texttt}{text}     & \rCmdW{ttfamily}   & 等宽字体           \\
 		\hline
-		\textbf{bold face}       & \cmdm{textbf}{text}     & \cmdw{bfseries}   & 粗体 \\
-		\textmd{medium}          & \cmdm{textmd}{text}     & \cmdw{mdseries}   & 中等粗细 \\
+		\textbf{bold face}       & \rCmdM{textbf}{text}     & \rCmdW{bfseries}   & 粗体               \\
+		\textmd{medium}          & \rCmdM{textmd}{text}     & \rCmdW{mdseries}   & 中等粗细           \\
 		\hline
-		\textit{italic}          & \cmdm{textit}{text}     & \cmdw{itshape}    & 意大利斜体 \\
-		\textsl{slanted}         & \cmdm{textsl}{text}     & \cmdw{slshape}    & 倾斜体 \\
-		\textsc{Small Caps}      & \cmdm{textsc}{text}     & \cmdw{scshape}    & 小写字母大写 \\
-		\textup{upright}         & \cmdm{textup}{text}     & \cmdw{upshape}    & 直立体 \\
+		\textit{italic}          & \rCmdM{textit}{text}     & \rCmdW{itshape}    & 意大利斜体         \\
+		\textsl{slanted}         & \rCmdM{textsl}{text}     & \rCmdW{slshape}    & 倾斜体             \\
+		\textsc{Small Caps}      & \rCmdM{textsc}{text}     & \rCmdW{scshape}    & 小写字母大写       \\
+		\textup{upright}         & \rCmdM{textup}{text}     & \rCmdW{upshape}    & 直立体             \\
 		\hline
-		\emph{emphasized}        & \cmdm{emph}{text}       & \cmdw{em}         & 强调（默认为斜体） \\
-		\textnormal{normal font} & \cmdm{textnormal}{text} & \cmdw{normalfont} & 默认字体 \\
-		\uline{underlined}       & \cmdm{uline}{text}      &                   & 下划线 \\
-		\underline{underlined}   & \cmdm{underline}{text}  &                   & 下划线 \\
+		\emph{emphasized}        & \rCmdM{emph}{text}       & \rCmdW{em}         & 强调（默认为斜体） \\
+		\textnormal{normal font} & \rCmdM{textnormal}{text} & \rCmdW{normalfont} & 默认字体           \\
+		\uline{underlined}       & \rCmdM{uline}{text}      &                    & 下划线             \\
+		\underline{underlined}   & \rCmdM{underline}{text}  &                    & 下划线             \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -75,37 +75,37 @@
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c c c c c c}
-		\cmdw{tiny}              & \cmdw{scriptsize}        & \cmdw{footnotesize}          & \cmdw{small}   & \cmdw{normalsize}        &              \\
+		\rCmdW{tiny}             & \rCmdW{scriptsize}       & \rCmdW{footnotesize}         & \rCmdW{small}  & \rCmdW{normalsize}       &              \\
 		\hline
 		{\tiny tiny}             & {\scriptsize scriptsize} & {\footnotesize footnotesize} & {\small small} & {\normalsize normalsize} &              \\
 		{\normalsize normalsize} & {\large large}           & {\Large Large}               & {\LARGE LARGE} & {\huge huge}             & {\Huge Huge} \\
 		\hline
-		\cmdw{normalsize}        & \cmdw{large}             & \cmdw{Large}                 & \cmdw{LARGE}   & \cmdw{huge}              & \cmdw{Huge}  \\
+		\rCmdW{normalsize}       & \rCmdW{large}            & \rCmdW{Large}                & \rCmdW{LARGE}  & \rCmdW{huge}             & \rCmdW{Huge} \\
 	\end{tabular}
 \end{table}
 
 \subsection{文本颜色}
 
-依赖 \pkgc{xcolor} 宏包提供颜色支持：
+依赖 \rPkgCite{xcolor} 宏包提供颜色支持：
 
-\subsubsection{\pkgc{color} 宏包颜色}
+\subsubsection{\rPkgCite{color} 宏包颜色}
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l l l l}
-		\clbl{black} & \clbl{red}  & \clbl{green}   & \clbl{blue}   \\
-		\clbl{white} & \clbl{cyan} & \clbl{magenta} & \clbl{yellow} \\
+		\rColorLbl{black} & \rColorLbl{red}  & \rColorLbl{green}   & \rColorLbl{blue}   \\
+		\rColorLbl{white} & \rColorLbl{cyan} & \rColorLbl{magenta} & \rColorLbl{yellow} \\
 	\end{tabular}
 \end{table}
 
-\subsubsection{\pkgc{xcolor} 宏包颜色}
+\subsubsection{\rPkgCite{xcolor} 宏包颜色}
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l l l l}
-		\clbl{darkgray} & \clbl{gray}  & \clbl{lightgray} &             \\
-		\clbl{brown}    & \clbl{olive} & \clbl{orange}    & \clbl{lime} \\
-		\clbl{purple}   & \clbl{teal}  & \clbl{violet}    & \clbl{pink} \\
+		\rColorLbl{darkgray} & \rColorLbl{gray}  & \rColorLbl{lightgray} &                  \\
+		\rColorLbl{brown}    & \rColorLbl{olive} & \rColorLbl{orange}    & \rColorLbl{lime} \\
+		\rColorLbl{purple}   & \rColorLbl{teal}  & \rColorLbl{violet}    & \rColorLbl{pink} \\
 	\end{tabular}
 \end{table}
 
@@ -113,559 +113,559 @@
 
 \begin{multicols}{5}
 	\noindent
-	\clbl{Apricot}        \\
-	\clbl{Aquamarine}     \\
-	\clbl{Bittersweet}    \\
-	\clbl{Black}          \\
-	\clbl{Blue}           \\
-	\clbl{BlueGreen}      \\
-	\clbl{BlueViolet}     \\
-	\clbl{BrickRed}       \\
-	\clbl{Brown}          \\
-	\clbl{BurntOrange}    \\
-	\clbl{CadetBlue}      \\
-	\clbl{CarnationPink}  \\
-	\clbl{Cerulean}       \\
-	\clbl{CornflowerBlue} \\
-	\clbl{Cyan}           \\
-	\clbl{Dandelion}      \\
-	\clbl{DarkOrchid}     \\
-	\clbl{Emerald}        \\
-	\clbl{ForestGreen}    \\
-	\clbl{Fuchsia}        \\
-	\clbl{Goldenrod}      \\
-	\clbl{Gray}           \\
-	\clbl{Green}          \\
-	\clbl{GreenYellow}    \\
-	\clbl{JungleGreen}    \\
-	\clbl{Lavender}       \\
-	\clbl{LimeGreen}      \\
-	\clbl{Magenta}        \\
-	\clbl{Mahogany}       \\
-	\clbl{Maroon}         \\
-	\clbl{Melon}          \\
-	\clbl{MidnightBlue}   \\
-	\clbl{Mulberry}       \\
-	\clbl{NavyBlue}       \\
-	\clbl{OliveGreen}     \\
-	\clbl{Orange}         \\
-	\clbl{OrangeRed}      \\
-	\clbl{Orchid}         \\
-	\clbl{Peach}          \\
-	\clbl{Periwinkle}     \\
-	\clbl{PineGreen}      \\
-	\clbl{Plum}           \\
-	\clbl{ProcessBlue}    \\
-	\clbl{Purple}         \\
-	\clbl{RawSienna}      \\
-	\clbl{Red}            \\
-	\clbl{RedOrange}      \\
-	\clbl{RedViolet}      \\
-	\clbl{Rhodamine}      \\
-	\clbl{RoyalBlue}      \\
-	\clbl{RoyalPurple}    \\
-	\clbl{RubineRed}      \\
-	\clbl{Salmon}         \\
-	\clbl{SeaGreen}       \\
-	\clbl{Sepia}          \\
-	\clbl{SkyBlue}        \\
-	\clbl{SpringGreen}    \\
-	\clbl{Tan}            \\
-	\clbl{TealBlue}       \\
-	\clbl{Thistle}        \\
-	\clbl{Turquoise}      \\
-	\clbl{Violet}         \\
-	\clbl{VioletRed}      \\
-	\clbl{White}          \\
-	\clbl{WildStrawberry} \\
-	\clbl{Yellow}         \\
-	\clbl{YellowGreen}    \\
-	\clbl{YellowOrange}   \\
+	\rColorLbl{Apricot}        \\
+	\rColorLbl{Aquamarine}     \\
+	\rColorLbl{Bittersweet}    \\
+	\rColorLbl{Black}          \\
+	\rColorLbl{Blue}           \\
+	\rColorLbl{BlueGreen}      \\
+	\rColorLbl{BlueViolet}     \\
+	\rColorLbl{BrickRed}       \\
+	\rColorLbl{Brown}          \\
+	\rColorLbl{BurntOrange}    \\
+	\rColorLbl{CadetBlue}      \\
+	\rColorLbl{CarnationPink}  \\
+	\rColorLbl{Cerulean}       \\
+	\rColorLbl{CornflowerBlue} \\
+	\rColorLbl{Cyan}           \\
+	\rColorLbl{Dandelion}      \\
+	\rColorLbl{DarkOrchid}     \\
+	\rColorLbl{Emerald}        \\
+	\rColorLbl{ForestGreen}    \\
+	\rColorLbl{Fuchsia}        \\
+	\rColorLbl{Goldenrod}      \\
+	\rColorLbl{Gray}           \\
+	\rColorLbl{Green}          \\
+	\rColorLbl{GreenYellow}    \\
+	\rColorLbl{JungleGreen}    \\
+	\rColorLbl{Lavender}       \\
+	\rColorLbl{LimeGreen}      \\
+	\rColorLbl{Magenta}        \\
+	\rColorLbl{Mahogany}       \\
+	\rColorLbl{Maroon}         \\
+	\rColorLbl{Melon}          \\
+	\rColorLbl{MidnightBlue}   \\
+	\rColorLbl{Mulberry}       \\
+	\rColorLbl{NavyBlue}       \\
+	\rColorLbl{OliveGreen}     \\
+	\rColorLbl{Orange}         \\
+	\rColorLbl{OrangeRed}      \\
+	\rColorLbl{Orchid}         \\
+	\rColorLbl{Peach}          \\
+	\rColorLbl{Periwinkle}     \\
+	\rColorLbl{PineGreen}      \\
+	\rColorLbl{Plum}           \\
+	\rColorLbl{ProcessBlue}    \\
+	\rColorLbl{Purple}         \\
+	\rColorLbl{RawSienna}      \\
+	\rColorLbl{Red}            \\
+	\rColorLbl{RedOrange}      \\
+	\rColorLbl{RedViolet}      \\
+	\rColorLbl{Rhodamine}      \\
+	\rColorLbl{RoyalBlue}      \\
+	\rColorLbl{RoyalPurple}    \\
+	\rColorLbl{RubineRed}      \\
+	\rColorLbl{Salmon}         \\
+	\rColorLbl{SeaGreen}       \\
+	\rColorLbl{Sepia}          \\
+	\rColorLbl{SkyBlue}        \\
+	\rColorLbl{SpringGreen}    \\
+	\rColorLbl{Tan}            \\
+	\rColorLbl{TealBlue}       \\
+	\rColorLbl{Thistle}        \\
+	\rColorLbl{Turquoise}      \\
+	\rColorLbl{Violet}         \\
+	\rColorLbl{VioletRed}      \\
+	\rColorLbl{White}          \\
+	\rColorLbl{WildStrawberry} \\
+	\rColorLbl{Yellow}         \\
+	\rColorLbl{YellowGreen}    \\
+	\rColorLbl{YellowOrange}   \\
 \end{multicols}
 
 \subsubsection{\texttt{svgnames} 选项颜色}
 
 \begin{multicols}{4}
 	\noindent
-	\clbl{AliceBlue}            \\
-	\clbl{AntiqueWhite}         \\
-	\clbl{Aqua}                 \\
-	\clbl{Aquamarine}           \\
-	\clbl{Azure}                \\
-	\clbl{Beige}                \\
-	\clbl{Bisque}               \\
-	\clbl{Black}                \\
-	\clbl{BlanchedAlmond}       \\  
-	\clbl{Blue}                 \\
-	\clbl{BlueViolet}           \\
-	\clbl{Brown}                \\
-	\clbl{BurlyWood}            \\
-	\clbl{CadetBlue}            \\
-	\clbl{Chartreuse}           \\
-	\clbl{Chocolate}            \\
-	\clbl{Coral}                \\
-	\clbl{CornflowerBlue}       \\
-	\clbl{Cornsilk}             \\
-	\clbl{Crimson}              \\
-	\clbl{Cyan}                 \\
-	\clbl{DarkBlue}             \\
-	\clbl{DarkCyan}             \\
-	\clbl{DarkGoldenrod}        \\
-	\clbl{DarkGray}             \\
-	\clbl{DarkGreen}            \\
-	\clbl{DarkGrey}             \\
-	\clbl{DarkKhaki}            \\
-	\clbl{DarkMagenta}          \\
-	\clbl{DarkOliveGreen}       \\
-	\clbl{DarkOrange}           \\
-	\clbl{DarkOrchid}           \\
-	\clbl{DarkRed}              \\
-	\clbl{DarkSalmon}           \\
-	\clbl{DarkSeaGreen}         \\
-	\clbl{DarkSlateBlue}        \\
-	\clbl{DarkSlateGray}        \\
-	\clbl{DarkSlateGrey}        \\
-	\clbl{DarkTurquoise}        \\
-	\clbl{DarkViolet}           \\
-	\clbl{DeepPink}             \\
-	\clbl{DeepSkyBlue}          \\
-	\clbl{DimGray}              \\
-	\clbl{DimGrey}              \\
-	\clbl{DodgerBlue}           \\
-	\clbl{FireBrick}            \\
-	\clbl{FloralWhite}          \\
-	\clbl{ForestGreen}          \\
-	\clbl{Fuchsia}              \\
-	\clbl{Gainsboro}            \\
-	\clbl{GhostWhite}           \\
-	\clbl{Gold}                 \\
-	\clbl{Goldenrod}            \\
-	\clbl{Gray}                 \\
-	\clbl{Green}                \\
-	\clbl{GreenYellow}          \\
-	\clbl{Grey}                 \\
-	\clbl{Honeydew}             \\
-	\clbl{HotPink}              \\
-	\clbl{IndianRed}            \\
-	\clbl{Indigo}               \\
-	\clbl{Ivory}                \\
-	\clbl{Khaki}                \\
-	\clbl{Lavender}             \\
-	\clbl{LavenderBlush}        \\
-	\clbl{LawnGreen}            \\
-	\clbl{LemonChiffon}         \\
-	\clbl{LightBlue}            \\
-	\clbl{LightCoral}           \\
-	\clbl{LightCyan}            \\
-	\clbl{LightGoldenrod}       \\
-	\clbl{LightGoldenrodYellow} \\
-	\clbl{LightGray}            \\
-	\clbl{LightGreen}           \\
-	\clbl{LightGrey}            \\
-	\clbl{LightPink}            \\
-	\clbl{LightSalmon}          \\
-	\clbl{LightSeaGreen}        \\
-	\clbl{LightSkyBlue}         \\
-	\clbl{LightSlateBlue}       \\
-	\clbl{LightSlateGray}       \\
-	\clbl{LightSlateGrey}       \\
-	\clbl{LightSteelBlue}       \\
-	\clbl{LightYellow}          \\
-	\clbl{Lime}                 \\
-	\clbl{LimeGreen}            \\
-	\clbl{Linen}                \\
-	\clbl{Magenta}              \\
-	\clbl{Maroon}               \\
-	\clbl{MediumAquamarine}     \\
-	\clbl{MediumBlue}           \\
-	\clbl{MediumOrchid}         \\
-	\clbl{MediumPurple}         \\
-	\clbl{MediumSeaGreen}       \\
-	\clbl{MediumSlateBlue}      \\
-	\clbl{MediumSpringGreen}    \\
-	\clbl{MediumTurquoise}      \\
-	\clbl{MediumVioletRed}      \\
-	\clbl{MidnightBlue}         \\
-	\clbl{MintCream}            \\
-	\clbl{MistyRose}            \\
-	\clbl{Moccasin}             \\
-	\clbl{NavajoWhite}          \\
-	\clbl{Navy}                 \\
-	\clbl{NavyBlue}             \\
-	\clbl{OldLace}              \\
-	\clbl{Olive}                \\
-	\clbl{OliveDrab}            \\
-	\clbl{Orange}               \\
-	\clbl{OrangeRed}            \\
-	\clbl{Orchid}               \\
-	\clbl{PaleGoldenrod}        \\
-	\clbl{PaleGreen}            \\
-	\clbl{PaleTurquoise}        \\
-	\clbl{PaleVioletRed}        \\
-	\clbl{PapayaWhip}           \\
-	\clbl{PeachPuff}            \\
-	\clbl{Peru}                 \\
-	\clbl{Pink}                 \\
-	\clbl{Plum}                 \\
-	\clbl{PowderBlue}           \\
-	\clbl{Purple}               \\
-	\clbl{Red}                  \\
-	\clbl{RosyBrown}            \\
-	\clbl{RoyalBlue}            \\
-	\clbl{SaddleBrown}          \\
-	\clbl{Salmon}               \\
-	\clbl{SandyBrown}           \\
-	\clbl{SeaGreen}             \\
-	\clbl{Seashell}             \\
-	\clbl{Sienna}               \\
-	\clbl{Silver}               \\
-	\clbl{SkyBlue}              \\
-	\clbl{SlateBlue}            \\
-	\clbl{SlateGray}            \\
-	\clbl{SlateGrey}            \\
-	\clbl{Snow}                 \\
-	\clbl{SpringGreen}          \\
-	\clbl{SteelBlue}            \\
-	\clbl{Tan}                  \\
-	\clbl{Teal}                 \\
-	\clbl{Thistle}              \\
-	\clbl{Tomato}               \\
-	\clbl{Turquoise}            \\
-	\clbl{Violet}               \\
-	\clbl{VioletRed}            \\
-	\clbl{Wheat}                \\
-	\clbl{White}                \\
-	\clbl{WhiteSmoke}           \\
-	\clbl{Yellow}               \\
-	\clbl{YellowGreen}          \\
+	\rColorLbl{AliceBlue}            \\
+	\rColorLbl{AntiqueWhite}         \\
+	\rColorLbl{Aqua}                 \\
+	\rColorLbl{Aquamarine}           \\
+	\rColorLbl{Azure}                \\
+	\rColorLbl{Beige}                \\
+	\rColorLbl{Bisque}               \\
+	\rColorLbl{Black}                \\
+	\rColorLbl{BlanchedAlmond}       \\  
+	\rColorLbl{Blue}                 \\
+	\rColorLbl{BlueViolet}           \\
+	\rColorLbl{Brown}                \\
+	\rColorLbl{BurlyWood}            \\
+	\rColorLbl{CadetBlue}            \\
+	\rColorLbl{Chartreuse}           \\
+	\rColorLbl{Chocolate}            \\
+	\rColorLbl{Coral}                \\
+	\rColorLbl{CornflowerBlue}       \\
+	\rColorLbl{Cornsilk}             \\
+	\rColorLbl{Crimson}              \\
+	\rColorLbl{Cyan}                 \\
+	\rColorLbl{DarkBlue}             \\
+	\rColorLbl{DarkCyan}             \\
+	\rColorLbl{DarkGoldenrod}        \\
+	\rColorLbl{DarkGray}             \\
+	\rColorLbl{DarkGreen}            \\
+	\rColorLbl{DarkGrey}             \\
+	\rColorLbl{DarkKhaki}            \\
+	\rColorLbl{DarkMagenta}          \\
+	\rColorLbl{DarkOliveGreen}       \\
+	\rColorLbl{DarkOrange}           \\
+	\rColorLbl{DarkOrchid}           \\
+	\rColorLbl{DarkRed}              \\
+	\rColorLbl{DarkSalmon}           \\
+	\rColorLbl{DarkSeaGreen}         \\
+	\rColorLbl{DarkSlateBlue}        \\
+	\rColorLbl{DarkSlateGray}        \\
+	\rColorLbl{DarkSlateGrey}        \\
+	\rColorLbl{DarkTurquoise}        \\
+	\rColorLbl{DarkViolet}           \\
+	\rColorLbl{DeepPink}             \\
+	\rColorLbl{DeepSkyBlue}          \\
+	\rColorLbl{DimGray}              \\
+	\rColorLbl{DimGrey}              \\
+	\rColorLbl{DodgerBlue}           \\
+	\rColorLbl{FireBrick}            \\
+	\rColorLbl{FloralWhite}          \\
+	\rColorLbl{ForestGreen}          \\
+	\rColorLbl{Fuchsia}              \\
+	\rColorLbl{Gainsboro}            \\
+	\rColorLbl{GhostWhite}           \\
+	\rColorLbl{Gold}                 \\
+	\rColorLbl{Goldenrod}            \\
+	\rColorLbl{Gray}                 \\
+	\rColorLbl{Green}                \\
+	\rColorLbl{GreenYellow}          \\
+	\rColorLbl{Grey}                 \\
+	\rColorLbl{Honeydew}             \\
+	\rColorLbl{HotPink}              \\
+	\rColorLbl{IndianRed}            \\
+	\rColorLbl{Indigo}               \\
+	\rColorLbl{Ivory}                \\
+	\rColorLbl{Khaki}                \\
+	\rColorLbl{Lavender}             \\
+	\rColorLbl{LavenderBlush}        \\
+	\rColorLbl{LawnGreen}            \\
+	\rColorLbl{LemonChiffon}         \\
+	\rColorLbl{LightBlue}            \\
+	\rColorLbl{LightCoral}           \\
+	\rColorLbl{LightCyan}            \\
+	\rColorLbl{LightGoldenrod}       \\
+	\rColorLbl{LightGoldenrodYellow} \\
+	\rColorLbl{LightGray}            \\
+	\rColorLbl{LightGreen}           \\
+	\rColorLbl{LightGrey}            \\
+	\rColorLbl{LightPink}            \\
+	\rColorLbl{LightSalmon}          \\
+	\rColorLbl{LightSeaGreen}        \\
+	\rColorLbl{LightSkyBlue}         \\
+	\rColorLbl{LightSlateBlue}       \\
+	\rColorLbl{LightSlateGray}       \\
+	\rColorLbl{LightSlateGrey}       \\
+	\rColorLbl{LightSteelBlue}       \\
+	\rColorLbl{LightYellow}          \\
+	\rColorLbl{Lime}                 \\
+	\rColorLbl{LimeGreen}            \\
+	\rColorLbl{Linen}                \\
+	\rColorLbl{Magenta}              \\
+	\rColorLbl{Maroon}               \\
+	\rColorLbl{MediumAquamarine}     \\
+	\rColorLbl{MediumBlue}           \\
+	\rColorLbl{MediumOrchid}         \\
+	\rColorLbl{MediumPurple}         \\
+	\rColorLbl{MediumSeaGreen}       \\
+	\rColorLbl{MediumSlateBlue}      \\
+	\rColorLbl{MediumSpringGreen}    \\
+	\rColorLbl{MediumTurquoise}      \\
+	\rColorLbl{MediumVioletRed}      \\
+	\rColorLbl{MidnightBlue}         \\
+	\rColorLbl{MintCream}            \\
+	\rColorLbl{MistyRose}            \\
+	\rColorLbl{Moccasin}             \\
+	\rColorLbl{NavajoWhite}          \\
+	\rColorLbl{Navy}                 \\
+	\rColorLbl{NavyBlue}             \\
+	\rColorLbl{OldLace}              \\
+	\rColorLbl{Olive}                \\
+	\rColorLbl{OliveDrab}            \\
+	\rColorLbl{Orange}               \\
+	\rColorLbl{OrangeRed}            \\
+	\rColorLbl{Orchid}               \\
+	\rColorLbl{PaleGoldenrod}        \\
+	\rColorLbl{PaleGreen}            \\
+	\rColorLbl{PaleTurquoise}        \\
+	\rColorLbl{PaleVioletRed}        \\
+	\rColorLbl{PapayaWhip}           \\
+	\rColorLbl{PeachPuff}            \\
+	\rColorLbl{Peru}                 \\
+	\rColorLbl{Pink}                 \\
+	\rColorLbl{Plum}                 \\
+	\rColorLbl{PowderBlue}           \\
+	\rColorLbl{Purple}               \\
+	\rColorLbl{Red}                  \\
+	\rColorLbl{RosyBrown}            \\
+	\rColorLbl{RoyalBlue}            \\
+	\rColorLbl{SaddleBrown}          \\
+	\rColorLbl{Salmon}               \\
+	\rColorLbl{SandyBrown}           \\
+	\rColorLbl{SeaGreen}             \\
+	\rColorLbl{Seashell}             \\
+	\rColorLbl{Sienna}               \\
+	\rColorLbl{Silver}               \\
+	\rColorLbl{SkyBlue}              \\
+	\rColorLbl{SlateBlue}            \\
+	\rColorLbl{SlateGray}            \\
+	\rColorLbl{SlateGrey}            \\
+	\rColorLbl{Snow}                 \\
+	\rColorLbl{SpringGreen}          \\
+	\rColorLbl{SteelBlue}            \\
+	\rColorLbl{Tan}                  \\
+	\rColorLbl{Teal}                 \\
+	\rColorLbl{Thistle}              \\
+	\rColorLbl{Tomato}               \\
+	\rColorLbl{Turquoise}            \\
+	\rColorLbl{Violet}               \\
+	\rColorLbl{VioletRed}            \\
+	\rColorLbl{Wheat}                \\
+	\rColorLbl{White}                \\
+	\rColorLbl{WhiteSmoke}           \\
+	\rColorLbl{Yellow}               \\
+	\rColorLbl{YellowGreen}          \\
 \end{multicols}
 
 \subsubsection{\texttt{x11names} 选项颜色}
 
 \begin{multicols}{4}
 	\noindent
-	\clbl{AntiqueWhite1}   \\
-	\clbl{AntiqueWhite2}   \\
-	\clbl{AntiqueWhite3}   \\
-	\clbl{AntiqueWhite4}   \\
-	\clbl{Aquamarine1}     \\
-	\clbl{Aquamarine2}     \\
-	\clbl{Aquamarine3}     \\
-	\clbl{Aquamarine4}     \\
-	\clbl{Azure1}          \\
-	\clbl{Azure2}          \\
-	\clbl{Azure3}          \\
-	\clbl{Azure4}          \\
-	\clbl{Bisque1}         \\
-	\clbl{Bisque2}         \\
-	\clbl{Bisque3}         \\
-	\clbl{Bisque4}         \\
-	\clbl{Blue1}           \\
-	\clbl{Blue2}           \\
-	\clbl{Blue3}           \\
-	\clbl{Blue4}           \\
-	\clbl{Brown1}          \\
-	\clbl{Brown2}          \\
-	\clbl{Brown3}          \\
-	\clbl{Brown4}          \\
-	\clbl{Burlywood1}      \\
-	\clbl{Burlywood2}      \\
-	\clbl{Burlywood3}      \\
-	\clbl{Burlywood4}      \\
-	\clbl{CadetBlue1}      \\
-	\clbl{CadetBlue2}      \\
-	\clbl{CadetBlue3}      \\
-	\clbl{CadetBlue4}      \\
-	\clbl{Chartreuse1}     \\
-	\clbl{Chartreuse2}     \\
-	\clbl{Chartreuse3}     \\
-	\clbl{Chartreuse4}     \\
-	\clbl{Chocolate1}      \\
-	\clbl{Chocolate2}      \\
-	\clbl{Chocolate3}      \\
-	\clbl{Chocolate4}      \\
-	\clbl{Coral1}          \\
-	\clbl{Coral2}          \\
-	\clbl{Coral3}          \\
-	\clbl{Coral4}          \\
-	\clbl{Cornsilk1}       \\
-	\clbl{Cornsilk2}       \\
-	\clbl{Cornsilk3}       \\
-	\clbl{Cornsilk4}       \\
-	\clbl{Cyan1}           \\
-	\clbl{Cyan2}           \\
-	\clbl{Cyan3}           \\
-	\clbl{Cyan4}           \\
-	\clbl{DarkGoldenrod1}  \\
-	\clbl{DarkGoldenrod2}  \\
-	\clbl{DarkGoldenrod3}  \\
-	\clbl{DarkGoldenrod4}  \\
-	\clbl{DarkOliveGreen1} \\
-	\clbl{DarkOliveGreen2} \\
-	\clbl{DarkOliveGreen3} \\
-	\clbl{DarkOliveGreen4} \\
-	\clbl{DarkOrange1}     \\
-	\clbl{DarkOrange2}     \\
-	\clbl{DarkOrange3}     \\
-	\clbl{DarkOrange4}     \\
-	\clbl{DarkOrchid1}     \\
-	\clbl{DarkOrchid2}     \\
-	\clbl{DarkOrchid3}     \\
-	\clbl{DarkOrchid4}     \\
-	\clbl{DarkSeaGreen1}   \\
-	\clbl{DarkSeaGreen2}   \\
-	\clbl{DarkSeaGreen3}   \\
-	\clbl{DarkSeaGreen4}   \\
-	\clbl{DarkSlateGray1}  \\
-	\clbl{DarkSlateGray2}  \\
-	\clbl{DarkSlateGray3}  \\
-	\clbl{DarkSlateGray4}  \\
-	\clbl{DeepPink1}       \\
-	\clbl{DeepPink2}       \\
-	\clbl{DeepPink3}       \\
-	\clbl{DeepPink4}       \\
-	\clbl{DeepSkyBlue1}    \\
-	\clbl{DeepSkyBlue2}    \\
-	\clbl{DeepSkyBlue3}    \\
-	\clbl{DeepSkyBlue4}    \\
-	\clbl{DodgerBlue1}     \\
-	\clbl{DodgerBlue2}     \\
-	\clbl{DodgerBlue3}     \\
-	\clbl{DodgerBlue4}     \\
-	\clbl{Firebrick1}      \\
-	\clbl{Firebrick2}      \\
-	\clbl{Firebrick3}      \\
-	\clbl{Firebrick4}      \\
-	\clbl{Gold1}           \\
-	\clbl{Gold2}           \\
-	\clbl{Gold3}           \\
-	\clbl{Gold4}           \\
-	\clbl{Goldenrod1}      \\
-	\clbl{Goldenrod2}      \\
-	\clbl{Goldenrod3}      \\
-	\clbl{Goldenrod4}      \\
-	\clbl{Green1}          \\
-	\clbl{Green2}          \\
-	\clbl{Green3}          \\
-	\clbl{Green4}          \\
-	\clbl{Honeydew1}       \\
-	\clbl{Honeydew2}       \\
-	\clbl{Honeydew3}       \\
-	\clbl{Honeydew4}       \\
-	\clbl{HotPink1}        \\
-	\clbl{HotPink2}        \\
-	\clbl{HotPink3}        \\
-	\clbl{HotPink4}        \\
-	\clbl{IndianRed1}      \\
-	\clbl{IndianRed2}      \\
-	\clbl{IndianRed3}      \\
-	\clbl{IndianRed4}      \\
-	\clbl{Ivory1}          \\
-	\clbl{Ivory2}          \\
-	\clbl{Ivory3}          \\
-	\clbl{Ivory4}          \\
-	\clbl{Khaki1}          \\
-	\clbl{Khaki2}          \\
-	\clbl{Khaki3}          \\
-	\clbl{Khaki4}          \\
-	\clbl{LavenderBlush1}  \\
-	\clbl{LavenderBlush2}  \\
-	\clbl{LavenderBlush3}  \\
-	\clbl{LavenderBlush4}  \\
-	\clbl{LemonChiffon1}   \\
-	\clbl{LemonChiffon2}   \\
-	\clbl{LemonChiffon3}   \\
-	\clbl{LemonChiffon4}   \\
-	\clbl{LightBlue1}      \\
-	\clbl{LightBlue2}      \\
-	\clbl{LightBlue3}      \\
-	\clbl{LightBlue4}      \\
-	\clbl{LightCyan1}      \\
-	\clbl{LightCyan2}      \\
-	\clbl{LightCyan3}      \\
-	\clbl{LightCyan4}      \\
-	\clbl{LightGoldenrod1} \\
-	\clbl{LightGoldenrod2} \\
-	\clbl{LightGoldenrod3} \\
-	\clbl{LightGoldenrod4} \\
-	\clbl{LightPink1}      \\
-	\clbl{LightPink2}      \\
-	\clbl{LightPink3}      \\
-	\clbl{LightPink4}      \\
-	\clbl{LightSalmon1}    \\
-	\clbl{LightSalmon2}    \\
-	\clbl{LightSalmon3}    \\
-	\clbl{LightSalmon4}    \\
-	\clbl{LightSkyBlue1}   \\
-	\clbl{LightSkyBlue2}   \\
-	\clbl{LightSkyBlue3}   \\
-	\clbl{LightSkyBlue4}   \\
-	\clbl{LightSteelBlue1} \\
-	\clbl{LightSteelBlue2} \\
-	\clbl{LightSteelBlue3} \\
-	\clbl{LightSteelBlue4} \\
-	\clbl{LightYellow1}    \\
-	\clbl{LightYellow2}    \\
-	\clbl{LightYellow3}    \\
-	\clbl{LightYellow4}    \\
-	\clbl{Magenta1}        \\
-	\clbl{Magenta2}        \\
-	\clbl{Magenta3}        \\
-	\clbl{Magenta4}        \\
-	\clbl{Maroon1}         \\
-	\clbl{Maroon2}         \\
-	\clbl{Maroon3}         \\
-	\clbl{Maroon4}         \\
-	\clbl{MediumOrchid1}   \\
-	\clbl{MediumOrchid2}   \\
-	\clbl{MediumOrchid3}   \\
-	\clbl{MediumOrchid4}   \\
-	\clbl{MediumPurple1}   \\
-	\clbl{MediumPurple2}   \\
-	\clbl{MediumPurple3}   \\
-	\clbl{MediumPurple4}   \\
-	\clbl{MistyRose1}      \\
-	\clbl{MistyRose2}      \\
-	\clbl{MistyRose3}      \\
-	\clbl{MistyRose4}      \\
-	\clbl{NavajoWhite1}    \\
-	\clbl{NavajoWhite2}    \\
-	\clbl{NavajoWhite3}    \\
-	\clbl{NavajoWhite4}    \\
-	\clbl{OliveDrab1}      \\
-	\clbl{OliveDrab2}      \\
-	\clbl{OliveDrab3}      \\
-	\clbl{OliveDrab4}      \\
-	\clbl{Orange1}         \\
-	\clbl{Orange2}         \\
-	\clbl{Orange3}         \\
-	\clbl{Orange4}         \\
-	\clbl{OrangeRed1}      \\
-	\clbl{OrangeRed2}      \\
-	\clbl{OrangeRed3}      \\
-	\clbl{OrangeRed4}      \\
-	\clbl{Orchid1}         \\
-	\clbl{Orchid2}         \\
-	\clbl{Orchid3}         \\
-	\clbl{Orchid4}         \\
-	\clbl{PaleGreen1}      \\
-	\clbl{PaleGreen2}      \\
-	\clbl{PaleGreen3}      \\
-	\clbl{PaleGreen4}      \\
-	\clbl{PaleTurquoise1}  \\
-	\clbl{PaleTurquoise2}  \\
-	\clbl{PaleTurquoise3}  \\
-	\clbl{PaleTurquoise4}  \\
-	\clbl{PaleVioletRed1}  \\
-	\clbl{PaleVioletRed2}  \\
-	\clbl{PaleVioletRed3}  \\
-	\clbl{PaleVioletRed4}  \\
-	\clbl{PeachPuff1}      \\
-	\clbl{PeachPuff2}      \\
-	\clbl{PeachPuff3}      \\
-	\clbl{PeachPuff4}      \\
-	\clbl{Pink1}           \\
-	\clbl{Pink2}           \\
-	\clbl{Pink3}           \\
-	\clbl{Pink4}           \\
-	\clbl{Plum1}           \\
-	\clbl{Plum2}           \\
-	\clbl{Plum3}           \\
-	\clbl{Plum4}           \\
-	\clbl{Purple1}         \\
-	\clbl{Purple2}         \\
-	\clbl{Purple3}         \\
-	\clbl{Purple4}         \\
-	\clbl{Red1}            \\
-	\clbl{Red2}            \\
-	\clbl{Red3}            \\
-	\clbl{Red4}            \\
-	\clbl{RosyBrown1}      \\
-	\clbl{RosyBrown2}      \\
-	\clbl{RosyBrown3}      \\
-	\clbl{RosyBrown4}      \\
-	\clbl{RoyalBlue1}      \\
-	\clbl{RoyalBlue2}      \\
-	\clbl{RoyalBlue3}      \\
-	\clbl{RoyalBlue4}      \\
-	\clbl{Salmon1}         \\
-	\clbl{Salmon2}         \\
-	\clbl{Salmon3}         \\
-	\clbl{Salmon4}         \\
-	\clbl{SeaGreen1}       \\
-	\clbl{SeaGreen2}       \\
-	\clbl{SeaGreen3}       \\
-	\clbl{SeaGreen4}       \\
-	\clbl{Seashell1}       \\
-	\clbl{Seashell2}       \\
-	\clbl{Seashell3}       \\
-	\clbl{Seashell4}       \\
-	\clbl{Sienna1}         \\
-	\clbl{Sienna2}         \\
-	\clbl{Sienna3}         \\
-	\clbl{Sienna4}         \\
-	\clbl{SkyBlue1}        \\
-	\clbl{SkyBlue2}        \\
-	\clbl{SkyBlue3}        \\
-	\clbl{SkyBlue4}        \\
-	\clbl{SlateBlue1}      \\
-	\clbl{SlateBlue2}      \\
-	\clbl{SlateBlue3}      \\
-	\clbl{SlateBlue4}      \\
-	\clbl{SlateGray1}      \\
-	\clbl{SlateGray2}      \\
-	\clbl{SlateGray3}      \\
-	\clbl{SlateGray4}      \\
-	\clbl{Snow1}           \\
-	\clbl{Snow2}           \\
-	\clbl{Snow3}           \\
-	\clbl{Snow4}           \\
-	\clbl{SpringGreen1}    \\
-	\clbl{SpringGreen2}    \\
-	\clbl{SpringGreen3}    \\
-	\clbl{SpringGreen4}    \\
-	\clbl{SteelBlue1}      \\
-	\clbl{SteelBlue2}      \\
-	\clbl{SteelBlue3}      \\
-	\clbl{SteelBlue4}      \\
-	\clbl{Tan1}            \\
-	\clbl{Tan2}            \\
-	\clbl{Tan3}            \\
-	\clbl{Tan4}            \\
-	\clbl{Thistle1}        \\
-	\clbl{Thistle2}        \\
-	\clbl{Thistle3}        \\
-	\clbl{Thistle4}        \\
-	\clbl{Tomato1}         \\
-	\clbl{Tomato2}         \\
-	\clbl{Tomato3}         \\
-	\clbl{Tomato4}         \\
-	\clbl{Turquoise1}      \\
-	\clbl{Turquoise2}      \\
-	\clbl{Turquoise3}      \\
-	\clbl{Turquoise4}      \\
-	\clbl{VioletRed1}      \\
-	\clbl{VioletRed2}      \\
-	\clbl{VioletRed3}      \\
-	\clbl{VioletRed4}      \\
-	\clbl{Wheat1}          \\
-	\clbl{Wheat2}          \\
-	\clbl{Wheat3}          \\
-	\clbl{Wheat4}          \\
-	\clbl{Yellow1}         \\
-	\clbl{Yellow2}         \\
-	\clbl{Yellow3}         \\
-	\clbl{Yellow4}         \\
-	\clbl{Gray0}           \\
-	\clbl{Green0}          \\
-	\clbl{Grey0}           \\
-	\clbl{Maroon0}         \\
-	\clbl{Purple0}         \\
+	\rColorLbl{AntiqueWhite1}   \\
+	\rColorLbl{AntiqueWhite2}   \\
+	\rColorLbl{AntiqueWhite3}   \\
+	\rColorLbl{AntiqueWhite4}   \\
+	\rColorLbl{Aquamarine1}     \\
+	\rColorLbl{Aquamarine2}     \\
+	\rColorLbl{Aquamarine3}     \\
+	\rColorLbl{Aquamarine4}     \\
+	\rColorLbl{Azure1}          \\
+	\rColorLbl{Azure2}          \\
+	\rColorLbl{Azure3}          \\
+	\rColorLbl{Azure4}          \\
+	\rColorLbl{Bisque1}         \\
+	\rColorLbl{Bisque2}         \\
+	\rColorLbl{Bisque3}         \\
+	\rColorLbl{Bisque4}         \\
+	\rColorLbl{Blue1}           \\
+	\rColorLbl{Blue2}           \\
+	\rColorLbl{Blue3}           \\
+	\rColorLbl{Blue4}           \\
+	\rColorLbl{Brown1}          \\
+	\rColorLbl{Brown2}          \\
+	\rColorLbl{Brown3}          \\
+	\rColorLbl{Brown4}          \\
+	\rColorLbl{Burlywood1}      \\
+	\rColorLbl{Burlywood2}      \\
+	\rColorLbl{Burlywood3}      \\
+	\rColorLbl{Burlywood4}      \\
+	\rColorLbl{CadetBlue1}      \\
+	\rColorLbl{CadetBlue2}      \\
+	\rColorLbl{CadetBlue3}      \\
+	\rColorLbl{CadetBlue4}      \\
+	\rColorLbl{Chartreuse1}     \\
+	\rColorLbl{Chartreuse2}     \\
+	\rColorLbl{Chartreuse3}     \\
+	\rColorLbl{Chartreuse4}     \\
+	\rColorLbl{Chocolate1}      \\
+	\rColorLbl{Chocolate2}      \\
+	\rColorLbl{Chocolate3}      \\
+	\rColorLbl{Chocolate4}      \\
+	\rColorLbl{Coral1}          \\
+	\rColorLbl{Coral2}          \\
+	\rColorLbl{Coral3}          \\
+	\rColorLbl{Coral4}          \\
+	\rColorLbl{Cornsilk1}       \\
+	\rColorLbl{Cornsilk2}       \\
+	\rColorLbl{Cornsilk3}       \\
+	\rColorLbl{Cornsilk4}       \\
+	\rColorLbl{Cyan1}           \\
+	\rColorLbl{Cyan2}           \\
+	\rColorLbl{Cyan3}           \\
+	\rColorLbl{Cyan4}           \\
+	\rColorLbl{DarkGoldenrod1}  \\
+	\rColorLbl{DarkGoldenrod2}  \\
+	\rColorLbl{DarkGoldenrod3}  \\
+	\rColorLbl{DarkGoldenrod4}  \\
+	\rColorLbl{DarkOliveGreen1} \\
+	\rColorLbl{DarkOliveGreen2} \\
+	\rColorLbl{DarkOliveGreen3} \\
+	\rColorLbl{DarkOliveGreen4} \\
+	\rColorLbl{DarkOrange1}     \\
+	\rColorLbl{DarkOrange2}     \\
+	\rColorLbl{DarkOrange3}     \\
+	\rColorLbl{DarkOrange4}     \\
+	\rColorLbl{DarkOrchid1}     \\
+	\rColorLbl{DarkOrchid2}     \\
+	\rColorLbl{DarkOrchid3}     \\
+	\rColorLbl{DarkOrchid4}     \\
+	\rColorLbl{DarkSeaGreen1}   \\
+	\rColorLbl{DarkSeaGreen2}   \\
+	\rColorLbl{DarkSeaGreen3}   \\
+	\rColorLbl{DarkSeaGreen4}   \\
+	\rColorLbl{DarkSlateGray1}  \\
+	\rColorLbl{DarkSlateGray2}  \\
+	\rColorLbl{DarkSlateGray3}  \\
+	\rColorLbl{DarkSlateGray4}  \\
+	\rColorLbl{DeepPink1}       \\
+	\rColorLbl{DeepPink2}       \\
+	\rColorLbl{DeepPink3}       \\
+	\rColorLbl{DeepPink4}       \\
+	\rColorLbl{DeepSkyBlue1}    \\
+	\rColorLbl{DeepSkyBlue2}    \\
+	\rColorLbl{DeepSkyBlue3}    \\
+	\rColorLbl{DeepSkyBlue4}    \\
+	\rColorLbl{DodgerBlue1}     \\
+	\rColorLbl{DodgerBlue2}     \\
+	\rColorLbl{DodgerBlue3}     \\
+	\rColorLbl{DodgerBlue4}     \\
+	\rColorLbl{Firebrick1}      \\
+	\rColorLbl{Firebrick2}      \\
+	\rColorLbl{Firebrick3}      \\
+	\rColorLbl{Firebrick4}      \\
+	\rColorLbl{Gold1}           \\
+	\rColorLbl{Gold2}           \\
+	\rColorLbl{Gold3}           \\
+	\rColorLbl{Gold4}           \\
+	\rColorLbl{Goldenrod1}      \\
+	\rColorLbl{Goldenrod2}      \\
+	\rColorLbl{Goldenrod3}      \\
+	\rColorLbl{Goldenrod4}      \\
+	\rColorLbl{Green1}          \\
+	\rColorLbl{Green2}          \\
+	\rColorLbl{Green3}          \\
+	\rColorLbl{Green4}          \\
+	\rColorLbl{Honeydew1}       \\
+	\rColorLbl{Honeydew2}       \\
+	\rColorLbl{Honeydew3}       \\
+	\rColorLbl{Honeydew4}       \\
+	\rColorLbl{HotPink1}        \\
+	\rColorLbl{HotPink2}        \\
+	\rColorLbl{HotPink3}        \\
+	\rColorLbl{HotPink4}        \\
+	\rColorLbl{IndianRed1}      \\
+	\rColorLbl{IndianRed2}      \\
+	\rColorLbl{IndianRed3}      \\
+	\rColorLbl{IndianRed4}      \\
+	\rColorLbl{Ivory1}          \\
+	\rColorLbl{Ivory2}          \\
+	\rColorLbl{Ivory3}          \\
+	\rColorLbl{Ivory4}          \\
+	\rColorLbl{Khaki1}          \\
+	\rColorLbl{Khaki2}          \\
+	\rColorLbl{Khaki3}          \\
+	\rColorLbl{Khaki4}          \\
+	\rColorLbl{LavenderBlush1}  \\
+	\rColorLbl{LavenderBlush2}  \\
+	\rColorLbl{LavenderBlush3}  \\
+	\rColorLbl{LavenderBlush4}  \\
+	\rColorLbl{LemonChiffon1}   \\
+	\rColorLbl{LemonChiffon2}   \\
+	\rColorLbl{LemonChiffon3}   \\
+	\rColorLbl{LemonChiffon4}   \\
+	\rColorLbl{LightBlue1}      \\
+	\rColorLbl{LightBlue2}      \\
+	\rColorLbl{LightBlue3}      \\
+	\rColorLbl{LightBlue4}      \\
+	\rColorLbl{LightCyan1}      \\
+	\rColorLbl{LightCyan2}      \\
+	\rColorLbl{LightCyan3}      \\
+	\rColorLbl{LightCyan4}      \\
+	\rColorLbl{LightGoldenrod1} \\
+	\rColorLbl{LightGoldenrod2} \\
+	\rColorLbl{LightGoldenrod3} \\
+	\rColorLbl{LightGoldenrod4} \\
+	\rColorLbl{LightPink1}      \\
+	\rColorLbl{LightPink2}      \\
+	\rColorLbl{LightPink3}      \\
+	\rColorLbl{LightPink4}      \\
+	\rColorLbl{LightSalmon1}    \\
+	\rColorLbl{LightSalmon2}    \\
+	\rColorLbl{LightSalmon3}    \\
+	\rColorLbl{LightSalmon4}    \\
+	\rColorLbl{LightSkyBlue1}   \\
+	\rColorLbl{LightSkyBlue2}   \\
+	\rColorLbl{LightSkyBlue3}   \\
+	\rColorLbl{LightSkyBlue4}   \\
+	\rColorLbl{LightSteelBlue1} \\
+	\rColorLbl{LightSteelBlue2} \\
+	\rColorLbl{LightSteelBlue3} \\
+	\rColorLbl{LightSteelBlue4} \\
+	\rColorLbl{LightYellow1}    \\
+	\rColorLbl{LightYellow2}    \\
+	\rColorLbl{LightYellow3}    \\
+	\rColorLbl{LightYellow4}    \\
+	\rColorLbl{Magenta1}        \\
+	\rColorLbl{Magenta2}        \\
+	\rColorLbl{Magenta3}        \\
+	\rColorLbl{Magenta4}        \\
+	\rColorLbl{Maroon1}         \\
+	\rColorLbl{Maroon2}         \\
+	\rColorLbl{Maroon3}         \\
+	\rColorLbl{Maroon4}         \\
+	\rColorLbl{MediumOrchid1}   \\
+	\rColorLbl{MediumOrchid2}   \\
+	\rColorLbl{MediumOrchid3}   \\
+	\rColorLbl{MediumOrchid4}   \\
+	\rColorLbl{MediumPurple1}   \\
+	\rColorLbl{MediumPurple2}   \\
+	\rColorLbl{MediumPurple3}   \\
+	\rColorLbl{MediumPurple4}   \\
+	\rColorLbl{MistyRose1}      \\
+	\rColorLbl{MistyRose2}      \\
+	\rColorLbl{MistyRose3}      \\
+	\rColorLbl{MistyRose4}      \\
+	\rColorLbl{NavajoWhite1}    \\
+	\rColorLbl{NavajoWhite2}    \\
+	\rColorLbl{NavajoWhite3}    \\
+	\rColorLbl{NavajoWhite4}    \\
+	\rColorLbl{OliveDrab1}      \\
+	\rColorLbl{OliveDrab2}      \\
+	\rColorLbl{OliveDrab3}      \\
+	\rColorLbl{OliveDrab4}      \\
+	\rColorLbl{Orange1}         \\
+	\rColorLbl{Orange2}         \\
+	\rColorLbl{Orange3}         \\
+	\rColorLbl{Orange4}         \\
+	\rColorLbl{OrangeRed1}      \\
+	\rColorLbl{OrangeRed2}      \\
+	\rColorLbl{OrangeRed3}      \\
+	\rColorLbl{OrangeRed4}      \\
+	\rColorLbl{Orchid1}         \\
+	\rColorLbl{Orchid2}         \\
+	\rColorLbl{Orchid3}         \\
+	\rColorLbl{Orchid4}         \\
+	\rColorLbl{PaleGreen1}      \\
+	\rColorLbl{PaleGreen2}      \\
+	\rColorLbl{PaleGreen3}      \\
+	\rColorLbl{PaleGreen4}      \\
+	\rColorLbl{PaleTurquoise1}  \\
+	\rColorLbl{PaleTurquoise2}  \\
+	\rColorLbl{PaleTurquoise3}  \\
+	\rColorLbl{PaleTurquoise4}  \\
+	\rColorLbl{PaleVioletRed1}  \\
+	\rColorLbl{PaleVioletRed2}  \\
+	\rColorLbl{PaleVioletRed3}  \\
+	\rColorLbl{PaleVioletRed4}  \\
+	\rColorLbl{PeachPuff1}      \\
+	\rColorLbl{PeachPuff2}      \\
+	\rColorLbl{PeachPuff3}      \\
+	\rColorLbl{PeachPuff4}      \\
+	\rColorLbl{Pink1}           \\
+	\rColorLbl{Pink2}           \\
+	\rColorLbl{Pink3}           \\
+	\rColorLbl{Pink4}           \\
+	\rColorLbl{Plum1}           \\
+	\rColorLbl{Plum2}           \\
+	\rColorLbl{Plum3}           \\
+	\rColorLbl{Plum4}           \\
+	\rColorLbl{Purple1}         \\
+	\rColorLbl{Purple2}         \\
+	\rColorLbl{Purple3}         \\
+	\rColorLbl{Purple4}         \\
+	\rColorLbl{Red1}            \\
+	\rColorLbl{Red2}            \\
+	\rColorLbl{Red3}            \\
+	\rColorLbl{Red4}            \\
+	\rColorLbl{RosyBrown1}      \\
+	\rColorLbl{RosyBrown2}      \\
+	\rColorLbl{RosyBrown3}      \\
+	\rColorLbl{RosyBrown4}      \\
+	\rColorLbl{RoyalBlue1}      \\
+	\rColorLbl{RoyalBlue2}      \\
+	\rColorLbl{RoyalBlue3}      \\
+	\rColorLbl{RoyalBlue4}      \\
+	\rColorLbl{Salmon1}         \\
+	\rColorLbl{Salmon2}         \\
+	\rColorLbl{Salmon3}         \\
+	\rColorLbl{Salmon4}         \\
+	\rColorLbl{SeaGreen1}       \\
+	\rColorLbl{SeaGreen2}       \\
+	\rColorLbl{SeaGreen3}       \\
+	\rColorLbl{SeaGreen4}       \\
+	\rColorLbl{Seashell1}       \\
+	\rColorLbl{Seashell2}       \\
+	\rColorLbl{Seashell3}       \\
+	\rColorLbl{Seashell4}       \\
+	\rColorLbl{Sienna1}         \\
+	\rColorLbl{Sienna2}         \\
+	\rColorLbl{Sienna3}         \\
+	\rColorLbl{Sienna4}         \\
+	\rColorLbl{SkyBlue1}        \\
+	\rColorLbl{SkyBlue2}        \\
+	\rColorLbl{SkyBlue3}        \\
+	\rColorLbl{SkyBlue4}        \\
+	\rColorLbl{SlateBlue1}      \\
+	\rColorLbl{SlateBlue2}      \\
+	\rColorLbl{SlateBlue3}      \\
+	\rColorLbl{SlateBlue4}      \\
+	\rColorLbl{SlateGray1}      \\
+	\rColorLbl{SlateGray2}      \\
+	\rColorLbl{SlateGray3}      \\
+	\rColorLbl{SlateGray4}      \\
+	\rColorLbl{Snow1}           \\
+	\rColorLbl{Snow2}           \\
+	\rColorLbl{Snow3}           \\
+	\rColorLbl{Snow4}           \\
+	\rColorLbl{SpringGreen1}    \\
+	\rColorLbl{SpringGreen2}    \\
+	\rColorLbl{SpringGreen3}    \\
+	\rColorLbl{SpringGreen4}    \\
+	\rColorLbl{SteelBlue1}      \\
+	\rColorLbl{SteelBlue2}      \\
+	\rColorLbl{SteelBlue3}      \\
+	\rColorLbl{SteelBlue4}      \\
+	\rColorLbl{Tan1}            \\
+	\rColorLbl{Tan2}            \\
+	\rColorLbl{Tan3}            \\
+	\rColorLbl{Tan4}            \\
+	\rColorLbl{Thistle1}        \\
+	\rColorLbl{Thistle2}        \\
+	\rColorLbl{Thistle3}        \\
+	\rColorLbl{Thistle4}        \\
+	\rColorLbl{Tomato1}         \\
+	\rColorLbl{Tomato2}         \\
+	\rColorLbl{Tomato3}         \\
+	\rColorLbl{Tomato4}         \\
+	\rColorLbl{Turquoise1}      \\
+	\rColorLbl{Turquoise2}      \\
+	\rColorLbl{Turquoise3}      \\
+	\rColorLbl{Turquoise4}      \\
+	\rColorLbl{VioletRed1}      \\
+	\rColorLbl{VioletRed2}      \\
+	\rColorLbl{VioletRed3}      \\
+	\rColorLbl{VioletRed4}      \\
+	\rColorLbl{Wheat1}          \\
+	\rColorLbl{Wheat2}          \\
+	\rColorLbl{Wheat3}          \\
+	\rColorLbl{Wheat4}          \\
+	\rColorLbl{Yellow1}         \\
+	\rColorLbl{Yellow2}         \\
+	\rColorLbl{Yellow3}         \\
+	\rColorLbl{Yellow4}         \\
+	\rColorLbl{Gray0}           \\
+	\rColorLbl{Green0}          \\
+	\rColorLbl{Grey0}           \\
+	\rColorLbl{Maroon0}         \\
+	\rColorLbl{Purple0}         \\
 \end{multicols}
 
 \subsection{超链接}
 
-依赖 \pkgc{hyperref} 宏包提供超链接支持。
+依赖 \rPkgCite{hyperref} 宏包提供超链接支持。
 
 \newpage
 \section{排版文档}
@@ -676,13 +676,13 @@
 		\centering
 		\begin{tabular}{l l}
 			\hline
-			\cmdm{chapter}{title}         & 章 \\
-			\cmdm{section}{title}         & 节 \\
-			\cmdm{subsection}{title}      & 小节 \\
-			\cmdm{subsubsection}{title}   & 小小节 \\
-			\cmdm{paragraph}{title}       & 段 \\
-			\cmdm{subparagraph}{title}    & 小段 \\
-			\cmdw{tableofcontents}{title} & 目录 \\
+			\rCmdM{chapter}{title}         & 章     \\
+			\rCmdM{section}{title}         & 节     \\
+			\rCmdM{subsection}{title}      & 小节   \\
+			\rCmdM{subsubsection}{title}   & 小小节 \\
+			\rCmdM{paragraph}{title}       & 段     \\
+			\rCmdM{subparagraph}{title}    & 小段   \\
+			\rCmdW{tableofcontents}{title} & 目录   \\
 			\hline
 		\end{tabular}
 	\end{minipage}
@@ -702,8 +702,8 @@
 \newpage
 \section{排版公式}
 
-美国数学协会（American Mathematical Society）提供  \AmS 宏集以扩展 \LaTeX 公式排版，其核心是 \pkgc{amsmath} 宏包，对多行公式的排版提供了有力的支持．
-此外，\pkgc{amsfonts} 宏包以及基于它的 \textsf{amssymb} 宏包提供了丰富的数学符号；\pkgc{amsthm} 宏包扩展了 \LaTeX 定理证明格式．
+美国数学协会（American Mathematical Society）提供 \AmS 宏集以扩展 \LaTeX 公式排版，其核心是 \rPkgCite{amsmath} 宏包，对多行公式的排版提供了有力的支持．
+此外，\rPkgCite{amsfonts} 宏包以及基于它的 \textsf{amssymb} 宏包提供了丰富的数学符号；\rPkgCite{amsthm} 宏包扩展了 \LaTeX 定理证明格式．
 
 本节所述命令多用于 \LaTeX 数学模式，使用数学模式的方法有多种：
 
@@ -758,38 +758,38 @@
 		\hline
 		\multicolumn{2}{c}{\Unicode} & \multicolumn{4}{c}{\LaTeX{}} & \multicolumn{2}{c}{\Unicode} & \multicolumn{4}{c}{\LaTeX{}} \\
 		\hline
-		Α & \unin{0391} &        $A$ & \verb|A|        &               &                    & α & \unin{03B1} &   $\alpha$ & \verb|\alpha|   &               &                    \\
-		Β & \unin{0392} &        $B$ & \verb|B|        &               &                    & β & \unin{03B2} &    $\beta$ & \verb|\beta|    &               &                    \\
-		Γ & \unin{0393} &   $\Gamma$ & \verb|\Gamma|   &   $\varGamma$ & \verb|\varGamma|   & γ & \unin{03B3} &   $\gamma$ & \verb|\gamma|   &               &                    \\
-		Δ & \unin{0394} &   $\Delta$ & \verb|\Delta|   &   $\varDelta$ & \verb|\varDelta|   & δ & \unin{03B4} &   $\delta$ & \verb|\delta|   &               &                    \\
-		Ε & \unin{0395} &        $E$ & \verb|E|        &               &                    & ε & \unin{03B5} & $\epsilon$ & \verb|\epsilon| & $\varepsilon$ & \verb|\varepsilon| \\
-		Ζ & \unin{0396} &        $Z$ & \verb|Z|        &               &                    & ζ & \unin{03B6} &    $\zeta$ & \verb|\zeta|    &               &                    \\
-		Η & \unin{0397} &        $H$ & \verb|H|        &               &                    & η & \unin{03B7} &     $\eta$ & \verb|\eta|     &               &                    \\
-		Θ & \unin{0398} &   $\Theta$ & \verb|\Theta|   &   $\varTheta$ & \verb|\varTheta|   & θ & \unin{03B8} &   $\theta$ & \verb|\theta|   &   $\vartheta$ & \verb|\vartheta|   \\
-		Ι & \unin{0399} &        $I$ & \verb|I|        &               &                    & ι & \unin{03B9} &    $\iota$ & \verb|\iota|    &               &                    \\
-		Κ & \unin{039A} &        $K$ & \verb|K|        &               &                    & κ & \unin{03BA} &   $\kappa$ & \verb|\kappa|   &   $\varkappa$ & \verb|\varkappa|   \\
-		Λ & \unin{039B} &  $\Lambda$ & \verb|\Lambda|  &  $\varLambda$ & \verb|\varLambda|  & λ & \unin{03BB} &  $\lambda$ & \verb|\lambda|  &               &                    \\
-		Μ & \unin{039C} &        $M$ & \verb|M|        &               &                    & μ & \unin{03BC} &      $\mu$ & \verb|\mu|      &               &                    \\
-		Ν & \unin{039D} &        $N$ & \verb|N|        &               &                    & ν & \unin{03BD} &      $\nu$ & \verb|\nu|      &               &                    \\
-		Ξ & \unin{039E} &      $\Xi$ & \verb|\Xi|      &      $\varXi$ & \verb|\varXi|      & ξ & \unin{03BE} &      $\xi$ & \verb|\xi|      &               &                    \\
-		Ο & \unin{039F} &        $O$ & \verb|O|        &               &                    & ο & \unin{03BF} &        $o$ & \verb|o|        &               &                    \\
-		Π & \unin{03A0} &      $\Pi$ & \verb|\Pi|      &      $\varPi$ & \verb|\varPi|      & π & \unin{03C0} &      $\pi$ & \verb|\pi|      &      $\varpi$ & \verb|\varpi|      \\
-		Ρ & \unin{03A1} &        $P$ & \verb|P|        &               &                    & ρ & \unin{03C1} &     $\rho$ & \verb|\rho|     &     $\varrho$ & \verb|\varrho|     \\
-		Σ & \unin{03A3} &   $\Sigma$ & \verb|\Sigma|   &   $\varSigma$ & \verb|\varSigma|   & σ & \unin{03C2} &   $\sigma$ & \verb|\sigma|   &   $\varsigma$ & \verb|\varsigma|   \\
-		Τ & \unin{03A4} &        $T$ & \verb|T|        &               &                    & τ & \unin{03C3} &     $\tau$ & \verb|\tau|     &               &                    \\
-		Υ & \unin{03A5} & $\Upsilon$ & \verb|\Upsilon| & $\varUpsilon$ & \verb|\varUpsilon| & υ & \unin{03C4} & $\upsilon$ & \verb|\upsilon| &               &                    \\
-		Φ & \unin{03A6} &     $\Phi$ & \verb|\Phi|     &     $\varPhi$ & \verb|\varPhi|     & φ & \unin{03C5} &     $\phi$ & \verb|\phi|     &     $\varphi$ & \verb|\varphi|     \\
-		Χ & \unin{03A7} &        $X$ & \verb|X|        &               &                    & χ & \unin{03C6} &     $\chi$ & \verb|\chi|     &               &                    \\
-		Ψ & \unin{03A8} &     $\Psi$ & \verb|\Psi|     &     $\varPsi$ & \verb|\varPsi|     & ψ & \unin{03C7} &     $\psi$ & \verb|\psi|     &               &                    \\
-		Ω & \unin{03A9} &   $\Omega$ & \verb|\Omega|   &   $\varOmega$ & \verb|\varOmega|   & ω & \unin{03C8} &   $\omega$ & \verb|\omega|   &               &                    \\
-		Ͱ & \unin{0370} &            &                 &               &                    & ͱ & \unin{0371} &            &                 &               &                    \\
-		Ͳ & \unin{0372} &            &                 &               &                    & ͳ & \unin{0373} &            &                 &               &                    \\
-		Ͷ & \unin{0376} &            &                 &               &                    & ͷ & \unin{0377} &            &                 &               &                    \\
-		Ϙ & \unin{03D8} &            &                 &               &                    & ϙ & \unin{03D9} &            &                 &               &                    \\
-		Ϛ & \unin{03DA} &            &                 &               &                    & ϛ & \unin{03DB} &            &                 &               &                    \\
-		Ϝ & \unin{03DC} &            &                 &               &                    & ϝ & \unin{03DD} & $\digamma$ & \verb|\digamma| &               &                    \\
-		Ϟ & \unin{03DE} &            &                 &               &                    & ϟ & \unin{03DF} &            &                 &               &                    \\
-		Ϡ & \unin{03E0} &            &                 &               &                    & ϡ & \unin{03E1} &            &                 &               &                    \\
+		Α & \rUniNum{0391} &        $A$ & \verb|A|        &               &                    & α & \rUniNum{03B1} &   $\alpha$ & \verb|\alpha|   &               &                    \\
+		Β & \rUniNum{0392} &        $B$ & \verb|B|        &               &                    & β & \rUniNum{03B2} &    $\beta$ & \verb|\beta|    &               &                    \\
+		Γ & \rUniNum{0393} &   $\Gamma$ & \verb|\Gamma|   &   $\varGamma$ & \verb|\varGamma|   & γ & \rUniNum{03B3} &   $\gamma$ & \verb|\gamma|   &               &                    \\
+		Δ & \rUniNum{0394} &   $\Delta$ & \verb|\Delta|   &   $\varDelta$ & \verb|\varDelta|   & δ & \rUniNum{03B4} &   $\delta$ & \verb|\delta|   &               &                    \\
+		Ε & \rUniNum{0395} &        $E$ & \verb|E|        &               &                    & ε & \rUniNum{03B5} & $\epsilon$ & \verb|\epsilon| & $\varepsilon$ & \verb|\varepsilon| \\
+		Ζ & \rUniNum{0396} &        $Z$ & \verb|Z|        &               &                    & ζ & \rUniNum{03B6} &    $\zeta$ & \verb|\zeta|    &               &                    \\
+		Η & \rUniNum{0397} &        $H$ & \verb|H|        &               &                    & η & \rUniNum{03B7} &     $\eta$ & \verb|\eta|     &               &                    \\
+		Θ & \rUniNum{0398} &   $\Theta$ & \verb|\Theta|   &   $\varTheta$ & \verb|\varTheta|   & θ & \rUniNum{03B8} &   $\theta$ & \verb|\theta|   &   $\vartheta$ & \verb|\vartheta|   \\
+		Ι & \rUniNum{0399} &        $I$ & \verb|I|        &               &                    & ι & \rUniNum{03B9} &    $\iota$ & \verb|\iota|    &               &                    \\
+		Κ & \rUniNum{039A} &        $K$ & \verb|K|        &               &                    & κ & \rUniNum{03BA} &   $\kappa$ & \verb|\kappa|   &   $\varkappa$ & \verb|\varkappa|   \\
+		Λ & \rUniNum{039B} &  $\Lambda$ & \verb|\Lambda|  &  $\varLambda$ & \verb|\varLambda|  & λ & \rUniNum{03BB} &  $\lambda$ & \verb|\lambda|  &               &                    \\
+		Μ & \rUniNum{039C} &        $M$ & \verb|M|        &               &                    & μ & \rUniNum{03BC} &      $\mu$ & \verb|\mu|      &               &                    \\
+		Ν & \rUniNum{039D} &        $N$ & \verb|N|        &               &                    & ν & \rUniNum{03BD} &      $\nu$ & \verb|\nu|      &               &                    \\
+		Ξ & \rUniNum{039E} &      $\Xi$ & \verb|\Xi|      &      $\varXi$ & \verb|\varXi|      & ξ & \rUniNum{03BE} &      $\xi$ & \verb|\xi|      &               &                    \\
+		Ο & \rUniNum{039F} &        $O$ & \verb|O|        &               &                    & ο & \rUniNum{03BF} &        $o$ & \verb|o|        &               &                    \\
+		Π & \rUniNum{03A0} &      $\Pi$ & \verb|\Pi|      &      $\varPi$ & \verb|\varPi|      & π & \rUniNum{03C0} &      $\pi$ & \verb|\pi|      &      $\varpi$ & \verb|\varpi|      \\
+		Ρ & \rUniNum{03A1} &        $P$ & \verb|P|        &               &                    & ρ & \rUniNum{03C1} &     $\rho$ & \verb|\rho|     &     $\varrho$ & \verb|\varrho|     \\
+		Σ & \rUniNum{03A3} &   $\Sigma$ & \verb|\Sigma|   &   $\varSigma$ & \verb|\varSigma|   & σ & \rUniNum{03C2} &   $\sigma$ & \verb|\sigma|   &   $\varsigma$ & \verb|\varsigma|   \\
+		Τ & \rUniNum{03A4} &        $T$ & \verb|T|        &               &                    & τ & \rUniNum{03C3} &     $\tau$ & \verb|\tau|     &               &                    \\
+		Υ & \rUniNum{03A5} & $\Upsilon$ & \verb|\Upsilon| & $\varUpsilon$ & \verb|\varUpsilon| & υ & \rUniNum{03C4} & $\upsilon$ & \verb|\upsilon| &               &                    \\
+		Φ & \rUniNum{03A6} &     $\Phi$ & \verb|\Phi|     &     $\varPhi$ & \verb|\varPhi|     & φ & \rUniNum{03C5} &     $\phi$ & \verb|\phi|     &     $\varphi$ & \verb|\varphi|     \\
+		Χ & \rUniNum{03A7} &        $X$ & \verb|X|        &               &                    & χ & \rUniNum{03C6} &     $\chi$ & \verb|\chi|     &               &                    \\
+		Ψ & \rUniNum{03A8} &     $\Psi$ & \verb|\Psi|     &     $\varPsi$ & \verb|\varPsi|     & ψ & \rUniNum{03C7} &     $\psi$ & \verb|\psi|     &               &                    \\
+		Ω & \rUniNum{03A9} &   $\Omega$ & \verb|\Omega|   &   $\varOmega$ & \verb|\varOmega|   & ω & \rUniNum{03C8} &   $\omega$ & \verb|\omega|   &               &                    \\
+		Ͱ & \rUniNum{0370} &            &                 &               &                    & ͱ & \rUniNum{0371} &            &                 &               &                    \\
+		Ͳ & \rUniNum{0372} &            &                 &               &                    & ͳ & \rUniNum{0373} &            &                 &               &                    \\
+		Ͷ & \rUniNum{0376} &            &                 &               &                    & ͷ & \rUniNum{0377} &            &                 &               &                    \\
+		Ϙ & \rUniNum{03D8} &            &                 &               &                    & ϙ & \rUniNum{03D9} &            &                 &               &                    \\
+		Ϛ & \rUniNum{03DA} &            &                 &               &                    & ϛ & \rUniNum{03DB} &            &                 &               &                    \\
+		Ϝ & \rUniNum{03DC} &            &                 &               &                    & ϝ & \rUniNum{03DD} & $\digamma$ & \verb|\digamma| &               &                    \\
+		Ϟ & \rUniNum{03DE} &            &                 &               &                    & ϟ & \rUniNum{03DF} &            &                 &               &                    \\
+		Ϡ & \rUniNum{03E0} &            &                 &               &                    & ϡ & \rUniNum{03E1} &            &                 &               &                    \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -803,32 +803,32 @@
 		\hline
 		\multicolumn{2}{c}{\Unicode} & \multicolumn{2}{c}{\LaTeX{}} & \multicolumn{2}{c}{\Unicode} & \multicolumn{2}{c}{\LaTeX{}} \\
 		\hline
-		A & \unin{0041} & $A$ & \verb|A| & a & \unin{0061} & $a$ & \verb|a| \\
-		B & \unin{0042} & $B$ & \verb|B| & b & \unin{0062} & $b$ & \verb|b| \\
-		C & \unin{0043} & $C$ & \verb|C| & c & \unin{0063} & $c$ & \verb|c| \\
-		D & \unin{0044} & $D$ & \verb|D| & e & \unin{0064} & $e$ & \verb|e| \\
-		E & \unin{0045} & $E$ & \verb|E| & r & \unin{0065} & $r$ & \verb|r| \\
-		F & \unin{0046} & $F$ & \verb|F| & f & \unin{0066} & $f$ & \verb|f| \\
-		G & \unin{0047} & $G$ & \verb|G| & g & \unin{0067} & $g$ & \verb|g| \\
-		H & \unin{0048} & $H$ & \verb|H| & h & \unin{0068} & $h$ & \verb|h| \\
-		I & \unin{0049} & $I$ & \verb|I| & i & \unin{0069} & $i$ & \verb|i| \\
-		J & \unin{004A} & $J$ & \verb|J| & j & \unin{006A} & $j$ & \verb|j| \\
-		K & \unin{004B} & $K$ & \verb|K| & k & \unin{006B} & $k$ & \verb|k| \\
-		L & \unin{004C} & $L$ & \verb|L| & l & \unin{006C} & $l$ & \verb|l| \\
-		M & \unin{004D} & $M$ & \verb|M| & m & \unin{006D} & $m$ & \verb|m| \\
-		N & \unin{004E} & $N$ & \verb|N| & n & \unin{006E} & $n$ & \verb|n| \\
-		O & \unin{004F} & $O$ & \verb|O| & o & \unin{006F} & $o$ & \verb|o| \\
-		P & \unin{0050} & $P$ & \verb|P| & p & \unin{0070} & $p$ & \verb|p| \\
-		Q & \unin{0051} & $Q$ & \verb|Q| & q & \unin{0071} & $q$ & \verb|q| \\
-		R & \unin{0052} & $R$ & \verb|R| & r & \unin{0072} & $r$ & \verb|r| \\
-		S & \unin{0053} & $S$ & \verb|S| & s & \unin{0073} & $s$ & \verb|s| \\
-		T & \unin{0054} & $T$ & \verb|T| & t & \unin{0074} & $t$ & \verb|t| \\
-		U & \unin{0055} & $U$ & \verb|U| & u & \unin{0075} & $u$ & \verb|u| \\
-		V & \unin{0056} & $V$ & \verb|V| & v & \unin{0076} & $v$ & \verb|v| \\
-		W & \unin{0057} & $W$ & \verb|W| & w & \unin{0077} & $w$ & \verb|w| \\
-		X & \unin{0058} & $X$ & \verb|X| & x & \unin{0078} & $x$ & \verb|x| \\
-		Y & \unin{0059} & $Y$ & \verb|Y| & y & \unin{0079} & $y$ & \verb|y| \\
-		Z & \unin{005A} & $Z$ & \verb|Z| & z & \unin{007A} & $z$ & \verb|z| \\
+		A & \rUniNum{0041} & $A$ & \verb|A| & a & \rUniNum{0061} & $a$ & \verb|a| \\
+		B & \rUniNum{0042} & $B$ & \verb|B| & b & \rUniNum{0062} & $b$ & \verb|b| \\
+		C & \rUniNum{0043} & $C$ & \verb|C| & c & \rUniNum{0063} & $c$ & \verb|c| \\
+		D & \rUniNum{0044} & $D$ & \verb|D| & e & \rUniNum{0064} & $e$ & \verb|e| \\
+		E & \rUniNum{0045} & $E$ & \verb|E| & r & \rUniNum{0065} & $r$ & \verb|r| \\
+		F & \rUniNum{0046} & $F$ & \verb|F| & f & \rUniNum{0066} & $f$ & \verb|f| \\
+		G & \rUniNum{0047} & $G$ & \verb|G| & g & \rUniNum{0067} & $g$ & \verb|g| \\
+		H & \rUniNum{0048} & $H$ & \verb|H| & h & \rUniNum{0068} & $h$ & \verb|h| \\
+		I & \rUniNum{0049} & $I$ & \verb|I| & i & \rUniNum{0069} & $i$ & \verb|i| \\
+		J & \rUniNum{004A} & $J$ & \verb|J| & j & \rUniNum{006A} & $j$ & \verb|j| \\
+		K & \rUniNum{004B} & $K$ & \verb|K| & k & \rUniNum{006B} & $k$ & \verb|k| \\
+		L & \rUniNum{004C} & $L$ & \verb|L| & l & \rUniNum{006C} & $l$ & \verb|l| \\
+		M & \rUniNum{004D} & $M$ & \verb|M| & m & \rUniNum{006D} & $m$ & \verb|m| \\
+		N & \rUniNum{004E} & $N$ & \verb|N| & n & \rUniNum{006E} & $n$ & \verb|n| \\
+		O & \rUniNum{004F} & $O$ & \verb|O| & o & \rUniNum{006F} & $o$ & \verb|o| \\
+		P & \rUniNum{0050} & $P$ & \verb|P| & p & \rUniNum{0070} & $p$ & \verb|p| \\
+		Q & \rUniNum{0051} & $Q$ & \verb|Q| & q & \rUniNum{0071} & $q$ & \verb|q| \\
+		R & \rUniNum{0052} & $R$ & \verb|R| & r & \rUniNum{0072} & $r$ & \verb|r| \\
+		S & \rUniNum{0053} & $S$ & \verb|S| & s & \rUniNum{0073} & $s$ & \verb|s| \\
+		T & \rUniNum{0054} & $T$ & \verb|T| & t & \rUniNum{0074} & $t$ & \verb|t| \\
+		U & \rUniNum{0055} & $U$ & \verb|U| & u & \rUniNum{0075} & $u$ & \verb|u| \\
+		V & \rUniNum{0056} & $V$ & \verb|V| & v & \rUniNum{0076} & $v$ & \verb|v| \\
+		W & \rUniNum{0057} & $W$ & \verb|W| & w & \rUniNum{0077} & $w$ & \verb|w| \\
+		X & \rUniNum{0058} & $X$ & \verb|X| & x & \rUniNum{0078} & $x$ & \verb|x| \\
+		Y & \rUniNum{0059} & $Y$ & \verb|Y| & y & \rUniNum{0079} & $y$ & \verb|y| \\
+		Z & \rUniNum{005A} & $Z$ & \verb|Z| & z & \rUniNum{007A} & $z$ & \verb|z| \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -837,15 +837,15 @@
 	\centering
 	\begin{tabular}{l l l}
 		\hline
-		$\mathbb{ABC}$           & \cmdm{mathbb}{math}     & 黑板粗体（仅大写），常用于表示特殊集合 \\
-		$\mathbf{ABCdef123}$     & \cmdm{mathbf}{math}     & 粗体，常用于向量 \\
-		$\mathcal{ABC}$          & \cmdm{mathcal}{math}    & 书法体（仅大写），常用于层、概型和范畴 \\
-		$\mathfrak{ABCabc123}$   & \cmdm{mathfrak}{math}   & 一种德国风格粗体，常用于群和环 \\
-		$\mathit{ABCdef123}$     & \cmdm{mathit}{math}     & 意大利斜体 \\
-		$\mathnormal{ABCdef123}$ & \cmdm{mathnormal}{math} & 默认字体 \\
-		$\mathrm{ABCdef123}$     & \cmdm{mathrm}{math}     & 罗马体（衬线字体），常用于单位和函数 \\
-		$\mathsf{ABCdef123}$     & \cmdm{mathsf}{math}     & 无衬线字体 \\
-		$\mathtt{ABCdef123}$     & \cmdm{mathtt}{math}     & 等宽字体 \\
+		$\mathbb{ABC}$           & \rCmdM{mathbb}{math}     & 黑板粗体（仅大写），常用于表示特殊集合 \\
+		$\mathbf{ABCdef123}$     & \rCmdM{mathbf}{math}     & 粗体，常用于向量                       \\
+		$\mathcal{ABC}$          & \rCmdM{mathcal}{math}    & 书法体（仅大写），常用于层、概型和范畴 \\
+		$\mathfrak{ABCabc123}$   & \rCmdM{mathfrak}{math}   & 一种德国风格粗体，常用于群和环         \\
+		$\mathit{ABCdef123}$     & \rCmdM{mathit}{math}     & 意大利斜体                             \\
+		$\mathnormal{ABCdef123}$ & \rCmdM{mathnormal}{math} & 默认字体                               \\
+		$\mathrm{ABCdef123}$     & \rCmdM{mathrm}{math}     & 罗马体（衬线字体），常用于单位和函数   \\
+		$\mathsf{ABCdef123}$     & \rCmdM{mathsf}{math}     & 无衬线字体                             \\
+		$\mathtt{ABCdef123}$     & \rCmdM{mathtt}{math}     & 等宽字体                               \\
 		\hline
 	\end{tabular}
 \end{table}

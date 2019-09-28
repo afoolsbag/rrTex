@@ -9,7 +9,7 @@
 \section{逻辑准备}
 
 
-\rTermWref{形式语言}{FormalLanguage}{formal language}可以由\rTermWref{形式文法}{Grammar}{formal grammar}描述，形式文法是一个四元组$\mathrm{G}=(\mathrm{N},\Sigma,\mathrm{P},\mathrm{S})$，其中：
+\rTermWref{形式语言}{FormalLanguage}{formal language}可以由\rTermWref{形式文法}{Grammar}{formal grammar}描述，形式文法是一种四元组$\mathrm{G}=(\mathrm{N},\Sigma,\mathrm{P},\mathrm{S})$，其中：
 \begin{itemize}
 	\item \rTerm{非终结符}{nonterminal symbols}有限集$\mathrm{N}$；
 	\item \rTerm{终结符}{terminal symbols}有限集$\Sigma$，且$\mathrm{N}\cap\Sigma=\emptyset$；集$\mathrm{V}=\mathrm{N}\cup\Sigma$称为\rTerm{词汇表}{vocabulary}；
@@ -19,58 +19,54 @@
 
 \subsection{命题演算初步}
 
-\rTermWref{命题演算}{PropositionalCalculus}{propositional calculus}是一个\rTerm{形式系统}{formal system}$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
+\rTermWref{命题演算}{PropositionalCalculus}{propositional calculus}是一种\rTerm{形式系统}{formal system}，其形式语言可描述为$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
 \begin{itemize}
-	\item \rTerm{命题变元}{propositional variables}集$\hatn{\mathrm{A}}{``alpha''}=\{p,q,r,\cdots\}$；
+	\item \rTerm{命题变元}{propositional variables}集$\rHatNote{\mathrm{A}}{``alpha''}=\{p,q,r,\cdots\}$；
 	\item \rTerm{逻辑连接词}{logical connectives}集
-	      $\hatn{\Omega}{``omega''} = \{ \hatn{\top}{真}, \hatn{\bot}{假} \} \cup \{ \hatn{\lnot}{否定词} \} \cup \{ \hatn{\land}{合取词}, \hatn{\lor}{析取词}, \hatn{\rightarrow}{蕴含词}, \hatn{\leftrightarrow}{等价词} \} \cup \cdots$；
+	      $\rHatNote{\Omega}{``omega''} = \{ \rHatNote{\top}{真}, \rHatNote{\bot}{假} \} \cup \{ \rHatNote{\lnot}{否定词} \} \cup \{ \rHatNote{\land}{合取词}, \rHatNote{\lor}{析取词}, \rHatNote{\rightarrow}{蕴含词}, \rHatNote{\leftrightarrow}{等价词}, \cdots \} \cup \cdots$；
 	\item \rTerm{推理规则}{inference rules}集
-	      $\hatn{\mathrm{Z}}{``zeta''} = \begin{cases}
+	      $\rHatNote{\mathrm{Z}}{``zeta''} = \begin{cases}
 	           \text{每个命题变元都是} \mathcal{L} \text{的公式（下简称``公式''）；} \\
-	           \text{若} p \text{和} q \text{是公式，则} \lnot{}p \text{、} p\land{}q \text{、} p\lor{}q \text{、} p\rightarrow{}q \text{、} p\leftrightarrow{}q \text{也都是公式；} \\
+	           \text{若} p \text{和} q \text{是公式，则} \lnot{}p \text{、} p\land{}q \text{、} p\lor{}q \text{、} p\rightarrow{}q \text{、} p\leftrightarrow{}q \text{、} \cdots \text{也都是公式；} \\
 	           \text{除外都不是公式．} \\
 	       \end{cases}$
-	\item \rTerm{公理}{axioms}集$\hatn{\mathrm{I}}{``iota''}$．
+	\item \rTerm{公理}{axioms}集$\rHatNote{\mathrm{I}}{``iota''}$．
 \end{itemize}
 
+\newpage
 \subsubsection{逻辑连接词}
 
 \begin{table}[h!]
 	\centering
-	\newcommand{\T}{\color{blue}$\top$}
-	\newcommand{\F}{\color{red}$\bot$}
+	\newcommand{\T}{{\color{blue}$\top$}}
+	\newcommand{\F}{{\color{red}$\bot$}}
+	\newcommand{\FoF}{\F$\circ$\F}
+	\newcommand{\FoT}{\F$\circ$\T}
+	\newcommand{\ToF}{\T$\circ$\F}
+	\newcommand{\ToT}{\T$\circ$\T}
 	\begin{tabular}{c c c c c c c c l}
-		\multicolumn{4}{c}{等价公式} & \multicolumn{4}{c}{真值表} & 读法 \\
+		\multicolumn{4}{c}{等价公式} & \multicolumn{4}{c}{真值表} & 助记 \\
 		\hline
-		\multicolumn{4}{c}{$p$\qquad}                                                                      & \F & \F & \T & \T & \\
-		\multicolumn{4}{c}{\qquad$q$}                                                                      & \F & \T & \F & \T & \\
+		\multicolumn{4}{c}{$p\circ{}q$}                                                                                                                             & \FoF & \FoT & \ToF & \ToT & \\
 		\hline
-		\multicolumn{4}{c}{$\top$}                                                                         & \T & \T & \T & \T & ``永真'' \\
-		$p\uparrow{}q$        & $\lnot{}p\leftarrow{}q$ &  $p\rightarrow\lnot{}q$ & $\lnot{}p\lor\lnot{}q$ & \T & \T & \T & \F & ``与非'' \\
-		$p\rightarrow{}q$     &&&& \T & \T & \F & \T & ``公式$p$蕴含公式$q$'' \\
-		\multicolumn{4}{c}{$\lnot{}p$}                                                                     & \T & \T & \F & \F & ``非公式$p$'' \\
-		$p\leftarrow{}q$      &&&& \T & \F & \T & \T & ``反蕴含'' \\
-		\multicolumn{4}{c}{$\lnot{}q$}                                                                     & \T & \F & \T & \F & ``非公式$q$'' \\
-		$p\leftrightarrow{}q$ &&&& \T & \F & \F & \T & ``公式$p$等价于公式$q$'' \\
-		$p\downarrow{}q$      &&&& \T & \F & \F & \F & ``或非'' \\
-		$p\lor{}q$            &&&& \F & \T & \T & \T & ``析取'' \\
-		$p\oplus{}q$          &&&& \F & \T & \T & \F & ``公式$p$异或公式$q$'' \\
-		\multicolumn{4}{c}{$q$}                                                                            & \F & \T & \F & \T & ``公式$q$'' \\
-		$p\nleftarrow{}q$     &&&& \F & \T & \F & \F & ``反非蕴含'' \\
-		\multicolumn{4}{c}{$p$}                                                                            & \F & \F & \T & \T & ``公式$p$'' \\
-		$p\nrightarrow{}q$    &&&& \F & \F & \T & \F & ``非蕴含'' \\
-		$p\land{}q$           &&&& \F & \F & \F & \T & ``公式$p$与公式$q$'' \\
-		\multicolumn{4}{c}{$\bot$}                                                                         & \F & \F & \F & \F & ``永假'' \\
+		\multicolumn{4}{c}{$\rHatNote{\top}{``真''}$}                                                                                                               & \T   & \T   & \T   & \T   & 恒真 \\
+		$\rHatNote{p\uparrow{}q}{``公式$p$与非公式$q$''}$           & $p\rightarrow\lnot{}q$     & $\lnot{}p\leftarrow{}q$      & $\lnot{}p\lor\lnot{}q$            & \T   & \T   & \T   & \F   & 存假为真 \\
+		$\rHatNote{p\rightarrow{}q}{``公式$p$蕴含公式$q$''}$        & $p\uparrow\lnot{}q$        & $\lnot{}p\lor{}q$            & $\lnot{}p\leftarrow\lnot{}q$      & \T   & \T   & \F   & \T   & \\
+		\multicolumn{4}{c}{$\rHatNote{\lnot{}p}{``非公式$p$''}$}                                                                                                    & \T   & \T   & \F   & \F   & \\
+		$\rHatNote{p\leftarrow{}q}{``公式$p$蕴含于公式$q$''}$       & $p\lor\lnot{}q$            & $\lnot{}p\uparrow{}q$        & $\lnot{}p\rightarrow\lnot{}q$     & \T   & \F   & \T   & \T   & \\
+		\multicolumn{4}{c}{$\rHatNote{\lnot{}q}{``非公式$q$''}$}                                                                                                    & \T   & \F   & \T   & \F   & \\
+		$\rHatNote{p\leftrightarrow{}q}{``公式$p$等价于公式$q$''}$  & $p\oplus\lnot{}q$          & $\lnot{}p\oplus{}q$          & $\lnot{}p\leftrightarrow\lnot{}q$ & \T   & \F   & \F   & \T   & 相同为真 \\
+		$\rHatNote{p\downarrow{}q}{``公式$p$或非公式$q$''}$         & $p\not\leftarrow\lnot{}q$  & $\lnot{}p\not\rightarrow{}q$ & $\lnot{}p\land\lnot{}q$           & \T   & \F   & \F   & \F   & 全假为真 \\
+		$\rHatNote{p\lor{}q}{``公式$p$或公式$q$''}$                 & $p\leftarrow\lnot{}q$      & $\lnot{}p\rightarrow{}q$     & $\lnot{}p\uparrow\lnot{}q$        & \F   & \T   & \T   & \T   & 存真为真 \\
+		$\rHatNote{p\oplus{}q}{``公式$p$异或公式$q$''}$             & $p\leftrightarrow\lnot{}q$ & $\lnot{}p\leftrightarrow{}q$ & $\lnot{}p\oplus\lnot{}q$          & \F   & \T   & \T   & \F   & 相异为真 \\
+		\multicolumn{4}{c}{$\rHatNote{q}{``公式$q$''}$}                                                                                                             & \F   & \T   & \F   & \T   & \\
+		$\rHatNote{p\not\leftarrow{}q}{``公式$p$非蕴含于公式$q$''}$ & $p\downarrow\lnot{}q$      & $\lnot{}p\land{}q$           & $\lnot{}p\not\rightarrow\lnot{}q$ & \F   & \T   & \F   & \F   & \\
+		\multicolumn{4}{c}{$\rHatNote{p}{``公式$p$''}$}                                                                                                             & \F   & \F   & \T   & \T   & \\
+		$\rHatNote{p\not\rightarrow{}q}{``公式$p$非蕴含公式$q$''}$  & $p\land\lnot{}q$           & $\lnot{}p\downarrow{}q$      & $\lnot{}p\not\leftarrow\lnot{}q$  & \F   & \F   & \T   & \F   & \\
+		$\rHatNote{p\land{}q}{``公式$p$与公式$q$''}$                & $p\not\rightarrow\lnot{}q$ & $\lnot{}p\not\leftarrow{}q$  & $\lnot{}p\downarrow\lnot{}q$      & \F   & \F   & \F   & \T   & 全真为真 \\
+		\multicolumn{4}{c}{$\rHatNote{\bot}{``假''}$}                                                                                                               & \F   & \F   & \F   & \F   & 恒假 \\
 	\end{tabular}
 \end{table}
-
-\begin{itemize}
-	\item 否定式 $\hatn{\lnot{}p}{``非公式$p$''}$：当公式$p$为$\top$时否定式为$\bot$，当公式$p$为$\bot$时否定式为$\top$；
-	\item 合取式 $\hatn{p\land{}q}{``公式$p$与公式$q$''}$：当公式$p$和$q$全部为$\top$时合取式为$\top$，否则合取式为$\bot$；
-	\item 析取式 $\hatn{p\lor{}q}{``公式$p$或公式$q$''}$：当公式$p$和$q$存在为$\top$时析取式为$\top$，否则析取式为$\bot$；
-	\item 蕴含式 $\hatn{p\rightarrow{}q}{``前件$p$蕴含后件$q$''}$：当前件$p$为$\top$而后件$q$为$\bot$时蕴含式为$\bot$，否则蕴含式为$\top$；
-	\item 等价式 $\hatn{p\leftrightarrow{}q}{``公式$p$等价于公式$q$''}$：当公式$p$和$q$真值相同时等价式为$\top$，否则等价式为$\bot$．
-\end{itemize}
 
 \subsubsection{永真式}
 
@@ -94,4 +90,18 @@
 \[ (p \rightarrow q) \rightarrow ((q \rightarrow r) \rightarrow (p \rightarrow r))                 \text{．} \tag{假设三段论} \]
 
 \subsection{谓词演算简介}
+
+谓词演算是一种形式系统，其形式语言可描述为$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
+\begin{itemize}
+	\item \rTerm{命题变元}{propositional variables}集$\rHatNote{\mathrm{A}}{``alpha''}=\{p,q,r,\cdots\}$；
+	\item \rTerm{逻辑连接词}{logical connectives}集
+	$\rHatNote{\Omega}{``omega''} = \{ \rHatNote{\top}{真}, \rHatNote{\bot}{假} \} \cup \{ \rHatNote{\lnot}{否定词} \} \cup \{ \rHatNote{\land}{合取词}, \rHatNote{\lor}{析取词}, \rHatNote{\rightarrow}{蕴含词}, \rHatNote{\leftrightarrow}{等价词}, \cdots \} \cup \cdots$；
+	\item \rTerm{推理规则}{inference rules}集
+	$\rHatNote{\mathrm{Z}}{``zeta''} = \begin{cases}
+	\text{每个命题变元都是} \mathcal{L} \text{的公式（下简称``公式''）；} \\
+	\text{若} p \text{和} q \text{是公式，则} \lnot{}p \text{、} p\land{}q \text{、} p\lor{}q \text{、} p\rightarrow{}q \text{、} p\leftrightarrow{}q \text{、} \cdots \text{也都是公式；} \\
+	\text{除外都不是公式．} \\
+	\end{cases}$
+	\item \rTerm{公理}{axioms}集$\rHatNote{\mathrm{I}}{``iota''}$．
+\end{itemize}
 

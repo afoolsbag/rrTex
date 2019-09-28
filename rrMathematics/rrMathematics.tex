@@ -36,16 +36,16 @@
 %-------------------------------------------------------------------------------
 % 自定义文本命令
 
-% color label
-\newcommand{\clbl}[1]{\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}
-% command without arguments
-\newcommand{\cmdw}[1]{{\ttfamily\textbackslash#1}}
-% command with optional arguments
-\newcommand{\cmdo}[2]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}
-% command with mandatory arguments
-\newcommand{\cmdm}[2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}
-% command with both arguments
-\newcommand{\cmdb}[3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}
+% Color Label
+\newcommand{\rColorLbl}[1]{\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}
+% Command Without Arguments
+\newcommand{\rCmdW}[1]{{\ttfamily\textbackslash#1}}
+% Command With Optional Arguments
+\newcommand{\rCmdO}[2]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}
+% Command With Mandatory Arguments
+\newcommand{\rCmdM}[2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}
+% Command With Both Arguments
+\newcommand{\rCmdB}[3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}
 
 % 边注
 % Margin Note
@@ -61,18 +61,20 @@
 % Term & Wolfram Math World Reference
 \newcommand{\rTermWref}[3]{\rTermHref{#1}{http://mathworld.wolfram.com/#2.html}{#3}}
 
-% package cite
-\newcommand{\pkgc}[1]{\textsf{#1}\cite{#1}}
-% unicode number
-\newcommand{\unin}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}
+% Package Cite
+\newcommand{\rPkgCite}[1]{\textsf{#1}\cite{#1}}
+% Unicode Number
+\newcommand{\rUniNum}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}
+
+% 符号
 % Unicode
 \providecommand{\Unicode}{\ttfamily{}Unicode\textregistered{}}
 
 %-------------------------------------------------------------------------------
 % 自定义数学命令
 
-% hat note
-\newcommand{\hatn}[2]{\overset{\text{\footnotesize{}#2}}{#1}}
+% Hat Note
+\newcommand{\rHatNote}[2]{\overset{\text{\footnotesize{}#2}}{#1}}
 
 \begin{document}
 % 正文区开始
