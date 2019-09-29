@@ -52,6 +52,8 @@
 \newcommand{\rMarginNote}[1]{\marginpar[\footnotesize#1]{\footnotesize#1}}
 % Margin Note & Hypertext Reference
 \newcommand{\rMarginNoteHref}[2]{\marginpar[\footnotesize\href{#1}{#2}]{\footnotesize\href{#1}{#2}}}
+% Margin Note & Wolfram Math World Reference
+\newcommand{\rMarginNoteWref}[2]{\marginpar[\footnotesize\href{http://mathworld.wolfram.com/#1.html}{#2}]{\footnotesize\href{http://mathworld.wolfram.com/#1.html}{#2}}}
 
 % 术语
 % Term
@@ -59,7 +61,7 @@
 % Term & Hypertext Reference
 \newcommand{\rTermHref}[3]{\emph{#1}\rMarginNoteHref{#2}{#3}}
 % Term & Wolfram Math World Reference
-\newcommand{\rTermWref}[3]{\rTermHref{#1}{http://mathworld.wolfram.com/#2.html}{#3}}
+\newcommand{\rTermWref}[3]{\emph{#1}\rMarginNoteWref{#2}{#3}}
 
 % Package Cite
 \newcommand{\rPkgCite}[1]{\textsf{#1}\cite{#1}}
@@ -90,7 +92,7 @@
 
 % 章节
 \include{LaTeX2e}
-\include{基础}
+\include{数学基础}
 \include{集合、映射和二元运算}
 
 % 附录

@@ -1,6 +1,6 @@
-\chapter{基础}
+\chapter{数学基础}
 
-本章主要参照\citeauthor{WangFt2001}先生的\citetitle{WangFt2001}\footfullcite{WangFt2001}\cite{WangFt2001}．
+本章主要参照\citeauthor{WangFt2001}先生的\citetitle{WangFt2001}\cite{WangFt2001}．
 
 \section{历史概述}
 
@@ -59,14 +59,14 @@
 	       \end{cases}$
 	\item \rTerm{推理规则}{inference rules}集
 	      $\rHatNote{\mathrm{Z}}{``zeta''} = \begin{cases}
-	           \text{每个命题变量都是形式系统} \mathcal{L} \text{的合式公式（下简称``公式''）；}                                                                                              \\
-	           \text{若} p \text{和} q \text{是公式，则} \lnot{}p \text{、} p\land{}q \text{、} p\lor{}q \text{、} p\to{}q \text{、} p\leftrightarrow{}q \text{、} \cdots \text{也都是公式；} \\
-	           \text{除外都不是公式．}                                                                                                                                                        \\
+	           \text{每个命题变量都是公式；}                                                                                          \\
+	           \text{若$p$和$q$是公式，则$\lnot{}p$、$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；} \\
+	           \text{除外都不是公式．}                                                                                                \\
 	       \end{cases}$
 	\item \rTerm{公理}{axioms}集$\rHatNote{\mathrm{I}}{``iota''}$．
 \end{itemize}
 
-%\subsubsection{逻辑联结词}
+\subsubsection{逻辑联结词}
 
 \begin{table}[h!]
 	\centering
@@ -109,11 +109,11 @@
 \[ (p \land q) \leftrightarrow (q \land p)                             \text{，} \tag{合取交换律} \]
 \[ ((p \land q) \land r) \leftrightarrow (p \land (q \land r))         \text{，} \tag{合取结合律} \]
 \[ (p \land (q \lor r)) \leftrightarrow ((p \land q) \lor (p \land r)) \text{，} \tag{分配律} \]
-\[ \lnot(p \land q) \leftrightarrow (\lnot{}p \lor \lnot{}q)           \text{，} \tag{德·摩根律} \]
+\[ \lnot(p \land q) \leftrightarrow (\lnot{}p \lor \lnot{}q)           \text{，} \tag{De Morgan 律} \]
 \[ (p \lor q) \leftrightarrow (q \lor p)                               \text{，} \tag{析取交换律} \]
 \[ ((p \lor q) \lor r) \leftrightarrow (p \lor (q \lor r))             \text{，} \tag{析取结合律} \]
 \[ (p \lor (q \land r)) \leftrightarrow ((p \lor q) \land (p \lor r))  \text{，} \tag{分配律} \]
-\[ \lnot(p \lor q) \leftrightarrow (\lnot{}p \land \lnot{}q)           \text{，} \tag{德·摩根律} \]
+\[ \lnot(p \lor q) \leftrightarrow (\lnot{}p \land \lnot{}q)           \text{，} \tag{De Morgan 律} \]
 \[ \lnot{}p \to (p \to q)                                              \text{，} \tag{否定前件律} \]
 \[ q \to (p \to q)                                                     \text{，} \tag{肯定后件律} \]
 \[ (p \to (q \to r)) \to ((p \to q) \to (p \to r))                     \text{，} \tag{蕴含词分配律} \]
@@ -123,17 +123,39 @@
 
 \subsection{谓词演算初步}
 
-谓词演算是一种形式系统，其形式语言可描述为$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
+\rTermWref{谓词演算}{PredicateCalculus}{predicate calculus}是一种形式系统，可描述为$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
 \begin{itemize}
-	\item \rTerm{命题变元}{propositional variables}集$\rHatNote{\mathrm{A}}{``alpha''}=\{p,q,r,\cdots\}$；
-	\item \rTerm{逻辑连接词}{logical connectives}集
-	$\rHatNote{\Omega}{``omega''} = \{ \rHatNote{\top}{真}, \rHatNote{\bot}{假} \} \cup \{ \rHatNote{\lnot}{否定词} \} \cup \{ \rHatNote{\land}{合取词}, \rHatNote{\lor}{析取词}, \rHatNote{\to}{蕴含词}, \rHatNote{\leftrightarrow}{等价词}, \cdots \} \cup \cdots$；
-	\item \rTerm{推理规则}{inference rules}集
-	$\rHatNote{\mathrm{Z}}{``zeta''} = \begin{cases}
-	\text{每个命题变元都是} \mathcal{L} \text{的公式（下简称``公式''）；} \\
-	\text{若} p \text{和} q \text{是公式，则} \lnot{}p \text{、} p\land{}q \text{、} p\lor{}q \text{、} p\to{}q \text{、} p\leftrightarrow{}q \text{、} \cdots \text{也都是公式；} \\
-	\text{除外都不是公式．} \\
-	\end{cases}$
-	\item \rTerm{公理}{axioms}集$\rHatNote{\mathrm{I}}{``iota''}$．
+	\item 代词集$\rHatNote{\mathrm{A}}{``alpha''}=\{x, y, z, \cdots\}$；
+	\item 终结符集
+	      $\rHatNote{\Omega}{``omega''} = \Omega_\text{量词} \cup \Omega_\text{名词} \cup \Omega_\text{映射} \cup \Omega_\text{谓词} \cup \Omega_\text{逻辑联结词} = \begin{cases}
+	          \Omega_\text{量词} = \{ \rHatNote{\forall}{``全称量词''}, \rHatNote{\exists}{``存在量词''} \} \\
+	          \Omega_\text{名词} = \{ a, b, c, \cdots \}                                                    \\
+	          \Omega_\text{映射} = \{ f, g, h, \cdots \}                                                    \\
+	          \Omega_\text{谓词} = \{ R, S, T, \cdots \}                                                    \\
+	          \Omega_\text{逻辑联结词} = \{ \lnot, \land, \lor, \to, \leftrightarrow, \cdots \}             \\
+	       \end{cases}$
+	\item 推理规则集
+	      $\rHatNote{\mathrm{Z}}{``zeta''} = \begin{cases}
+	          \text{每个代词、名词都是项；}                                                                                          \\
+	          \text{若$f$是$n$元映射，且$t_1$、$\cdots$、$t_n$是项，则$f(t_1,\cdots,t_n)$也是项；}                                   \\
+	          \text{除外都不是项；}                                                                                                  \\
+	          \text{若$R$是$n$元谓词，且$t_1$、$\cdots$、$t_n$是项，则$R(t_1,\cdots,t_n)$是公式；}                                   \\
+	          \text{若$p$和$q$是公式，则$\lnot{}p$、$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；} \\
+	          \text{若$x$是代词，且$p$是公式，则$\forall{}xp$、$\exists{}xp$也是公式；}                                              \\
+	          \text{除外都不是公式．}                                                                                                \\
+	       \end{cases}$
+	\item 公理集$\rHatNote{\mathrm{I}}{``iota''}$．
 \end{itemize}
 
+\section{集论概念}
+
+\rTermWref{ZF集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel Set Theory}是一种谓词演算，其代词叫做``集''，其谓词有二：$\rHatNote{=}{``等于''}$和$\rHatNote{\in}{``属于''}$．
+
+\newtheorem{ZF}{ZF}
+
+\begin{ZF}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZF:1}
+	$\forall x \forall y ( \forall z (z \in x \leftrightarrow z \in y) \leftrightarrow x = y )$
+\end{ZF}
+\begin{ZF}[内涵公理]\label{ZF:2}
+	$\forall s \exists y \forall x ( x \in y \leftrightarrow x \in s \land p(x) )$
+\end{ZF}
