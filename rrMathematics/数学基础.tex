@@ -12,150 +12,195 @@
 
 \rTermWref{形式语言}{FormalLanguage}{formal language}可以由\rTermWref{形式文法}{Grammar}{formal grammar}描述，形式文法是一种四元组$G=(N,\Sigma,P,S)$，其中：
 \begin{itemize}
-	\item \rTerm{非终结符}{nonterminal symbols}有限集$N$；
-	\item \rTerm{终结符}{terminal symbols}有限集$\Sigma$，且$N\cap\Sigma=\emptyset$；集$V=N\cup\Sigma$称为\rTerm{词汇表}{vocabulary}；
-	\item \rTerm{产生式规则}{production rules}有限集$P$；
-	\item \rTerm{开始符号}{start symbol}$S$，且$S\in{}N$．
+    \item 集$N$是由\rTerm{非终结符}{nonterminal symbols}组成的有限集；
+    \item 集$\Sigma$是由\rTerm{终结符}{terminal symbols}组成的有限集，且$N\cap\Sigma=\emptyset$；集$V=N\cup\Sigma$称作\rTerm{词汇表}{vocabulary}；
+    \item 集$P$是由\rTerm{产生式规则}{production rules}组成的有限集；
+    \item 元$S$是\rTerm{开始符号}{start symbol}，且$S\in{}N$．
 \end{itemize}
 
-譬如，一种可以表示二进制整数的形式文法和一例推导示例：
+譬如，一种可以描述二进制整数的形式文法和它的一例推导示例：
 \begin{multicols}{2}
-	\[
-	G_\text{binary} = (N, \Sigma, P, S), \begin{cases}
-	    N      = \{ S_\text{(start)}, D_\text{(digital)} \} \\
-	    \Sigma = \{ -, 0, 1 \}                              \\
-	    P      = \begin{cases}
-	                 \text{1.} S \to D  \\
-	                 \text{2.} S \to -D \\
-	                 \text{3.} D \to 0D \\
-	                 \text{4.} D \to 1D \\
-	                 \text{5.} D \to 0  \\
-	                 \text{6.} D \to 1  \\
-	             \end{cases}                                \\
-	    S                                                   \\
-	\end{cases}
-	\] \\
-	\[
-	\begin{aligned}
-	    S &\underset{2}{\Rightarrow} -D    \\
-	      &\underset{4}{\Rightarrow} -1D   \\
-	      &\underset{3}{\Rightarrow} -10D  \\
-	      &\underset{4}{\Rightarrow} -101D \\
-	      &\underset{5}{\Rightarrow} -1010 \\
-	\end{aligned}
-	\]
+    \begin{equation*}
+        G_\text{binary} = (N, \Sigma, P, S), \begin{cases}
+            N      = \{ S_\text{(start)}, D_\text{(digital)} \} \\
+            \Sigma = \{ -, 0, 1 \}                              \\
+            P      = \begin{cases}
+                         \text{1.}\ S \to D  \\
+                         \text{2.}\ S \to -D \\
+                         \text{3.}\ D \to 0D \\
+                         \text{4.}\ D \to 1D \\
+                         \text{5.}\ D \to 0  \\
+                         \text{6.}\ D \to 1  \\
+                     \end{cases}                                \\
+            S                                                   \\
+        \end{cases}
+    \end{equation*}
+    \newline
+    \begin{equation*}
+        \begin{aligned}
+            S &\underset{2}{\Rightarrow} -D    \\
+              &\underset{4}{\Rightarrow} -1D   \\
+              &\underset{3}{\Rightarrow} -10D  \\
+              &\underset{4}{\Rightarrow} -101D \\
+              &\underset{5}{\Rightarrow} -1010 \\
+        \end{aligned}
+    \end{equation*}
 \end{multicols}
 
 \subsection{命题演算初步}
 
 \rTermWref{命题演算}{PropositionalCalculus}{propositional calculus}是一种\rTerm{形式系统}{formal system}，可描述为$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
 \begin{itemize}
-	\item \rTerm{命题变量}{propositional variables}集$\rHatNote{\mathrm{A}}{``alpha''}=\{p,q,r,\cdots\}$；
-	\item \rTerm{逻辑联结词}{logical connectives}集
-	      $\rHatNote{\Omega}{``omega''} = \Omega_0 \cup \Omega_1 \cup \Omega_2, \begin{cases}
-	            \Omega_0 = \{ \rHatNote{\top}{真}, \rHatNote{\bot}{假} \}                                                                              \text{，} \\
-	            \Omega_1 = \{ \rHatNote{\lnot}{否定词} \}                                                                                              \text{，} \\
-	            \Omega_2 = \{ \rHatNote{\land}{合取词}, \rHatNote{\lor}{析取词}, \rHatNote{\to}{蕴含词}, \rHatNote{\leftrightarrow}{等价词}, \cdots \} \text{．} \\
-	       \end{cases}$
-	\item \rTerm{推理规则}{inference rules}集
-	      $\rHatNote{\mathrm{Z}}{``zeta''} = \begin{cases}
-	           \text{每个命题变量都是公式；}                                                                                          \\
-	           \text{若$p$和$q$是公式，则$\lnot{}p$、$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；} \\
-	           \text{除外都不是公式．}                                                                                                \\
-	       \end{cases}$
-	\item \rTerm{公理}{axioms}集$\rHatNote{\mathrm{I}}{``iota''}$．
+    \renewcommand{\labelitemii}{}
+    \item 集$\rHatNote{\mathrm{A}}{``alpha''}$是由\rTerm{命题变量}{propositional variables}$p$、$q$、$r$、$\cdots$组成的集；
+    \item 集$\rHatNote{\Omega}{``omega''}$是由\rTerm{逻辑联结词}{logical connectives}组成的集，可按元数将其划分为$\Omega_0$、$\Omega_1$和$\Omega_2$：
+          \begin{itemize}
+              \item $\Omega_0 = \{ \rHatNote{\bot}{恒假}, \rHatNote{\top}{恒真} \}$；
+              \item $\Omega_1 = \{ \rHatNote{\lnot}{否定词} \}$；
+              \item $\Omega_2 = \{ \rHatNote{\land}{合取词}, \rHatNote{\lor}{析取词}, \rHatNote{\to}{蕴含词}, \rHatNote{\leftrightarrow}{等价词}, \cdots \}$；
+          \end{itemize}
+    \item 集$\rHatNote{\mathrm{Z}}{``zeta''}$是由\rTerm{推理规则}{inference rules}组成的集：
+          \begin{itemize}
+              \item 1. 每个命题变量都是合式公式（下简称``公式''）；
+              \item 2. $\bot$和$\top$是公式；
+              \item 3. 若$p$是公式，则$\lnot{}p$也是公式；
+              \item 4. 若$p$和$q$是公式，则$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；
+              \item 5. 除外都不是公式．
+          \end{itemize}
+    \item 集$\rHatNote{\mathrm{I}}{``iota''}$是由\rTerm{公理}{axioms}组成的集．
 \end{itemize}
 
-\subsubsection{逻辑联结词}
-
 \begin{table}[h!]
-	\centering
-	\newcommand{\T}{{\color{blue}$\top$}}
-	\newcommand{\F}{{\color{red}$\bot$}}
-	\newcommand{\FoF}{\F$\circ$\F}
-	\newcommand{\FoT}{\F$\circ$\T}
-	\newcommand{\ToF}{\T$\circ$\F}
-	\newcommand{\ToT}{\T$\circ$\T}
-	\begin{tabular}{c c c c c c c c l}
-		\multicolumn{4}{c}{等价公式} & \multicolumn{4}{c}{真值表} & 助记 \\
-		\hline
-		\multicolumn{4}{c}{$p\circ{}q$}                                                                                                                            & \FoF & \FoT & \ToF & \ToT &          \\
-		\hline
-		\multicolumn{4}{c}{$\rHatNote{\top}{``真''}$}                                                                                                              & \T   & \T   & \T   & \T   & 恒真     \\
-		$\rHatNote{p\uparrow{}q}{``公式$p$与非公式$q$''}$          & $p\rightarrow\lnot{}q$     & $\lnot{}p\leftarrow{}q$      & $\lnot{}p\lor\lnot{}q$            & \T   & \T   & \T   & \F   & 存假为真 \\
-		$\rHatNote{p\to{}q}{``公式$p$蕴含公式$q$''}$               & $p\uparrow\lnot{}q$        & $\lnot{}p\lor{}q$            & $\lnot{}p\gets\lnot{}q$           & \T   & \T   & \F   & \T   &          \\
-		\multicolumn{4}{c}{$\rHatNote{\lnot{}p}{``非公式$p$''}$}                                                                                                   & \T   & \T   & \F   & \F   &          \\
-		$\rHatNote{p\gets{}q}{``公式$p$蕴含于公式$q$''}$           & $p\lor\lnot{}q$            & $\lnot{}p\uparrow{}q$        & $\lnot{}p\to\lnot{}q$             & \T   & \F   & \T   & \T   &          \\
-		\multicolumn{4}{c}{$\rHatNote{\lnot{}q}{``非公式$q$''}$}                                                                                                   & \T   & \F   & \T   & \F   &          \\
-		$\rHatNote{p\leftrightarrow{}q}{``公式$p$等价于公式$q$''}$ & $p\oplus\lnot{}q$          & $\lnot{}p\oplus{}q$          & $\lnot{}p\leftrightarrow\lnot{}q$ & \T   & \F   & \F   & \T   & 相同为真 \\
-		$\rHatNote{p\downarrow{}q}{``公式$p$或非公式$q$''}$        & $p\not\gets\lnot{}q$       & $\lnot{}p\not\to{}q$         & $\lnot{}p\land\lnot{}q$           & \T   & \F   & \F   & \F   & 全假为真 \\
-		$\rHatNote{p\lor{}q}{``公式$p$或公式$q$''}$                & $p\gets\lnot{}q$           & $\lnot{}p\to{}q$             & $\lnot{}p\uparrow\lnot{}q$        & \F   & \T   & \T   & \T   & 存真为真 \\
-		$\rHatNote{p\oplus{}q}{``公式$p$异或公式$q$''}$            & $p\leftrightarrow\lnot{}q$ & $\lnot{}p\leftrightarrow{}q$ & $\lnot{}p\oplus\lnot{}q$          & \F   & \T   & \T   & \F   & 相异为真 \\
-		\multicolumn{4}{c}{$\rHatNote{q}{``公式$q$''}$}                                                                                                            & \F   & \T   & \F   & \T   &          \\
-		$\rHatNote{p\not\gets{}q}{``公式$p$非蕴含于公式$q$''}$     & $p\downarrow\lnot{}q$      & $\lnot{}p\land{}q$           & $\lnot{}p\not\to\lnot{}q$         & \F   & \T   & \F   & \F   &          \\
-		\multicolumn{4}{c}{$\rHatNote{p}{``公式$p$''}$}                                                                                                            & \F   & \F   & \T   & \T   &          \\
-		$\rHatNote{p\not\to{}q}{``公式$p$非蕴含公式$q$''}$         & $p\land\lnot{}q$           & $\lnot{}p\downarrow{}q$      & $\lnot{}p\not\gets\lnot{}q$       & \F   & \F   & \T   & \F   &          \\
-		$\rHatNote{p\land{}q}{``公式$p$与公式$q$''}$               & $p\not\to\lnot{}q$         & $\lnot{}p\not\gets{}q$       & $\lnot{}p\downarrow\lnot{}q$      & \F   & \F   & \F   & \T   & 全真为真 \\
-		\multicolumn{4}{c}{$\rHatNote{\bot}{``假''}$}                                                                                                              & \F   & \F   & \F   & \F   & 恒假     \\
-	\end{tabular}
+    \centering
+    \newcommand{\F}{{\color{red}$\bot$}}
+    \newcommand{\T}{{\color{blue}$\top$}}
+    \newcommand{\FoF}{\F$\circ$\F}
+    \newcommand{\FoT}{\F$\circ$\T}
+    \newcommand{\ToF}{\T$\circ$\F}
+    \newcommand{\ToT}{\T$\circ$\T}
+    \begin{tabular}{c c c c c c c c l}
+        \hline
+        \multicolumn{4}{c}{等价的公式} & \multicolumn{4}{c}{真值表} & \multicolumn{1}{c}{助记} \\
+        $p\circ{}q$      & $p\circ\lnot{}q$      & $\lnot{}p\circ{}q$      & $\lnot{}p\circ\lnot{}q$      & \FoF & \FoT & \ToF & \ToT &                    \\
+        \hline
+        \multicolumn{4}{c}{$\top$}                                                                        & \T   & \T   & \T   & \T   & ``恒真''           \\
+        $p\uparrow{}q$   & $p\to\lnot{}q$        & $\lnot{}p\gets{}q$      & $\lnot{}p\lor\lnot{}q$       & \T   & \T   & \T   & \F   & ``与非''，存假为真 \\
+        $p\to{}q$        & $p\uparrow\lnot{}q$   & $\lnot{}p\lor{}q$       & $\lnot{}p\gets\lnot{}q$      & \T   & \T   & \F   & \T   & ``蕴含''           \\
+        \multicolumn{4}{c}{$\lnot{}p$}                                                                    & \T   & \T   & \F   & \F   & ``非''             \\
+        $p\gets{}q$      & $p\lor\lnot{}q$       & $\lnot{}p\uparrow{}q$   & $\lnot{}p\to\lnot{}q$        & \T   & \F   & \T   & \T   & ``蕴含于''         \\
+        \multicolumn{4}{c}{$\lnot{}q$}                                                                    & \T   & \F   & \T   & \F   & ``非''             \\
+        $p\odot{}q$      & $p\oplus\lnot{}q$     & $\lnot{}p\oplus{}q$     & $\lnot{}p\odot\lnot{}q$      & \T   & \F   & \F   & \T   & ``同或''，相同为真 \\
+        $p\downarrow{}q$ & $p\not\gets\lnot{}q$  & $\lnot{}p\not\to{}q$    & $\lnot{}p\land\lnot{}q$      & \T   & \F   & \F   & \F   & ``或非''，全假为真 \\
+        $p\lor{}q$       & $p\gets\lnot{}q$      & $\lnot{}p\to{}q$        & $\lnot{}p\uparrow\lnot{}q$   & \F   & \T   & \T   & \T   & ``或''，存真为真   \\
+        $p\oplus{}q$     & $p\odot\lnot{}q$      & $\lnot{}p\odot{}q$      & $\lnot{}p\oplus\lnot{}q$     & \F   & \T   & \T   & \F   & ``异或''，相异为真 \\
+        \multicolumn{4}{c}{$q$}                                                                           & \F   & \T   & \F   & \T   & ``公式''           \\
+        $p\not\gets{}q$  & $p\downarrow\lnot{}q$ & $\lnot{}p\land{}q$      & $\lnot{}p\not\to\lnot{}q$    & \F   & \T   & \F   & \F   & ``不蕴含于''       \\
+        \multicolumn{4}{c}{$p$}                                                                           & \F   & \F   & \T   & \T   & ``公式''           \\
+        $p\not\to{}q$    & $p\land\lnot{}q$      & $\lnot{}p\downarrow{}q$ & $\lnot{}p\not\gets\lnot{}q$  & \F   & \F   & \T   & \F   & ``不蕴含''         \\
+        $p\land{}q$      & $p\not\to\lnot{}q$    & $\lnot{}p\not\gets{}q$  & $\lnot{}p\downarrow\lnot{}q$ & \F   & \F   & \F   & \T   & ``与''，全真为真   \\
+        \multicolumn{4}{c}{$\bot$}                                                                        & \F   & \F   & \F   & \F   & ``恒假''           \\
+        \hline
+    \end{tabular}
 \end{table}
 
-\subsubsection{永真式}
+\subsubsection{重言式和矛盾式}
 
-\[ p \to p                                                             \text{，} \tag{同一律} \]
-\[ \lnot{}p \lor p                                                     \text{，} \tag{排中律} \]
-\[ \lnot(\lnot{}p \land p)                                             \text{，} \tag{矛盾律} \]
-\[ \lnot\lnot{}p \leftrightarrow p                                     \text{，} \tag{双重否定律} \]
-\[ (p \land q) \leftrightarrow (q \land p)                             \text{，} \tag{合取交换律} \]
-\[ ((p \land q) \land r) \leftrightarrow (p \land (q \land r))         \text{，} \tag{合取结合律} \]
-\[ (p \land (q \lor r)) \leftrightarrow ((p \land q) \lor (p \land r)) \text{，} \tag{分配律} \]
-\[ \lnot(p \land q) \leftrightarrow (\lnot{}p \lor \lnot{}q)           \text{，} \tag{De Morgan 律} \]
-\[ (p \lor q) \leftrightarrow (q \lor p)                               \text{，} \tag{析取交换律} \]
-\[ ((p \lor q) \lor r) \leftrightarrow (p \lor (q \lor r))             \text{，} \tag{析取结合律} \]
-\[ (p \lor (q \land r)) \leftrightarrow ((p \lor q) \land (p \lor r))  \text{，} \tag{分配律} \]
-\[ \lnot(p \lor q) \leftrightarrow (\lnot{}p \land \lnot{}q)           \text{，} \tag{De Morgan 律} \]
-\[ \lnot{}p \to (p \to q)                                              \text{，} \tag{否定前件律} \]
-\[ q \to (p \to q)                                                     \text{，} \tag{肯定后件律} \]
-\[ (p \to (q \to r)) \to ((p \to q) \to (p \to r))                     \text{，} \tag{蕴含词分配律} \]
-\[ (\lnot{}p \to \lnot{}q) \to (q \to p)                               \text{，} \tag{换位律} \]
-\[ (\lnot{}p \to p) \to p                                              \text{，} \tag{否定肯定律} \]
-\[ (p \to q) \to ((q \to r) \to (p \to r))                             \text{．} \tag{假设三段论} \]
+若$p$、$q$、$r$是公式，可以证明下述等式恒成立：
+
+\[ (p \to p)                                                               \equiv \top \tag{同一律} \]
+\[ (\lnot{}p \land p)                                                      \equiv \bot \tag{矛盾律} \]
+\[ (\lnot{}p \lor p)                                                       \equiv \top \tag{排中律} \]
+\[ (\lnot\lnot{}p \leftrightarrow p)                                       \equiv \top \tag{双重否定律} \]
+
+也可以证明下述合取运算规律恒成立：
+
+\[ [(p \land q) \leftrightarrow (q \land p)]                               \equiv \top \tag{合取交换律} \]
+\[ \{[(p \land q) \land r] \leftrightarrow [p \land (q \land r)]\}         \equiv \top \tag{合取结合律} \]
+\[ \{[p \land (q \lor r)] \leftrightarrow [(p \land q) \lor (p \land r)]\} \equiv \top \tag{合取分配律} \]
+\[ [\lnot(p \land q) \leftrightarrow (\lnot{}p \lor \lnot{}q)]             \equiv \top \tag{合取德·摩根律} \]
+
+也可以证明下述析取运算规律恒成立：
+
+\[ [(p \lor q) \leftrightarrow (q \lor p)]                                 \equiv \top \tag{析取交换律} \]
+\[ \{[(p \lor q) \lor r] \leftrightarrow [p \lor (q \lor r)]\}             \equiv \top \tag{析取结合律} \]
+\[ \{[p \lor (q \land r)] \leftrightarrow [(p \lor q) \land (p \lor r)]\}  \equiv \top \tag{析取分配律} \]
+\[ [\lnot(p \lor q) \leftrightarrow (\lnot{}p \land \lnot{}q)]             \equiv \top \tag{析取德·摩根律} \]
+
+也可以证明下述蕴含运算规律恒成立：
+
+\[ [\lnot{}p \to (p \to q)]                                                \equiv \top \tag{否定前件律} \]
+\[ [q \to (p \to q)]                                                       \equiv \top \tag{肯定后件律} \]
+\[ \{[p \to (q \to r)] \to [(p \to q) \to (p \to r)]\}                     \equiv \top \tag{蕴含分配律} \]
+\[ [(\lnot{}p \to \lnot{}q) \to (q \to p)]                                 \equiv \top \tag{蕴含换位律} \]
+\[ [(\lnot{}p \to p) \to p]                                                \equiv \top \tag{否定肯定律} \]
+\[ \{(p \to q) \to [(q \to r) \to (p \to r)]\}                             \equiv \top \tag{假设三段论} \]
 
 \subsection{谓词演算初步}
 
 \rTermWref{谓词演算}{PredicateCalculus}{predicate calculus}是一种形式系统，可描述为$\mathcal{L}(\mathrm{A},\Omega,\mathrm{Z},\mathrm{I})$，其中：
 \begin{itemize}
-	\item 代词集$\rHatNote{\mathrm{A}}{``alpha''}=\{x, y, z, \cdots\}$；
-	\item 终结符集
-	      $\rHatNote{\Omega}{``omega''} = \Omega_\text{量词} \cup \Omega_\text{名词} \cup \Omega_\text{映射} \cup \Omega_\text{谓词} \cup \Omega_\text{逻辑联结词} = \begin{cases}
-	          \Omega_\text{量词} = \{ \rHatNote{\forall}{``全称量词''}, \rHatNote{\exists}{``存在量词''} \} \\
-	          \Omega_\text{名词} = \{ a, b, c, \cdots \}                                                    \\
-	          \Omega_\text{映射} = \{ f, g, h, \cdots \}                                                    \\
-	          \Omega_\text{谓词} = \{ R, S, T, \cdots \}                                                    \\
-	          \Omega_\text{逻辑联结词} = \{ \lnot, \land, \lor, \to, \leftrightarrow, \cdots \}             \\
-	       \end{cases}$
-	\item 推理规则集
-	      $\rHatNote{\mathrm{Z}}{``zeta''} = \begin{cases}
-	          \text{每个代词、名词都是项；}                                                                                          \\
-	          \text{若$f$是$n$元映射，且$t_1$、$\cdots$、$t_n$是项，则$f(t_1,\cdots,t_n)$也是项；}                                   \\
-	          \text{除外都不是项；}                                                                                                  \\
-	          \text{若$R$是$n$元谓词，且$t_1$、$\cdots$、$t_n$是项，则$R(t_1,\cdots,t_n)$是公式；}                                   \\
-	          \text{若$p$和$q$是公式，则$\lnot{}p$、$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；} \\
-	          \text{若$x$是代词，且$p$是公式，则$\forall{}xp$、$\exists{}xp$也是公式；}                                              \\
-	          \text{除外都不是公式．}                                                                                                \\
-	       \end{cases}$
-	\item 公理集$\rHatNote{\mathrm{I}}{``iota''}$．
+    \renewcommand{\labelitemii}{}
+    \item 集$\rHatNote{\mathrm{A}}{``alpha''}$是由代词$x$、$y$、$z$、$\cdots$组成的集；
+    \item 集$\rHatNote{\Omega}{``omega''}$是由终结符组成的集，可将其划分为$\Omega_\text{量词}$、$\Omega_\text{名词}$、$\Omega_\text{映射}$、$\Omega_\text{谓词}$和$\Omega_\text{逻辑联结词}$：
+          \begin{itemize}
+              \item $\Omega_\text{量词} = \{ \rHatNote{\forall}{全称量词}, \rHatNote{\exists}{存在量词} \}$；
+              \item $\Omega_\text{名词} = \{ a, b, c, \cdots \}$；
+              \item $\Omega_\text{映射} = \{ f, g, h, \cdots \}$；
+              \item $\Omega_\text{谓词} = \{ R, S, T, \cdots \}$；
+              \item $\Omega_\text{逻辑联结词} = \{ \bot, \top, \lnot, \land, \lor, \to, \leftrightarrow, \cdots \}$；
+          \end{itemize}
+    \item 集$\rHatNote{\mathrm{Z}}{``zeta''}$是由推理规则组成的集：
+          \begin{itemize}
+              \item 1. 每个代词、名词都是项；
+              \item 2. 若$f$是$n$元映射，且$t_1$、$\cdots$、$t_n$是项，则$f(t_1,\cdots,t_n)$也是项；
+              \item 3. 除外都不是项；
+              \item 4. 若$R$是$n$元谓词，且$t_1$、$\cdots$、$t_n$是项，则$R(t_1,\cdots,t_n)$是合式公式（下简称``公式''）；
+              \item 5. $\bot$和$\top$是公式；
+              \item 6. 若$p$是公式，则$\lnot{}p$也是公式；
+              \item 7. 若$p$和$q$是公式，则$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；
+              \item 8. 若$x$是代词且$p$是公式，则$\forall{}xp$、$\exists{}xp$也是公式；
+              \item 9. 除外都不是公式．
+           \end{itemize}
+    \item 集$\rHatNote{\mathrm{I}}{``iota''}$是由公理组成的集．
 \end{itemize}
 
 \section{集论概念}
 
-\rTermWref{ZF集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel Set Theory}是一种谓词演算，其代词叫做``集''，其谓词有二：$\rHatNote{=}{``等于''}$和$\rHatNote{\in}{``属于''}$．
+\rTermWref{ZF集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，其代词也被称作``集合''（简称``集''）或``元素''（简称``元''），其谓词集$\Omega_\text{谓词}=\{\rHatNote{=}{等词},\rHatNote{\in}{``属于''}\}$，其公理集$\mathrm{I}$可划分为三组公理：
 
+% http://www.sohu.com/a/43289279_107944
 \newtheorem{ZF}{ZF}
 
+\subsection{外延公理}
+
 \begin{ZF}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZF:1}
-	$\forall x \forall y ( \forall z (z \in x \leftrightarrow z \in y) \leftrightarrow x = y )$
+    $ \forall A, \forall B: A = B \iff (\forall e: e \in A \leftrightarrow e \in B) $
 \end{ZF}
-\begin{ZF}[内涵公理]\label{ZF:2}
-	$\forall s \exists y \forall x ( x \in y \leftrightarrow x \in s \land p(x) )$
+ZF\ref{ZF:1}说明一个集合完全由它所包含的元素（即``外延''）确定：若两个集合拥有相同的元素，则这两个集合相等；反之亦然．
+
+\subsection{子集公理、无序对公理、并集公理、幂集公理、无穷公理和替换公理}
+
+\begin{ZF}[子集公理]\label{ZF:2}
 \end{ZF}
+
+\begin{ZF}[无序对公理]\label{ZF:3}
+\end{ZF}
+
+\begin{ZF}[并集公理]\label{ZF:4}
+\end{ZF}
+
+\begin{ZF}[幂集公理]\label{ZF:5}
+\end{ZF}
+
+\begin{ZF}[无穷公理]\label{ZF:6}
+\end{ZF}
+
+\begin{ZF}[替换公理]\label{ZF:7}
+\end{ZF}
+
+\subsection{正则公理、基础公理和选择公理}
+
+\begin{ZF}[正则公理]\label{ZF:8}
+    $ \forall S, \exists e: (\exists z: z \in S) \implies [e \in S \land \lnot(\exists y: y \in S \land y \in e)] $
+\end{ZF}
+ZF\ref{ZF:8}说明所有非空集合中都存在这样的元素：该元素与该集合的交集为空集．
