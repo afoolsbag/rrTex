@@ -67,7 +67,7 @@
               \item 4. 若$p$和$q$是公式，则$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；
               \item 5. 除外都不是公式．
           \end{itemize}
-    \item 集$\rHatNote{\mathrm{I}}{``iota''}$是由\rTerm{公理}{axioms}组成的集．
+    \item 集$\rHatNote{\mathrm{I}}{``iota''}$是由\rTerm{公理}{axioms}组成的集，即下表所述运算：
 \end{itemize}
 
 \begin{table}[h!]
@@ -158,49 +158,84 @@
               \item 5. $\bot$和$\top$是公式；
               \item 6. 若$p$是公式，则$\lnot{}p$也是公式；
               \item 7. 若$p$和$q$是公式，则$p\land{}q$、$p\lor{}q$、$p\to{}q$、$p\leftrightarrow{}q$、$\cdots$也都是公式；
-              \item 8. 若$x$是代词且$p$是公式，则$\forall{}xp$、$\exists{}xp$也是公式；
+              \item 8. 若$x$是代词且$p$是公式，则$\forall{}x:p$、$\exists{}x:p$也都是公式；
               \item 9. 除外都不是公式．
            \end{itemize}
-    \item 集$\rHatNote{\mathrm{I}}{``iota''}$是由公理组成的集．
+    \item 集$\rHatNote{\mathrm{I}}{``iota''}$是由\rTerm{逻辑公理}{logical axioms}组成的集，除继承命题演算公理外：
 \end{itemize}
+
+\newtheorem{LogicalAxioms}{LA}
+
+\begin{LogicalAxioms}[等词公理]\label{LA:1}
+    对于任一项$t$，公式$ t = t $普遍成立．
+\end{LogicalAxioms}
+
+\begin{LogicalAxioms}[全称量词例化公理]\label{LA:2}
+    对于任一公式$\phi$、代词$x$和项$t$，公式$ (\forall x: \phi) \to \phi^x_t $普遍成立．
+\end{LogicalAxioms}
+
+\begin{LogicalAxioms}[存在量词推广公理]\label{LA:3}
+    对于任一公式$\phi$、代词$x$和项$t$，公式$ \phi^x_t \to (\exists x: \phi) $普遍成立．
+\end{LogicalAxioms}
+
+上述$\phi^x_t$表示以项$t$替换公式$\phi$中代词$x$后得到的公式．
 
 \section{集论概念}
 
-\rTermWref{ZF集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，其代词也被称作``集合''（简称``集''）或``元素''（简称``元''），其谓词集$\Omega_\text{谓词}=\{\rHatNote{=}{等词},\rHatNote{\in}{``属于''}\}$，其公理集$\mathrm{I}$可划分为三组公理：
+\rTermWref{策梅洛--弗兰克尔集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，其代词也被称作``集合''（简称``集''）或``元素''（简称``元''），其谓词集$\Omega_\text{谓词}=\{\rHatNote{=}{等词},\rHatNote{\in}{``属于''}\}$，其公理集$\mathrm{I}$可划分为三组公理：
 
 % http://www.sohu.com/a/43289279_107944
-\newtheorem{ZF}{ZF}
+\newtheorem{ZermeloFraenkelAxioms}{ZFA}
+\newtheorem{ZermeloFraenkelTheorems}{ZFT}
 
 \subsection{外延公理}
 
-\begin{ZF}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZF:1}
+\begin{ZermeloFraenkelAxioms}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZFA:1}
     $ \forall A, \forall B: A = B \iff (\forall e: e \in A \leftrightarrow e \in B) $
-\end{ZF}
-ZF\ref{ZF:1}说明一个集合完全由它所包含的元素（即``外延''）确定：若两个集合拥有相同的元素，则这两个集合相等；反之亦然．
+\end{ZermeloFraenkelAxioms}
+ZFA\ref{ZFA:1}说明一个集合完全由它所包含的元素（即``外延''）确定：若两个集合拥有相同的元素，则这两个集合相等；反之亦然．
 
 \subsection{子集公理、无序对公理、并集公理、幂集公理、无穷公理和替换公理}
 
-\begin{ZF}[子集公理]\label{ZF:2}
-\end{ZF}
+\begin{ZermeloFraenkelAxioms}[子集公理]\label{ZFA:2}
+    $ \forall U, \exists S, \forall e: e \in S \iff e \in U \land P(e) $
+\end{ZermeloFraenkelAxioms}
+ZFA\ref{ZFA:2}说明给定一个集合，从该集合中选定符合条件的若干元素可以组成集合，即``子集是存在的''．
 
-\begin{ZF}[无序对公理]\label{ZF:3}
-\end{ZF}
+\begin{proof}
+    设假定集$
+        \Gamma = \begin{cases}
+            t = t                                                            &\text{(LA\ref{LA:1})}   \\
+            \phi^x_t \to (\exists x: \phi)                                   &\text{(LA\ref{LA:3})}   \\
+            \forall U, \exists S, \forall e: e \in S \iff e \in U \land P(e) &\text{(ZFA\ref{ZFA:2})} \\
+        \end{cases}
+    $，有：
+    
+    \begin{align*}
+        t = t &\text{(LA\ref{LA:1})}
+    \end{align*}
+    由逻辑公理L\ref{LA:1}和L\ref{LA:3}可得$ \exists S: S = S $，即``集合是存在的''．
+    结合ZFA\ref{ZFA:2}，令该存在的集合为$U$，
+\end{proof}
 
-\begin{ZF}[并集公理]\label{ZF:4}
-\end{ZF}
+\begin{ZermeloFraenkelAxioms}[无序对公理]\label{ZFA:3}
+\end{ZermeloFraenkelAxioms}
 
-\begin{ZF}[幂集公理]\label{ZF:5}
-\end{ZF}
+\begin{ZermeloFraenkelAxioms}[并集公理]\label{ZFA:4}
+\end{ZermeloFraenkelAxioms}
 
-\begin{ZF}[无穷公理]\label{ZF:6}
-\end{ZF}
+\begin{ZermeloFraenkelAxioms}[幂集公理]\label{ZFA:5}
+\end{ZermeloFraenkelAxioms}
 
-\begin{ZF}[替换公理]\label{ZF:7}
-\end{ZF}
+\begin{ZermeloFraenkelAxioms}[无穷公理]\label{ZFA:6}
+\end{ZermeloFraenkelAxioms}
+
+\begin{ZermeloFraenkelAxioms}[替换公理]\label{ZFA:7}
+\end{ZermeloFraenkelAxioms}
 
 \subsection{正则公理、基础公理和选择公理}
 
-\begin{ZF}[正则公理]\label{ZF:8}
+\begin{ZermeloFraenkelAxioms}[正则公理]\label{ZFA:8}
     $ \forall S, \exists e: (\exists z: z \in S) \implies [e \in S \land \lnot(\exists y: y \in S \land y \in e)] $
-\end{ZF}
-ZF\ref{ZF:8}说明所有非空集合中都存在这样的元素：该元素与该集合的交集为空集．
+\end{ZermeloFraenkelAxioms}
+ZFA\ref{ZFA:8}说明所有非空集合中都存在这样的元素：该元素与该集合的交集为空集．
