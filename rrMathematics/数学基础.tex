@@ -80,25 +80,25 @@
     \newcommand{\ToT}{\T$\circ$\T}
     \begin{tabular}{c c c c c c c c l}
         \hline
-        \multicolumn{4}{c}{等价的公式} & \multicolumn{4}{c}{真值表} & \multicolumn{1}{c}{助记} \\
-        $p\circ{}q$      & $p\circ\lnot{}q$      & $\lnot{}p\circ{}q$      & $\lnot{}p\circ\lnot{}q$      & \FoF & \FoT & \ToF & \ToT &                    \\
+        \multicolumn{4}{c}{等价的公式}                                                                                                        & \multicolumn{4}{c}{真值表} & \multicolumn{1}{c}{助记} \\
+        $p\circ{}q$               & $p\circ\lnot{}q$               & $\lnot{}p\circ{}q$               & $\lnot{}p\circ\lnot{}q$               & \FoF & \FoT & \ToF & \ToT  &                          \\
         \hline
-        \multicolumn{4}{c}{$\top$}                                                                        & \T   & \T   & \T   & \T   & ``恒真''           \\
-        $p\uparrow{}q$   & $p\to\lnot{}q$        & $\lnot{}p\gets{}q$      & $\lnot{}p\lor\lnot{}q$       & \T   & \T   & \T   & \F   & ``与非''，存假为真 \\
-        $p\to{}q$        & $p\uparrow\lnot{}q$   & $\lnot{}p\lor{}q$       & $\lnot{}p\gets\lnot{}q$      & \T   & \T   & \F   & \T   & ``蕴含''           \\
-        \multicolumn{4}{c}{$\lnot{}p$}                                                                    & \T   & \T   & \F   & \F   & ``非''             \\
-        $p\gets{}q$      & $p\lor\lnot{}q$       & $\lnot{}p\uparrow{}q$   & $\lnot{}p\to\lnot{}q$        & \T   & \F   & \T   & \T   & ``蕴含于''         \\
-        \multicolumn{4}{c}{$\lnot{}q$}                                                                    & \T   & \F   & \T   & \F   & ``非''             \\
-        $p\odot{}q$      & $p\oplus\lnot{}q$     & $\lnot{}p\oplus{}q$     & $\lnot{}p\odot\lnot{}q$      & \T   & \F   & \F   & \T   & ``同或''，相同为真 \\
-        $p\downarrow{}q$ & $p\not\gets\lnot{}q$  & $\lnot{}p\not\to{}q$    & $\lnot{}p\land\lnot{}q$      & \T   & \F   & \F   & \F   & ``或非''，全假为真 \\
-        $p\lor{}q$       & $p\gets\lnot{}q$      & $\lnot{}p\to{}q$        & $\lnot{}p\uparrow\lnot{}q$   & \F   & \T   & \T   & \T   & ``或''，存真为真   \\
-        $p\oplus{}q$     & $p\odot\lnot{}q$      & $\lnot{}p\odot{}q$      & $\lnot{}p\oplus\lnot{}q$     & \F   & \T   & \T   & \F   & ``异或''，相异为真 \\
-        \multicolumn{4}{c}{$q$}                                                                           & \F   & \T   & \F   & \T   & ``公式''           \\
-        $p\not\gets{}q$  & $p\downarrow\lnot{}q$ & $\lnot{}p\land{}q$      & $\lnot{}p\not\to\lnot{}q$    & \F   & \T   & \F   & \F   & ``不蕴含于''       \\
-        \multicolumn{4}{c}{$p$}                                                                           & \F   & \F   & \T   & \T   & ``公式''           \\
-        $p\not\to{}q$    & $p\land\lnot{}q$      & $\lnot{}p\downarrow{}q$ & $\lnot{}p\not\gets\lnot{}q$  & \F   & \F   & \T   & \F   & ``不蕴含''         \\
-        $p\land{}q$      & $p\not\to\lnot{}q$    & $\lnot{}p\not\gets{}q$  & $\lnot{}p\downarrow\lnot{}q$ & \F   & \F   & \F   & \T   & ``与''，全真为真   \\
-        \multicolumn{4}{c}{$\bot$}                                                                        & \F   & \F   & \F   & \F   & ``恒假''           \\
+        \multicolumn{4}{c}{$\top$}                                                                                                            & \T   & \T   & \T   & \T    & ``恒真''                 \\
+        $p\uparrow{}q$            & $p\to\lnot{}q$                 & $\lnot{}p\gets{}q$               & $\lnot{}p\lor\lnot{}q$                & \T   & \T   & \T   & \F    & ``与非''，存假为真       \\
+        $p\to{}q$                 & $p\uparrow\lnot{}q$            & $\lnot{}p\lor{}q$                & $\lnot{}p\gets\lnot{}q$               & \T   & \T   & \F   & \T    & ``蕴含''                 \\
+        \multicolumn{4}{c}{$\lnot{}p$}                                                                                                        & \T   & \T   & \F   & \F    & ``非''                   \\
+        $p\gets{}q$               & $p\lor\lnot{}q$                & $\lnot{}p\uparrow{}q$            & $\lnot{}p\to\lnot{}q$                 & \T   & \F   & \T   & \T    & ``蕴含于''               \\
+        \multicolumn{4}{c}{$\lnot{}q$}                                                                                                        & \T   & \F   & \T   & \F    & ``非''                   \\
+        $p\leftrightarrow{}q$     & $p\not\leftrightarrow\lnot{}q$ & $\lnot{}p\not\leftrightarrow{}q$ & $\lnot{}p\leftrightarrow\lnot{}q$     & \T   & \F   & \F   & \T    & ``同或''，相同为真       \\
+        $p\downarrow{}q$          & $p\not\gets\lnot{}q$           & $\lnot{}p\not\to{}q$             & $\lnot{}p\land\lnot{}q$               & \T   & \F   & \F   & \F    & ``或非''，全假为真       \\
+        $p\lor{}q$                & $p\gets\lnot{}q$               & $\lnot{}p\to{}q$                 & $\lnot{}p\uparrow\lnot{}q$            & \F   & \T   & \T   & \T    & ``或''，存真为真         \\
+        $p\not\leftrightarrow{}q$ & $p\leftrightarrow\lnot{}q$     & $\lnot{}p\leftrightarrow{}q$     & $\lnot{}p\not\leftrightarrow\lnot{}q$ & \F   & \T   & \T   & \F    & ``异或''，相异为真       \\
+        \multicolumn{4}{c}{$q$}                                                                                                               & \F   & \T   & \F   & \T    & ``公式''                 \\
+        $p\not\gets{}q$           & $p\downarrow\lnot{}q$          & $\lnot{}p\land{}q$               & $\lnot{}p\not\to\lnot{}q$             & \F   & \T   & \F   & \F    & ``不蕴含于''             \\
+        \multicolumn{4}{c}{$p$}                                                                                                               & \F   & \F   & \T   & \T    & ``公式''                 \\
+        $p\not\to{}q$             & $p\land\lnot{}q$               & $\lnot{}p\downarrow{}q$          & $\lnot{}p\not\gets\lnot{}q$           & \F   & \F   & \T   & \F    & ``不蕴含''               \\
+        $p\land{}q$               & $p\not\to\lnot{}q$             & $\lnot{}p\not\gets{}q$           & $\lnot{}p\downarrow\lnot{}q$          & \F   & \F   & \F   & \T    & ``与''，全真为真         \\
+        \multicolumn{4}{c}{$\bot$}                                                                                                            & \F   & \F   & \F   & \F    & ``恒假''                 \\
         \hline
     \end{tabular}
 \end{table}
@@ -166,60 +166,78 @@
 
 \newtheorem{LogicalAxioms}{LA}
 
-\begin{LogicalAxioms}[等词公理]\label{LA:1}
-    对于任一项$t$，公式$ t = t $普遍成立．
+\begin{LogicalAxioms}[\emph{等词公理}]\rMarginNote{axiom of equality}\label{LA:E}
+    对于任一项$t$，公式
+    \begin{equation*}
+        t = t
+    \end{equation*}
+    \hfill 恒成立．
 \end{LogicalAxioms}
 
-\begin{LogicalAxioms}[全称量词例化公理]\label{LA:2}
-    对于任一公式$\phi$、代词$x$和项$t$，公式$ (\forall x: \phi) \to \phi^x_t $普遍成立．
+\begin{LogicalAxioms}[\emph{全称例化公理模式}]\rMarginNote{axiom scheme for universal instantiation}\label{LA:UI}
+    对于任一公式$\phi$、代词$x$和项$t$，公式
+    \begin{equation*}
+        (\forall x: \phi) \to \phi_{x\gets{}t}
+    \end{equation*}
+    \hfill 恒成立．
 \end{LogicalAxioms}
 
-\begin{LogicalAxioms}[存在量词推广公理]\label{LA:3}
-    对于任一公式$\phi$、代词$x$和项$t$，公式$ \phi^x_t \to (\exists x: \phi) $普遍成立．
+\begin{LogicalAxioms}[\emph{存在泛化公理模式}]\rMarginNote{axiom scheme for existential generalization}\label{LA:EG}
+    对于任一公式$\phi$、代词$x$和项$t$，公式
+    \begin{equation*}
+        \phi_{x\gets{}t} \to (\exists x: \phi)
+    \end{equation*}
+    \hfill 恒成立．
 \end{LogicalAxioms}
-
-上述$\phi^x_t$表示以项$t$替换公式$\phi$中代词$x$后得到的公式．
 
 \section{集论概念}
 
-\rTermWref{策梅洛--弗兰克尔集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，其代词也被称作``集合''（简称``集''）或``元素''（简称``元''），其谓词集$\Omega_\text{谓词}=\{\rHatNote{=}{等词},\rHatNote{\in}{``属于''}\}$，其公理集$\mathrm{I}$可划分为三组公理：
+\rTermWref{策梅洛--弗兰克尔集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，其项也被称作``集合''（简称``集''）或``元素''（简称``元''），其谓词集$\Omega_\text{谓词}=\{\rHatNote{=}{等词},\rHatNote{\in}{``属于''}\}$，其公理集$\mathrm{I}$有：
 
-% http://www.sohu.com/a/43289279_107944
-\newtheorem{ZermeloFraenkelAxioms}{ZFA}
-\newtheorem{ZermeloFraenkelTheorems}{ZFT}
+\newtheorem{ZermeloFraenkelAxioms}{ZF}      % 策梅洛–弗兰克尔公理
+\setcounter{ZermeloFraenkelAxioms}{-1}
+\newtheorem{ZermeloFraenkelTheorems}{定理}  % 策梅洛–弗兰克尔定理
 
-\subsection{外延公理}
-
-\begin{ZermeloFraenkelAxioms}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZFA:1}
-    $ \forall A, \forall B: A = B \iff (\forall e: e \in A \leftrightarrow e \in B) $
+\begin{ZermeloFraenkelAxioms}[\emph{集存在引理}]\rMarginNote{lemma of set exists}\label{ZF:SE}
+    $ \exists S: S = S $．
 \end{ZermeloFraenkelAxioms}
-ZFA\ref{ZFA:1}说明一个集合完全由它所包含的元素（即``外延''）确定：若两个集合拥有相同的元素，则这两个集合相等；反之亦然．
 
-\subsection{子集公理、无序对公理、并集公理、幂集公理、无穷公理和替换公理}
-
-\begin{ZermeloFraenkelAxioms}[子集公理]\label{ZFA:2}
-    $ \forall U, \exists S, \forall e: e \in S \iff e \in U \land P(e) $
-\end{ZermeloFraenkelAxioms}
-ZFA\ref{ZFA:2}说明给定一个集合，从该集合中选定符合条件的若干元素可以组成集合，即``子集是存在的''．
-
+\hrule
 \begin{proof}
-    设假定集$
-        \Gamma = \begin{cases}
-            t = t                                                            &\text{(LA\ref{LA:1})}   \\
-            \phi^x_t \to (\exists x: \phi)                                   &\text{(LA\ref{LA:3})}   \\
-            \forall U, \exists S, \forall e: e \in S \iff e \in U \land P(e) &\text{(ZFA\ref{ZFA:2})} \\
-        \end{cases}
-    $，有：
-    
-    \begin{align*}
-        t = t &\text{(LA\ref{LA:1})}
-    \end{align*}
-    由逻辑公理L\ref{LA:1}和L\ref{LA:3}可得$ \exists S: S = S $，即``集合是存在的''．
-    结合ZFA\ref{ZFA:2}，令该存在的集合为$U$，
+    令假定集$ \Gamma = \{ \text{LA\ref{LA:E}}, \text{LA\ref{LA:EG}} \} $，有：
+    \begin{enumerate}
+        \item $ \phi_{x\gets{}t} \to (\exists x: \phi) $     \hfill LA\ref{LA:EG}
+        \item $ (x = x)_{x\gets{}t} \to (\exists x: x = x) $ \hfill 令公式$\phi$为$ x = x $
+        \item $ (t = t) \to (\exists x: x = x) $
+        \item $ \top \to (\exists x: x = x) $                \hfill LA\ref{LA:E}
+        \item $ \exists x: x = x $
+        \item $ \exists S: S = S $                           \qedhere
+    \end{enumerate}
 \end{proof}
+\hrule
+\vspace{2ex}
 
-\begin{ZermeloFraenkelAxioms}[无序对公理]\label{ZFA:3}
+集存在引理说明集合是存在的．
+
+\begin{ZermeloFraenkelAxioms}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZF:E}
+    $ \forall A, \forall B: A = B \iff (\forall e: e \in A \leftrightarrow e \in B) $．
 \end{ZermeloFraenkelAxioms}
+
+外延公理说明一个集合完全由它所包含的元素确定：若两个集合拥有相同的元素，则这两个集合相等；反之亦然．
+
+\begin{ZermeloFraenkelAxioms}[\emph{规范公理模式}]\rMarginNote{axiom schema of specification}\label{ZF:S}
+    $ \forall U, \exists S, \forall e: e \in S \leftrightarrow e \in U \land P(e) $．
+\end{ZermeloFraenkelAxioms}
+
+规范公理模式说明给定一个集合，从该集合中选定符合条件的若干元素可以组成集合，即子集．
+
+由 ZF\ref{ZF:SE} 和 ZF\ref{ZF:S} 可以构造空集$ \emptyset = \{ e | e \in S \land (e \neq e) \} $，由此我们得到了第一个确定的集合．
+
+\begin{ZermeloFraenkelAxioms}[\emph{配对公理}]\rMarginNote{axiom of pairing}\label{ZF:P}
+    $ \forall x, \forall y, \exists S, \forall e: e \in S \leftrightarrow e = x \lor e = y $．
+\end{ZermeloFraenkelAxioms}
+
+配对公理说明给定两个元素$x$、$y$，则$ \{ x, y \} $是集合．
 
 \begin{ZermeloFraenkelAxioms}[并集公理]\label{ZFA:4}
 \end{ZermeloFraenkelAxioms}
