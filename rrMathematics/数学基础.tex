@@ -192,7 +192,10 @@
 
 \section{集论概念}
 
-\rTermWref{策梅洛--弗兰克尔集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，其项也被称作``集合''（简称``集''）或``元素''（简称``元''），其谓词集$\Omega_\text{谓词}=\{\rHatNote{=}{等词},\rHatNote{\in}{``属于''}\}$，其公理集$\mathrm{I}$有：
+\rTermWref{策梅洛--弗兰克尔集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，
+其项也被称作``\rTermWref{集合}{Set}{set}''（简称``集''）或``\rTermWref{元素}{Element}{element}''（简称``元''），
+其谓词集$\Omega_\text{谓词}=\{\rHatNote{=}{等词},\rHatNote{\in}{``属于''}\}$，
+其公理集$\mathrm{I}$有：
 
 \newtheorem{ZermeloFraenkelAxioms}{ZF}      % 策梅洛–弗兰克尔公理
 \setcounter{ZermeloFraenkelAxioms}{-1}
@@ -217,27 +220,29 @@
 \hrule
 \vspace{2ex}
 
-集存在引理说明集合是存在的．
+集存在引理说明集合存在．
 
 \begin{ZermeloFraenkelAxioms}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZF:E}
     $ \forall A, \forall B: A = B \iff (\forall e: e \in A \leftrightarrow e \in B) $．
 \end{ZermeloFraenkelAxioms}
 
-外延公理说明一个集合完全由它所包含的元素确定：若两个集合拥有相同的元素，则这两个集合相等；反之亦然．
+外延公理说明一个集合完全由它所包含的元素确定：两个集合若拥有相同的元素，则这两个集合相等；反之亦然．
 
 \begin{ZermeloFraenkelAxioms}[\emph{规范公理模式}]\rMarginNote{axiom schema of specification}\label{ZF:S}
     $ \forall U, \exists S, \forall e: e \in S \leftrightarrow e \in U \land P(e) $．
 \end{ZermeloFraenkelAxioms}
 
-规范公理模式说明给定一个集合，从该集合中选定符合条件的若干元素可以组成集合，即子集．
+规范公理模式说明给定一个集合，从该集合中选定符合条件的若干元素可以组成集合，即``\rTermWref{子集}{Subset}{subset}''．
 
-由 ZF\ref{ZF:SE} 和 ZF\ref{ZF:S} 可以构造空集$ \emptyset = \{ e | e \in S \land (e \neq e) \} $，由此我们得到了第一个确定的集合．
+由 ZF\ref{ZF:SE} 和 ZF\ref{ZF:S} 可以构造\rTermWref{空集}{EmptySet}{empty set}$ \emptyset = \{ e | e \in S \land (e \neq e) \} $——我们得到的第一个确定的集合．
 
 \begin{ZermeloFraenkelAxioms}[\emph{配对公理}]\rMarginNote{axiom of pairing}\label{ZF:P}
-    $ \forall x, \forall y, \exists S, \forall e: e \in S \leftrightarrow e = x \lor e = y $．
+    $ \forall a, \forall b, \exists S, \forall e: e \in S \leftrightarrow e = a \lor e = b $．
 \end{ZermeloFraenkelAxioms}
 
-配对公理说明给定两个元素$x$、$y$，则$ \{ x, y \} $是集合．
+配对公理说明给定两个元素$a$和$b$，则$ \{ a, b \} $是集合，称作``元素$a$和$b$的\rTermWref{对集}{Pair}{pair}''．
+当给定的两个元素相等都为$e$时，$ \{ e, e \} $可以记作$ \{ e \} $，称作``元素$e$的\rTermWref{独集}{SingletonSet}{singleton}''．
+形如$ \{ \{ a \}, \{ a, b \} \} $的对集可以记作$ (a, b) $称作``元素$a$和$b$的\rTermWref{有序对集}{OrderedPair}{ordered pair}''．
 
 \begin{ZermeloFraenkelAxioms}[并集公理]\label{ZFA:4}
 \end{ZermeloFraenkelAxioms}
