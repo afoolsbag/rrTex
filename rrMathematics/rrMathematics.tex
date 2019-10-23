@@ -36,41 +36,37 @@
 %-------------------------------------------------------------------------------
 % 自定义文本命令
 
-% Color Label
-\newcommand{\rColorLbl}[1]{\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}
-% Command Without Arguments
-\newcommand{\rCmdW}[1]{{\ttfamily\textbackslash#1}}
-% Command With Optional Arguments
-\newcommand{\rCmdO}[2]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}
-% Command With Mandatory Arguments
-\newcommand{\rCmdM}[2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}
-% Command With Both Arguments
-\newcommand{\rCmdB}[3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}
+\newcommand{\rColLbl}      [1] {\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}  % Color Label
+
+% 命令
+\newcommand{\rCmd}         [1] {{\ttfamily\textbackslash#1}}                                               % Command (Without Arguments)
+\newcommand{\rCmdO}        [2]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}                          % Command With Optional Arguments
+\newcommand{\rCmdM}        [2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}                        % Command With Mandatory Arguments
+\newcommand{\rCmdOM}       [3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}  % Command With Optional & Mandatory Arguments
 
 % 边注
-% Margin Note
-\newcommand{\rMarginNote}[1]{\marginpar[\footnotesize#1]{\footnotesize#1}}
-% Margin Note & Hypertext Reference
-\newcommand{\rMarginNoteHref}[2]{\marginpar[\footnotesize\href{#1}{#2}]{\footnotesize\href{#1}{#2}}}
-% Margin Note & Wolfram Math World Reference
-\newcommand{\rMarginNoteWref}[2]{\marginpar[\footnotesize\href{http://mathworld.wolfram.com/#1.html}{#2}]{\footnotesize\href{http://mathworld.wolfram.com/#1.html}{#2}}}
+\newcommand{\rMgnNote}     [1] {\marginpar[\footnotesize#1]{\footnotesize#1}}             % Margin Note
+\newcommand{\rMgnNoteHref} [2] {\rMgnNote{\href{#1}{#2}}}                                 % Margin Note & Hypertext Reference
+\newcommand{\rMgnNoteWref} [2] {\rMgnNoteHref{http://mathworld.wolfram.com/#1.html}{#2}}  % Margin Note & Wolfram Math World Reference
 
 % 术语
-% Term
-\newcommand{\rTerm}[2]{\emph{#1}\rMarginNote{#2}}
-% Term & Hypertext Reference
-\newcommand{\rTermHref}[3]{\emph{#1}\rMarginNoteHref{#2}{#3}}
-% Term & Wolfram Math World Reference
-\newcommand{\rTermWref}[3]{\emph{#1}\rMarginNoteWref{#2}{#3}}
+\newcommand{\rTerm}        [2] {\emph{#1}\rMgnNote{#2}}          % Term
+\newcommand{\rTermHref}    [3] {\emph{#1}\rMgnNoteHref{#2}{#3}}  % Term & Hypertext Reference
+\newcommand{\rTermWref}    [3] {\emph{#1}\rMgnNoteWref{#2}{#3}}  % Term & Wolfram Math World Reference
 
-% Package Cite
-\newcommand{\rPkgCite}[1]{\textsf{#1}\cite{#1}}
-% Unicode Number
-\newcommand{\rUniNum}[1]{\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}
+\newcommand{\rPkgCite}     [1] {\textsf{#1}\cite{#1}}  % Package Cite
+\newcommand{\rUniNum}      [1] {\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}  % Unicode Number
 
 % 符号
 % Unicode
 \providecommand{\Unicode}{\ttfamily{}Unicode\textregistered{}}
+
+%-------------------------------------------------------------------------------
+% 自定义文本环境
+\newtheorem{Definition} {\hspace{2em}定义} [section]  % 定义
+\newtheorem{Axiom}      {\hspace{2em}公理} [section]  % 公理
+\newtheorem{Theorem}    {\hspace{2em}定理} [section]  % 定理
+\newtheorem{Lemma}      {\hspace{2em}引理} [section]  % 引理
 
 %-------------------------------------------------------------------------------
 % 自定义数学命令

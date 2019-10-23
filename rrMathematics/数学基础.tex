@@ -164,7 +164,7 @@
 
 \newtheorem{LogicalAxioms}{LA}
 
-\begin{LogicalAxioms}[\emph{等词公理}]\rMarginNote{axiom of equality}\label{LA:E}
+\begin{LogicalAxioms}[\emph{等词公理}]\rMgnNote{axiom of equality}\label{LA:E}
     对于任一项$t$，公式
     \begin{equation*}
         t = t
@@ -172,7 +172,7 @@
     \hfill 恒成立．
 \end{LogicalAxioms}
 
-\begin{LogicalAxioms}[\emph{全称例化公理模式}]\rMarginNote{axiom scheme for universal instantiation}\label{LA:UI}
+\begin{LogicalAxioms}[\emph{全称例化公理模式}]\rMgnNote{axiom scheme for universal instantiation}\label{LA:UI}
     对于任一公式$\phi$、代词$x$和项$t$，公式
     \begin{equation*}
         (\forall x: \phi) \to \phi_{x\gets{}t}
@@ -180,7 +180,7 @@
     \hfill 恒成立．
 \end{LogicalAxioms}
 
-\begin{LogicalAxioms}[\emph{存在泛化公理模式}]\rMarginNote{axiom scheme for existential generalization}\label{LA:EG}
+\begin{LogicalAxioms}[\emph{存在泛化公理模式}]\rMgnNote{axiom scheme for existential generalization}\label{LA:EG}
     对于任一公式$\phi$、代词$x$和项$t$，公式
     \begin{equation*}
         \phi_{x\gets{}t} \to (\exists x: \phi)
@@ -199,7 +199,7 @@
 \setcounter{ZermeloFraenkelAxioms}{-1}
 \newtheorem{ZermeloFraenkelTheorems}{定理}  % 策梅洛–弗兰克尔定理
 
-\begin{ZermeloFraenkelAxioms}[\emph{集存在引理}]\rMarginNote{lemma of set exists}\label{ZF:SE}
+\begin{ZermeloFraenkelAxioms}[\emph{集存在引理}]\rMgnNote{lemma of set exists}\label{ZF:SE}
     $ \exists S: S = S $．
 \end{ZermeloFraenkelAxioms}
 
@@ -220,13 +220,13 @@
 
 集存在引理说明集合存在．
 
-\begin{ZermeloFraenkelAxioms}[\emph{外延公理}]\rMarginNote{axiom of extensionality}\label{ZF:E}
+\begin{ZermeloFraenkelAxioms}[\emph{外延公理}]\rMgnNote{axiom of extensionality}\label{ZF:E}
     $ \forall A, \forall B: A = B \iff (\forall e: e \in A \leftrightarrow e \in B) $．
 \end{ZermeloFraenkelAxioms}
 
 外延公理说明一个集合完全由它所包含的元素确定：两个集合若拥有相同的元素，则这两个集合相等；反之亦然．
 
-\begin{ZermeloFraenkelAxioms}[\emph{规范公理模式}]\rMarginNote{axiom schema of specification}\label{ZF:S}
+\begin{ZermeloFraenkelAxioms}[\emph{规范公理模式}]\rMgnNote{axiom schema of specification}\label{ZF:S}
     $ \forall U, \exists S, \forall e: e \in S \leftrightarrow e \in U \land P(e) $．
 \end{ZermeloFraenkelAxioms}
 
@@ -234,7 +234,7 @@
 
 由 ZF\ref{ZF:SE} 和 ZF\ref{ZF:S} 可以构造\rTermWref{空集}{EmptySet}{empty set}$ \emptyset = \{ e | e \in S \land (e \neq e) \} $——我们得到的第一个确定的集合．
 
-\begin{ZermeloFraenkelAxioms}[\emph{配对公理}]\rMarginNote{axiom of pairing}\label{ZF:P}
+\begin{ZermeloFraenkelAxioms}[\emph{配对公理}]\rMgnNote{axiom of pairing}\label{ZF:P}
     $ \forall a, \forall b, \exists S, \forall e: e \in S \leftrightarrow e = a \lor e = b $．
 \end{ZermeloFraenkelAxioms}
 
