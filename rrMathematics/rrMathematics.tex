@@ -39,20 +39,20 @@
 \newcommand{\rColLbl}      [1] {\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}  % Color Label
 
 % 命令
-\newcommand{\rCmd}         [1] {{\ttfamily\textbackslash#1}}                                               % Command (Without Arguments)
-\newcommand{\rCmdO}        [2]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}                          % Command With Optional Arguments
-\newcommand{\rCmdM}        [2]{{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}                        % Command With Mandatory Arguments
-\newcommand{\rCmdOM}       [3]{{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}  % Command With Optional & Mandatory Arguments
+\newcommand{\rCmd}         [1] {{\ttfamily\textbackslash#1}}                                                % Command (Without Arguments)
+\newcommand{\rCmdO}        [2] {{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}                          % Command With Optional Arguments
+\newcommand{\rCmdM}        [2] {{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}                        % Command With Mandatory Arguments
+\newcommand{\rCmdOM}       [3] {{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}  % Command With Optional & Mandatory Arguments
 
 % 边注
-\newcommand{\rMgnNote}     [1] {\marginpar[\footnotesize#1]{\footnotesize#1}}             % Margin Note
+\newcommand{\rMgnNote}     [1] {\marginpar[\scriptsize#1]{\scriptsize#1}}                             % Margin Note
 \newcommand{\rMgnNoteHref} [2] {\rMgnNote{\href{#1}{#2}}}                                 % Margin Note & Hypertext Reference
 \newcommand{\rMgnNoteWref} [2] {\rMgnNoteHref{http://mathworld.wolfram.com/#1.html}{#2}}  % Margin Note & Wolfram Math World Reference
 
 % 术语
-\newcommand{\rTerm}        [2] {\emph{#1}\rMgnNote{#2}}          % Term
-\newcommand{\rTermHref}    [3] {\emph{#1}\rMgnNoteHref{#2}{#3}}  % Term & Hypertext Reference
-\newcommand{\rTermWref}    [3] {\emph{#1}\rMgnNoteWref{#2}{#3}}  % Term & Wolfram Math World Reference
+\newcommand{\rTerm}        [2] {\uwave{#1}\rMgnNote{#2}}          % Term
+\newcommand{\rTermHref}    [3] {\uwave{#1}\rMgnNoteHref{#2}{#3}}  % Term & Hypertext Reference
+\newcommand{\rTermWref}    [3] {\uwave{#1}\rMgnNoteWref{#2}{#3}}  % Term & Wolfram Math World Reference
 
 \newcommand{\rPkgCite}     [1] {\textsf{#1}\cite{#1}}  % Package Cite
 \newcommand{\rUniNum}      [1] {\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}  % Unicode Number
@@ -72,7 +72,7 @@
 % 自定义数学命令
 
 % Hat Note
-\newcommand{\rHatNote}[2]{\overset{\text{\footnotesize{}#2}}{#1}}
+\newcommand{\rHatNote} [2] {\overset{\text{\tiny{}#2}}{#1}}
 
 %-------------------------------------------------------------------------------
 % 内容

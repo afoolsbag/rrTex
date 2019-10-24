@@ -4,7 +4,7 @@
 
 人类数学大体上经历了三个大的发展阶段：以几何数学为主体的初等数学阶段，以分析数学为主体的古典数学阶段，以集论数学为主体的现代数学阶段．
 
-\section{逻辑准备}
+\section{数理逻辑}
 
 \subsection{形式语言初步}
 
@@ -188,7 +188,7 @@
     \hfill 恒成立．
 \end{LogicalAxioms}
 
-\section{集论概念}
+\section{公理化集合论}
 
 \rTermWref{策梅洛--弗兰克尔集论}{Zermelo-FraenkelSetTheory}{Zermelo-Fraenkel set theory}是一种谓词演算，
 其项也被称作``\rTermWref{集合}{Set}{set}''（简称``集''）或``\rTermWref{元素}{Element}{element}''（简称``元''），
@@ -261,8 +261,6 @@
 \end{ZermeloFraenkelAxioms}
 ZFA\ref{ZFA:8}说明所有非空集合中都存在这样的元素：该元素与该集合的交集为空集．
 
-
-\section{集合}
 
 \subsection{集合概念}
 
@@ -340,29 +338,26 @@ A \times B = \{ (a, b) | a \in A \text{且} b \in B \} \text{．}
 \newpage
 \section{映射}
 
-\subsection{映射概念}
-
-设集合 $X$ 和集合 $Y$ 是两个非空集合，对于集合 $X$ 中任一元素 $x$，依照某种对应规律 $f$，恒有集合 $Y$ 中唯一确定元素 $y$ 与之对应，则称对应规律 $f$ 为一个从集合 $X$ 到集合 $Y$ 的映射（\href{http://mathworld.wolfram.com/Map.html}{Map}），记作
-\[
-\begin{aligned}
-f&: X \to Y \\
-\text{或} \quad f&: x \mapsto y \text{，}
-\end{aligned}
-\]
-其中：
-\begin{itemize}
-    \item 集合 $X$ 称为映射 $f$ 的\emph{定义域}（\href{http://mathworld.wolfram.com/Domain.html}{Domain}），记作 $D_f$；
-    \item 集合 $Y$ 称为映射 $f$ 的\emph{陪域}（\href{http://mathworld.wolfram.com/Codomain.html}{Codomain}），记作 $C_f$；
-    \item 元素 $x$ 称为在映射 $f$ 下元素 $y$ 的一个\emph{原像}（\href{http://mathworld.wolfram.com/Preimage.html}{Preimage}）；
-    \item 元素 $y=f(x)$ 称为在映射 $f$ 下元素 $x$ 的\emph{像}（\href{http://mathworld.wolfram.com/Image.html}{Image}）；
-    \item 集合 $f(X)=\{f(x)|x\in{}X\}$ 称为映射 $f$ 的\emph{值域}（\href{http://mathworld.wolfram.com/Range.html}{Range}），记作 $R_f$．
-\end{itemize}
+\begin{Definition}[\textbf{映射}]\label{Definition:Map}
+    设非空集合 $X$ 和 $Y$，对于集合 $X$ 中任一元素 $x$，依照某种对应规律 $f$，恒有集合 $Y$ 中唯一确定元素 $y$ 与之对应，则称对应规律 $f$ 为一个从集合 $X$ 到集合 $Y$ 的\rTermWref{映射}{Map}{map}，记作
+    \[
+        \begin{aligned}
+            f&: X \to Y \\
+            \text{或} \quad f&: x \mapsto y \text{，}
+        \end{aligned}
+    \]
+    其中集合 $X$ 称为映射 $f$ 的\rTermWref{定义域}{Domain}{domain}，记作 $D_f$，
+    集合 $Y$ 称为映射 $f$ 的\rTermWref{陪域}{Codomain}{codomain}，记作 $C_f$，
+    元素 $x$ 称为在映射 $f$ 下元素 $y$ 的一个\rTermWref{原像}{Preimage}{preimage}，
+    元素 $ y = f(x) $ 称为在映射 $f$ 下元素 $x$ 的\rTermWref{像}{Image}{image}，
+    集合 $ f(X) = \{ f(x) | x \in X \} $ 称为映射 $f$ 的\rTermWref{值域}{Range}{range}，记作 $R_f$．
+\end{Definition}
 
 若对于定义域 $D_f$ 中任意原像 $d_1$、$d_2$ 不等，对应的像 $f(d_1)$、$f(d_2)$ 恒不等，则称映射 $f$ 是\emph{单射}（\href{http://mathworld.wolfram.com/Injection.html}{Injection}）；
 若对于陪域 $C_f$ 中任一元素 $c$，都存在原像 $d$ 使得 $f(d)=c$，则称映射 $f$ 是\emph{满射}（\href{http://mathworld.wolfram.com/Surjection.html}{Surjection}）；
 若映射 $f$ 既是单射又是满射，则称其为\emph{双射}（\href{http://mathworld.wolfram.com/Bijection.html}{Bijection}）．
 
-\subsection{逆映射}
+\subsection{逆映射、复合映射和映射幂}
 
 设映射 $f$ 是一个从定义域 $D_f$ 到陪域 $C_f$ 的单射，则对于值域 $R_f$ 中任一像 $r$ 都存在唯一原像 $d$ 与之对应，于是可以定义一个从值域 $R_f$ 到定义域 $D_f$ 的新映射
 \[
@@ -378,14 +373,57 @@ f \circ g: x \mapsto f(g(x)) \text{，}
 \]
 这个映射称为映射 $g$ 和映射 $f$ 构成的\emph{复合映射}（\href{http://mathworld.wolfram.com/Composition.html}{Composition}）．
 
-\newpage
-\section{二元运算}
+\subsection{二元运算}
 
-从集合 $S$ 的笛卡尔平方 $S\times{}S$ 到集合 $S$ 的映射 $f:S\times{}S\to{}S$，称作集合 $S$ 上的\emph{二元运算}（\href{http://mathworld.wolfram.com/BinaryOperation.html}{Binary Operation}）；
-若元素 $a$、$b$ 是集合 $S$ 的元素，通常将二元运算的像 $f(a, b)$ 记作 $a f b$．
+\begin{Definition}[\textbf{二元运算}]\label{Definition:BinaryOperation}
+    设 $S$ 是集合，$ S \times S $ 是集合 $S$ 的笛卡儿平方，则称从集合 $ S \times S $ 到集合 $S$ 的映射 $ f: S \times S \to S $ 为集合 $S$ 上的\rTermWref{二元运算}{BinaryOperation}{binary operation}．
+    若元素 $a$、$b$ 是集合 $S$ 的元素，通常将二元运算的像 $ f(a, b) $ 记作 $ a f b $．
+\end{Definition}
 
-%设集合 $S$ 上的二元运算 $*:S\times{}S\to{}S$，元素 $e_0$、$e_1$ 是集合 $S$ 的元素：
-%\begin{itemize}
-%	\item 若 $\forall a \in S \implies e_0 * a = e_0$，则称元素 $e_0$ 为二元运算 $*$ 的左零元；
-%\end{itemize}
+\begin{Definition}[\textbf{零元}]\label{Definition:ZeroElement}
+    设 $S$ 是集合，$\circ$ 是集合 $S$ 上的二元运算，若
+    \[ \exists 0_L, \forall e : 0_L \in S \land e \in S \implies 0_L \circ e = 0_L \]
+    则称元素 $0_L$ 为二元运算 $\circ$ 的\rTerm{左零元}{left zero element}．
+    若
+    \[ \exists 0_R, \forall e : 0_R \in S \land e \in S \implies e \circ 0_R = 0_R \]
+    则称元素 $0_R$ 为二元运算 $\circ$ 的\rTerm{右零元}{right zero element}．
+    若
+    \[ \exists 0, \forall e : 0 \in S \land e \in S \implies 0 \circ e = 0 \land e \circ 0 = 0 \]
+    则称元素 $0$ 为二元运算 $\circ$ 的\rTermWref{零元}{ZeroElement}{zero element}．
+\end{Definition}
 
+\begin{Definition}[\textbf{幺元}]\label{Definition:IdentityElement}
+    设 $S$ 是集合，$\circ$ 是集合 $S$ 上的二元运算，若
+    \[ \exists 1_L, \forall e : 1_L \in S \land e \in S \implies 1_L \circ e = e \]
+    则称元素 $1_L$ 是二元运算 $\circ$ 的\rTerm{左幺元}{left identity element}．
+    若
+    \[ \exists 1_R, \forall e : 1_R \in S \land e \in S \implies e \circ 1_R = 1_R \]
+    则称元素 $1_R$ 是二元运算 $\circ$ 的\rTerm{右幺元}{right identity element}．
+    若
+    \[ \exists 1, \forall e : 1 \in S \land e \in S \implies 1 \circ e = e \land e \circ 1 = e \]
+    则元素 $1$ 为二元运算 $\circ$ 的\rTermWref{幺元}{IdentityElement}{identity element}．
+\end{Definition}
+
+\begin{Definition}[\textbf{交换律}]\label{Definition:Commutative}
+    设 $S$ 是集合，$\circ$ 是集合 $S$ 上的二元运算，若
+    \[ \forall a, \forall b : a \in S \land b \in S \implies a \circ b = b \circ a \]
+    则称二元运算 $\circ$ 满足\rTermWref{交换律}{Commutative}{commutative}．
+\end{Definition}
+
+\begin{Definition}[\textbf{幂等律}]\label{Definition:Idempotent}
+    设 $S$ 是集合，$\circ$ 是集合 $S$ 上的二元运算，若
+    \[ \forall e : e \in S \implies e \circ e = e \]
+    则称二元运算 $\circ$ 满足\rTerm{幂等律}{idempotent}．
+\end{Definition}
+
+\begin{Definition}[\textbf{幂零律}]\label{Definition:Nilpotent}
+    设 $S$ 是集合，$\circ$ 是集合 $S$ 上的二元运算，$0$ 是二元运算 $\circ$ 的零元，若
+    \[ \forall e : e \in S \implies e \circ e = 0 \]
+    则称二元运算 $\circ$ 满足\rTerm{幂零律}{nilpotent}．
+\end{Definition}
+
+\begin{Definition}[\textbf{幂幺律}]\label{Definition:Unipotent}
+    设 $S$ 是集合，$\circ$ 是集合 $S$ 上的二元运算，$1$ 是二元运算 $\circ$ 的幺元，若
+    \[ \forall e : e \in S \implies e \circ e = 1 \]
+    则称二元运算 $\circ$ 满足\rTerm{幂幺律}{unipotent}．
+\end{Definition}
