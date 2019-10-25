@@ -339,7 +339,7 @@ A \times B = \{ (a, b) | a \in A \text{且} b \in B \} \text{．}
 \section{映射}
 
 \begin{Definition}[\textbf{映射}]\label{Definition:Map}
-    设非空集合 $X$ 和 $Y$，对于集合 $X$ 中任一元素 $x$，依照某种对应规律 $f$，恒有集合 $Y$ 中唯一确定元素 $y$ 与之对应，则称对应规律 $f$ 为一个从集合 $X$ 到集合 $Y$ 的\rTermWref{映射}{Map}{map}，记作
+    设 $X$ 和 $Y$ 是非空集合，对于集合 $X$ 中任一元素 $x$，依照某种对应规律 $f$，恒有集合 $Y$ 中唯一确定元素 $y$ 与之对应，则称对应规律 $f$ 为一个从集合 $X$ 到集合 $Y$ 的\rTermWref{映射}{Map}{map}，记作
     \[
         \begin{aligned}
             f&: X \to Y \\
@@ -347,31 +347,41 @@ A \times B = \{ (a, b) | a \in A \text{且} b \in B \} \text{．}
         \end{aligned}
     \]
     其中集合 $X$ 称为映射 $f$ 的\rTermWref{定义域}{Domain}{domain}，记作 $D_f$，
-    集合 $Y$ 称为映射 $f$ 的\rTermWref{陪域}{Codomain}{codomain}，记作 $C_f$，
+    集合 $Y$ 称为映射 $f$ 的\rTermWref{到达域}{Codomain}{codomain}，记作 $C_f$，
     元素 $x$ 称为在映射 $f$ 下元素 $y$ 的一个\rTermWref{原像}{Preimage}{preimage}，
     元素 $ y = f(x) $ 称为在映射 $f$ 下元素 $x$ 的\rTermWref{像}{Image}{image}，
     集合 $ f(X) = \{ f(x) | x \in X \} $ 称为映射 $f$ 的\rTermWref{值域}{Range}{range}，记作 $R_f$．
 \end{Definition}
 
-若对于定义域 $D_f$ 中任意原像 $d_1$、$d_2$ 不等，对应的像 $f(d_1)$、$f(d_2)$ 恒不等，则称映射 $f$ 是\emph{单射}（\href{http://mathworld.wolfram.com/Injection.html}{Injection}）；
-若对于陪域 $C_f$ 中任一元素 $c$，都存在原像 $d$ 使得 $f(d)=c$，则称映射 $f$ 是\emph{满射}（\href{http://mathworld.wolfram.com/Surjection.html}{Surjection}）；
-若映射 $f$ 既是单射又是满射，则称其为\emph{双射}（\href{http://mathworld.wolfram.com/Bijection.html}{Bijection}）．
+\begin{Definition}[\textbf{单射}]\label{Definition:Injection}
+    设 $ f: D_f \to C_f $ 是映射，若
+    \[ \rHatNote {\forall x_1, \forall x_2: x_1 \in D_f \land x_2 \in D_f \land x_1 \neq x_2 \implies f(x_1) \neq f(x_2)} {对任意原像 $x_1$ 和 $x_2$ 不等，像 $f(x_1)$ 和 $f(x_2)$ 恒不等} \text{，} \]
+    则称映射 $f$ 是\rTermWref{单射}{Injection}{injection}．
+\end{Definition}
+
+\begin{Definition}[\textbf{满射}]\label{Definition:Surjection}
+    设 $ f: D_f \to C_f $ 是映射，若
+    \[ \rHatNote {\forall y, \exists x: y \in C_f \land x \in D_f \implies y = f(x)} {对于到达域中任一元素 y，都存在原像 $x$，使得 $ y = f(x) $} \text{，} \]
+    则称映射 $f$ 是\rTermWref{满射}{Surjection}{surjection}．
+\end{Definition}
+
+\begin{Definition}[\textbf{双射}]\label{Definition:Bijection}
+    设 $f$ 是映射，若映射 $f$ 既是单射，又是满射，则称映射 $f$ 是\rTermWref{双射}{Bijection}{bijection}．
+\end{Definition}
 
 \subsection{逆映射、复合映射和映射幂}
 
-设映射 $f$ 是一个从定义域 $D_f$ 到陪域 $C_f$ 的单射，则对于值域 $R_f$ 中任一像 $r$ 都存在唯一原像 $d$ 与之对应，于是可以定义一个从值域 $R_f$ 到定义域 $D_f$ 的新映射
-\[
-f^{-1}: r \mapsto d \text{，}
-\]
-这个映射称为映射 $f$ 的\emph{逆映射}（\href{http://mathworld.wolfram.com/InverseFunction.html}{Inverse Function}），其定义域 $D_{f^{-1}}=R_f$，值域 $R_{f^{-1}}=D_f$．
+\begin{Definition}[\textbf{逆映射}]\label{Definition:InverseMap}
+    设 $ f: X \to Y $ 是单射，则对于值域 $R_f$ 中任一像 $y$ 都存在唯一原像 $x$ 与之对应，于是可以定义一个从值域 $R_f$ 到定义域 $X$ 的新映射
+    \[ f^{-1}: y \mapsto x \text{，} \]
+    这个映射称为映射 $f$ 的\rTerm{逆映射}{inverse map}，其定义域 $ D_{f^{-1}} = R_f $，值域 $ R_{f^{-1}} = X $．
+\end{Definition}
 
-\subsection{复合映射}
-
-设有两映射 $g=X\to{}Y_S$ 和 $f=Y_L\to{}Z$ 且 $Y_S\subset{}Y_L$，则对于集合 $X$ 中任一元素 $x$ 恒有集合 $Z$ 中唯一确定元素 $z=f(g(x))$ 与之对应，于是可以定义一个从集合 $X$ 到集合 $Z$ 的新映射
-\[
-f \circ g: x \mapsto f(g(x)) \text{，}
-\]
-这个映射称为映射 $g$ 和映射 $f$ 构成的\emph{复合映射}（\href{http://mathworld.wolfram.com/Composition.html}{Composition}）．
+\begin{Definition}[\textbf{复合映射}]\label{Definition:CompositeMap}
+    设 $ g: X \to Y_S $ 和 $ f: Y_L \to Z $ 是映射，且 $ Y_S \subset Y_L $，则对于集合 $X$ 中任一元素 $x$ 都存在集合 $Z$ 中唯一确定元素 $ z = f(g(x)) $ 与之对应，于是可以定义一个从集合 $X$ 到集合 $Z$ 的新映射
+    \[ f \circ g: x \mapsto f(g(x)) \text{，} \]
+    这个映射称为映射 $g$ 和映射 $f$ 构成的\rTerm{复合映射}{composite map}，其定义域 $ D_{f\circ{}g} = X $，到达域 $ C_{f\circ{}g} = Z $．
+\end{Definition}
 
 \subsection{二元运算}
 

@@ -2,18 +2,85 @@
 
 \section{函数}
 
-\begin{Definition}\label{Definition:Function}
-    设数集 $ D \subset \mathbb{R} $，则称映射 $ f: D \to \mathbb{R} $ 为定义在数集 $D$ 上的\rTermWref{函数}{Function}{function}，通常简记为
-    \[ y = f(x), x \in D \text{，} \]
-    其中 $x$ 称为自变量，$y$ 称为因变量，$D$ 称为定义域，记作 $D_f$．
+\begin{Definition}[\textbf{函数}]\label{Definition:Function}
+    设 $ X \subset \mathbb{R} $ 是数集，则称映射 $ f: X \to \mathbb{R} $ 为定义在数集 $X$ 上的\rTermWref{函数}{Function}{function}，通常简记为
+    \[ y = f(x), x \in X \text{，} \]
+    其中 $x$ 称为自变量，$y$ 称为因变量，$X$ 称为定义域，记作 $D_f$．
 \end{Definition}
 
-\begin{Definition}\label{Definition:ElementaryFunction}
-    \rTermWref{初等函数}{ElementaryFunction}{elementary function}是由\rTerm{常数函数}{constant functions}、\rTerm{幂函数}{power functions}、\rTerm{指数函数}{exponential functions}、\rTerm{对数函数}{logarithm functions}、\rTerm{三角函数}{trigonometric functions}和\rTerm{反三角函数}{inverse trigonometric functions}经过有限次的有理运算和有限次的函数复合所产生、且在定义域上能用一个方程式表示的函数．
+\begin{Definition}[\textbf{初等函数}]\label{Definition:ElementaryFunction}
+    \rTermWref{初等函数}{ElementaryFunction}{elementary function}是由\rTerm{常数函数}{constant functions}、\rTerm{幂函数}{power functions}、\rTerm{指数函数}{exponential functions}、\rTerm{对数函数}{logarithm functions}、\rTerm{三角函数}{trigonometric functions}和\rTerm{反三角函数}{inverse trigonometric functions}经过有限次的有理运算和有限次的函数复合所产生，且在定义域上能用一个方程式表示的函数．
+\end{Definition}
+
+\begin{Definition}[\textbf{数列}]\label{Definition:NumberSequence}
+    设 $ f: \mathbb{Z}^+ \to \mathbb{R} $ 是从正整数集到实数集的映射，$ n \in \mathbb{Z}^+ $ 是映射 $f$ 的原像，$ x_n = f(n) $ 是映射 $f$ 的像，则称序列
+    \[ ( x_1, x_2, x_3, \cdots, x_n, \cdots ) \]
+    为\rTerm{数列}{number sequence}，简记为 $(x_n)_{n=1}^{\infty}$，其中函数的像 $x_1$、$x_2$、$x_3$、$\cdots$ 叫做数列的项，第 $n$ 项 $x_n$ 叫做数列的通项．
 \end{Definition}
 
 \section{极限}
 
-\subsection{数列的极限}
+\begin{Definition}[\textbf{数列的极限}]\label{Definition:LimitOfNumberSequence}
+    设 $(x_n)_{n=1}^{\infty}$ 为数列，若
+    \[
+        \rHatNote{
+                     \exists L, \forall \varepsilon, \exists N, \forall n:
+                     L \in \mathbb{R} \land \varepsilon \in \mathbb{R}^+ \land N \in \mathbb{Z}^+ \land n \in \mathbb{Z}^+ \land N < n \implies | x_n - L | < \varepsilon
+                 }
+                 {存在实数 $L$，使得对任意小的正数 $\varepsilon$，都能找到正整数 $N$，当 $ N < n $ 时 $ | x_n - L | < \varepsilon $}
+        \text{，}
+    \]
+    则称实数 $L$ 是\uwave{数列} $(x_n)_{n=1}^{\infty}$ \uwave{的极限}\rMgnNote{limit of number sequence}，或者称数列 $(x_n)_{n=1}^{\infty}$ 收敛于 $L$，记作
+    \[
+        \begin{aligned}
+            & \lim_{n \to \infty} x_n = L \\
+            \text{或} \quad & x_n \to L \ ( n \to \infty ) \text{．}
+        \end{aligned}
+    \]
+    若不存在这样的实数 $L$，则称数列 $(x_n)_{n=1}^{\infty}$ 没有极限，或者数列 $(x_n)_{n=1}^{\infty}$ 是发散的，或者极限 $ \lim_{n \to \infty} x_n $ 不存在．
+\end{Definition}
+
+\begin{Definition}[\textbf{函数的极限}]\label{Definition:LimitOfFunction}
+    设 $ f: X \to \mathbb{R} $ 是函数，$x_0 \in \mathbb{R}$ 是实数，若函数 $f$ 在点 $x_0$ 的某一左去心邻域内有定义，且
+    \[
+        \rHatNote{
+                     \exists c \in \mathbb{R}, \forall \varepsilon \in \mathbb{R}^+, \exists \delta \in \mathbb{R}^+, \forall x \in X:
+                     x_0 - \delta < x < x_0 \implies | f(x) - c | < \varepsilon
+                 }
+                 {存在实数 $c$，使得对任意小的正数 $\varepsilon$，都能找到足够小的正数 $\delta$，当 $ x_0 - \delta < x < x_0 $ 时 $ | f(x) - c | < \varepsilon $}
+        \text{，}
+    \]
+    \hfill 则称实数 $c$ 为函数 $f$ 当 $\rHatNote{x \to x_0}{``自变量趋向于 $x_0$''}$ 时的左极限，记作 $ \lim\limits_{x \to x_0^-} $．\\
+    若函数 $f$ 在点 $x_0$ 的某一右去心邻域内有定义，且
+    \[
+        \rHatNote{
+                     \exists c \in \mathbb{R}, \forall \varepsilon \in \mathbb{R}^+, \exists \delta \in \mathbb{R}^+, \forall x \in X:
+                     x_0 < x < x_0 + \delta \implies | f(x) - c | < \varepsilon
+                 }
+                 {存在实数 $c$，使得对任意小的正数 $\varepsilon$，都能找到足够小的正数 $\delta$，当 $ x_0 < x < x_0 + \delta $ 时 $ | f(x) - c | < \varepsilon $}
+        \text{，}
+    \]
+    \hfill 则称实数 $c$ 为函数 $f$ 当 $\rHatNote{x \to x_0}{``自变量趋向于 $x_0$''}$ 时的右极限，记作 $ \lim\limits_{x \to x_0^+} $．\\
+    若函数 $f$ 在小于某数时有定义，且
+    \[
+        \rHatNote{
+                      \exists c \in \mathbb{R}, \forall \varepsilon \in \mathbb{R}^+, \exists l \in \mathbb{R}, \forall x \in X:
+                      x < l \implies | f(x) - c | < \varepsilon
+                 }
+                 {存在实数 $c$，使得对任意小的正数 $\varepsilon$，都能找到足够小的实数 $l$，当 $ x < l $ 时 $ | f(x) - c | < \varepsilon $}
+        \text{，}
+    \]
+    \hfill 则称实数 $c$ 为函数 $f$ 当 $\rHatNote{x \to -\infty}{``自变量趋向于负无穷''}$ 时的极限，记作 $ \lim\limits_{x \to -\infty} $．\\
+    若函数 $f$ 在大于某数时有定义，且
+    \[
+        \rHatNote{
+                      \exists c \in \mathbb{R}, \forall \varepsilon \in \mathbb{R}^+, \exists l \in \mathbb{R}, \forall x \in X:
+                      l < x \implies | f(x) - c | < \varepsilon
+                 }
+                 {存在实数 $c$，使得对任意小的正数 $\varepsilon$，都能找到足够大的实数 $l$，当 $ l < x $ 时 $ | f(x) - c | < \varepsilon $}
+        \text{，}
+    \]
+    \hfill 则称实数 $c$ 为函数 $f$ 当 $\rHatNote{x \to +\infty}{``自变量趋向于正无穷''}$ 时的极限，记作 $ \lim\limits_{x \to +\infty} $．
+\end{Definition}
 
 \section{卷积}
