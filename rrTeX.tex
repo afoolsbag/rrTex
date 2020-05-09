@@ -1,6 +1,133 @@
-\chapter{\LaTeXe}
+%'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+% TeXstudio 的魔术注释
+% <http://texstudio.sourceforge.net/manual/current/usermanual_en.html#SECTION_TEXCOM>
+%-------------------------------------------------------------------------------
+% !TeX encoding = UTF-8
+% !TeX spellcheck = zh_CN
+% !TeX program = xelatex
+%_______________________________________________________________________________
 
+
+%'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+% LaTeX 的命令形如：
+%
+%     \command[optional arguments]{mandatory arguments}
+%
+% LaTeX 的环境形如：
+%
+%     \begin{environment name}[optional arguments]{mandatory arguments}
+%         ......
+%     \end{environment name}
+%
+% LaTeX 的分组形如：
+%
+%     {
+%         ......
+%     }
+%_______________________________________________________________________________
+
+
+%'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+% LaTeX 源码以 \documentclass[keyvals]{class} 命令起头，用以指定文档类。
+%
+% 使用 [CTeX](https://www.ctan.org/pkg/ctex) 宏集支持的文档类，以简便地支持中文。
+%-------------------------------------------------------------------------------
+\documentclass{ctexart}
+%_______________________________________________________________________________
+
+
+%'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+% 导言区
+%
+% 在 \documentclass[keyvals]{class} 和 \begin{document} 之间的是导言区。
+% 在导言区中一般会使用 \usepackage[options]{package} 命令调用宏包、进行全局设置，
+% 自定义命令和环境等。
+%_______________________________________________________________________________
+
+
+% 布局
+\usepackage[margin=1in,marginparwidth=60pt]{geometry}
+\usepackage{layout}
+
+% 文本支持
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ulem}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+
+% 数学支持
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{unicode-math}
+
+% 参考文献
+\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+\addbibresource[location=local]{rrTex.bib}
+
+% 超链接
+\usepackage[colorlinks=true,linkcolor=blue,anchorcolor=violet,citecolor=magenta,unicode=true]{hyperref}
+
+% 快速语法检查
+\usepackage{syntonly}
+%\syntaxonly
+
+
+%'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+% 自定义命令
+%_______________________________________________________________________________
+
+% 颜色
+\newcommand{\rColLbl}      [1] {\fcolorbox{gray}{#1}{\color{#1}\rule{0.75em}{1ex}} {\slshape\small#1}}  % Color Label
+
+% 命令
+\newcommand{\rCmd}         [1] {{\ttfamily\textbackslash#1}}                                                % Command (Without Arguments)
+\newcommand{\rCmdO}        [2] {{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]}}                          % Command With Optional Arguments
+\newcommand{\rCmdM}        [2] {{\ttfamily\textbackslash#1\{\textcolor{gray}{#2}\}}}                        % Command With Mandatory Arguments
+\newcommand{\rCmdOM}       [3] {{\ttfamily\textbackslash#1[\textcolor{gray}{#2}]\{\textcolor{gray}{#3}\}}}  % Command With Optional & Mandatory Arguments
+
+% 边注
+\newcommand{\rMgnNote}     [1] {\marginpar[\scriptsize#1]{\scriptsize#1}}                 % Margin Note
+\newcommand{\rMgnNoteHref} [2] {\rMgnNote{\href{#1}{#2}}}                                 % Margin Note & Hypertext Reference
+\newcommand{\rMgnNoteWref} [2] {\rMgnNoteHref{http://mathworld.wolfram.com/#1.html}{#2}}  % Margin Note & Wolfram Math World Reference
+
+% 术语
+\newcommand{\rTerm}        [2] {\uwave{#1}\rMgnNote{#2}}          % Term
+\newcommand{\rTermHref}    [3] {\uwave{#1}\rMgnNoteHref{#2}{#3}}  % Term & Hypertext Reference
+\newcommand{\rTermWref}    [3] {\uwave{#1}\rMgnNoteWref{#2}{#3}}  % Term & Wolfram Math World Reference
+
+% 其它
+\newcommand{\rPkgCite}     [1] {\textsf{#1}\cite{#1}}                                                                              % Package Cite
+\newcommand{\rUniNum}      [1] {\colorbox{Mulberry}{\href{https://unicode-table.com/#1/}{\color{White}\ttfamily\bfseries{}U+#1}}}  % Unicode Number
+
+% 符号
+\providecommand{\Unicode}{\ttfamily{}Unicode\textregistered{}}  % Unicode
+
+
+\begin{document}
+
+
+%'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+% 标题页
+%-------------------------------------------------------------------------------
+\title{rr\TeX}
+\author{zhengrr}
+\date{自2020年5月8日至\today}
+\maketitle
+%_______________________________________________________________________________
+
+
+%'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+% 目录页
+%-------------------------------------------------------------------------------
+\tableofcontents
+%_______________________________________________________________________________
+
+
+\newpage
 \section{排版文本}
+
 
 \subsection{转义字符}
 
@@ -21,6 +148,7 @@
         \hline
     \end{tabular}
 \end{table}
+
 
 \subsection{标点符号}
 
@@ -44,6 +172,8 @@
     \end{tabular}
 \end{table}
 
+
+\newpage
 \subsection{文本样式}
 
 \begin{table}[h!]
@@ -70,6 +200,7 @@
     \end{tabular}
 \end{table}
 
+
 \subsection{文本尺寸}
 
 \begin{table}[h!]
@@ -84,9 +215,11 @@
     \end{tabular}
 \end{table}
 
+
 \subsection{文本颜色}
 
 依赖 \rPkgCite{xcolor} 宏包提供颜色支持：
+
 
 \subsubsection{\rPkgCite{color} 宏包颜色}
 
@@ -98,6 +231,7 @@
     \end{tabular}
 \end{table}
 
+
 \subsubsection{\rPkgCite{xcolor} 宏包颜色}
 
 \begin{table}[h!]
@@ -108,6 +242,7 @@
         \rColLbl{purple}   & \rColLbl{teal}  & \rColLbl{violet}    & \rColLbl{pink} \\
     \end{tabular}
 \end{table}
+
 
 \subsubsection{\texttt{dvipsnames} 选项颜色}
 
@@ -182,6 +317,7 @@
     \rColLbl{YellowGreen}    \\
     \rColLbl{YellowOrange}   \\
 \end{multicols}
+
 
 \subsubsection{\texttt{svgnames} 选项颜色}
 
@@ -339,6 +475,7 @@
     \rColLbl{Yellow}               \\
     \rColLbl{YellowGreen}          \\
 \end{multicols}
+
 
 \subsubsection{\texttt{x11names} 选项颜色}
 
@@ -663,9 +800,11 @@
     \rColLbl{Purple0}         \\
 \end{multicols}
 
+
 \subsection{超链接}
 
 依赖 \rPkgCite{hyperref} 宏包提供超链接支持。
+
 
 \newpage
 \section{排版文档}
@@ -699,6 +838,7 @@
 \newpage
 \layout
 
+
 \newpage
 \section{排版公式}
 
@@ -710,44 +850,45 @@
 \begin{enumerate}
     \item \TeX 提供的行内公式：
     \begin{verbatim}
-        $ e^{\i\pi} + 1 = 0 $
+    $ e^{\i\pi} + 1 = 0 $
     \end{verbatim}
     
     \item \TeX 提供的行间公式：
     \begin{verbatim}
-        $$
-            e^{\i\pi} + 1 = 0
-        $$
+    $$
+    e^{\i\pi} + 1 = 0
+    $$
     \end{verbatim}
     
     \item \LaTeX 提供的行内公式：
     \begin{verbatim}
-        \( e^{\i\pi} + 1 = 0 \)
+    \( e^{\i\pi} + 1 = 0 \)
     \end{verbatim}
     
     \item \LaTeX 提供的行间公式：
     \begin{verbatim}
-        \[  # 或 \begin{displaymath}
-            e^{\i\pi} + 1 = 0
-        \]  # 或 \end{displaymath}
+    \[  # 或 \begin{displaymath}
+    e^{\i\pi} + 1 = 0
+    \]  # 或 \end{displaymath}
     \end{verbatim}
     
     \item \LaTeX 提供的有序号行间公式：
     \begin{verbatim}
-        \begin{equation}
-            e^{\i\pi} + 1 = 0
-        \end{equation}
+    \begin{equation}
+    e^{\i\pi} + 1 = 0
+    \end{equation}
     \end{verbatim}
     
     \item \AmS 提供的无序号行间公式：
     \begin{verbatim}
-        \begin{equation*}
-            e^{\i\pi} + 1 = 0
-        \end{equation*}
+    \begin{equation*}
+    e^{\i\pi} + 1 = 0
+    \end{equation*}
     \end{verbatim}
 \end{enumerate}
 
 另外，对于 \LaTeX 符号的检索，此外链文档\cite{symbols}提供了符号列表，此外链工具\cite{Detexify}提供了符号搜索．
+
 
 \newpage
 \subsection{希腊字母}
@@ -793,6 +934,7 @@
         \hline
     \end{tabular}
 \end{table}
+
 
 \newpage
 \subsection{拉丁字母}
@@ -849,3 +991,12 @@
         \hline
     \end{tabular}
 \end{table}
+
+
+\newpage
+\appendix
+\nocite{*}
+\printbibliography[heading=bibliography,title=参考文献]
+
+
+\end{document}
